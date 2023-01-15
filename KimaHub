@@ -65,6 +65,57 @@ end)
 
 
 
+
+
+Button = Page:CreateButton("InstantChestFarm", "Gets every chest stay in loading screen", function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/scriptpastebin/raw/main/ChestFarm"))()
+CreateNotification("Title", "Description", function(value)
+if value == true then
+print(true)
+else
+print(false)
+end
+end)
+end)
+
+
+
+
+
+Button = Page:CreateButton("DemonHUb", "Idk this script", function()
+    loadstring(game:HttpGet('https://raw.githubusercontent.com/Piwwy0909/MakimaRemake/main/Cumback.Makima'))()
+CreateNotification("Title", "Description", function(value)
+if value == true then
+print(true)
+else
+print(false)
+end
+end)
+end)
+
+
+
+
+
+Button = Page:CreateButton("HOHOHUB", "Has A key", function()
+    loadstring(game:HttpGet('https://raw.githubusercontent.com/acsu123/HOHO_H/main/Loading_UI'))()
+CreateNotification("Title", "Description", function(value)
+if value == true then
+print(true)
+else
+print(false)
+end
+end)
+end)
+
+
+
+
+
+
+
+
+
 local Page = Tab:CreateFrame("Shindo")
 
 
