@@ -163,3 +163,62 @@ print(false)
 end
 end)
 end)
+
+
+
+
+
+
+
+
+   Button = Page:CreateButton("KeyBrewHub", "Some of the stuff may not work", function()
+    loadstring(game:HttpGet(('https://raw.githubusercontent.com/borntodiekuv/KeybrewHub/main/Reaper2'),true))()
+CreateNotification("Title", "Description", function(value)
+if value == true then
+print(true)
+else
+print(false)
+end
+end)
+end)
+
+
+
+
+
+
+
+
+
+
+     Button = Page:CreateButton("i forgot the name for this one", "Some of the stuff may not work", function()
+    loadstring(game:HttpGet("https://senseijoshy.com/Side-Scripts/Reaper2.lua"))()
+CreateNotification("Title", "Description", function(value)
+if value == true then
+print(true)
+else
+print(false)
+end
+end)
+end)
+
+
+
+
+
+
+
+
+
+
+
+     Button = Page:CreateButton("WeinzHub", "Some of the stuff may not work", function()
+    loadstring(game:HttpGet('https://weinzspace.com/loadscript.lua'))()
+CreateNotification("Title", "Description", function(value)
+if value == true then
+print(true)
+else
+print(false)
+end
+end)
+end)
