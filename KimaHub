@@ -65,6 +65,86 @@ end)
 
 
 
+Button = Page:CreateButton("Ego Hub", "idk this one", function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/SuperIkka/Main/main/EgoLoaderMain", true))()
+CreateNotification("Title", "Description", function(value)
+if value == true then
+print(true)
+else
+print(false)
+end
+end)
+end)
+
+
+Button = Page:CreateButton("Instant chest farm", function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/scriptpastebin/raw/main/ChestFarm"))()
+CreateNotification("Title", "Description", function(value)
+if value == true then
+print(true)
+else
+print(false)
+end
+end)
+end)
+
+
+
+Button = Page:CreateButton("Atomic Hub", function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/ArceusXHub/atomic-hub/main/atomic-hub"))()
+CreateNotification("Title", "Description", function(value)
+if value == true then
+print(true)
+else
+print(false)
+end
+end)
+end)
+
+
+
+Button = Page:CreateButton("Winable Hub", function()
+    _G.Mode = "Normal" -- Aimbot / Normal
+loadstring(game:HttpGet("https://raw.githubusercontent.com/xlostpexz/tyuiop/Fps/Loading.lua"))()
+CreateNotification("Title", "Description", function(value)
+if value == true then
+print(true)
+else
+print(false)
+end
+end)
+end)
+
+
+
+Button = Page:CreateButton("Demon Hub", function()
+    loadstring(game:HttpGet('https://raw.githubusercontent.com/Piwwy0909/MakimaRemake/main/Cumback.Makima'))()
+CreateNotification("Title", "Description", function(value)
+if value == true then
+print(true)
+else
+print(false)
+end
+end)
+end)
+
+
+
+
+Button = Page:CreateButton("HOHO Hub", function()
+    loadstring(game:HttpGet('https://raw.githubusercontent.com/acsu123/HOHO_H/main/Loading_UI'))()
+CreateNotification("Title", "Description", function(value)
+if value == true then
+print(true)
+else
+print(false)
+end
+end)
+end)
+
+
+
+
 local Page = Tab:CreateFrame("Shindo")
 
 
