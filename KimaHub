@@ -138,3 +138,21 @@ print(false)
 end
 end)
 end)
+
+
+
+
+local Page = Tab:CreateFrame("Opend Source")
+
+
+
+Button = Page:CreateButton("Egoist script", "idk", function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/Mstir16/legocheats/main/archive/EGOIST/script.lua"))()
+CreateNotification("Title", "Description", function(value)
+if value == true then
+print(true)
+else
+print(false)
+end
+end)
+end)
