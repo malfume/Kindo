@@ -82,6 +82,22 @@ end)
 
 
 
+Button = Page:CreateButton("HOHOHUB", "it has a key", function()
+    loadstring(game:HttpGet('https://raw.githubusercontent.com/acsu123/HOHO_H/main/Loading_UI'))()
+CreateNotification("Title", "Description", function(value)
+if value == true then
+print(true)
+else
+print(false)
+end
+end)
+end)
+
+
+
+
+
+
 
 local Page = Tab:CreateFrame("Shindo Life")
 
@@ -96,6 +112,38 @@ print(false)
 end
 end)
 end)
+
+
+
+
+
+Button = Page:CreateButton("Lite hub", "Shindo life  ", function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/SxnwDev/Premier/main/Free-Premier.lua", true))()
+CreateNotification("Title", "Unpatached", function(value)
+if value == true then
+print(true)
+else
+print(false)
+end
+end)
+end)
+
+
+
+
+
+
+Button = Page:CreateButton("infin rell coil", "Shindo life might be patched", function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/KylnDantas/InfRellCoinsSL/main/file.lua"))()
+CreateNotification("Title", "Unpatached", function(value)
+if value == true then
+print(true)
+else
+print(false)
+end
+end)
+end)
+
 
 
 
