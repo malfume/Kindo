@@ -65,7 +65,19 @@ end)
 
 
 
-Button = Page:CreateButton("InstantChestFarm", "Gets every chest stay in loading screen", function()
+Button = Page:CreateButton("Ego Hub", "idk this one", function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/SuperIkka/Main/main/EgoLoaderMain", true))()
+CreateNotification("Title", "Description", function(value)
+if value == true then
+print(true)
+else
+print(false)
+end
+end)
+end)
+
+
+Button = Page:CreateButton("Instant chest farm", function()
     loadstring(game:HttpGet("https://raw.githubusercontent.com/scriptpastebin/raw/main/ChestFarm"))()
 CreateNotification("Title", "Description", function(value)
 if value == true then
@@ -78,7 +90,48 @@ end)
 
 
 
-Button = Page:CreateButton("HOHOHUB", "it has a key", function()
+Button = Page:CreateButton("Atomic Hub", function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/ArceusXHub/atomic-hub/main/atomic-hub"))()
+CreateNotification("Title", "Description", function(value)
+if value == true then
+print(true)
+else
+print(false)
+end
+end)
+end)
+
+
+
+Button = Page:CreateButton("Winable Hub", function()
+    _G.Mode = "Normal" -- Aimbot / Normal
+loadstring(game:HttpGet("https://raw.githubusercontent.com/xlostpexz/tyuiop/Fps/Loading.lua"))()
+CreateNotification("Title", "Description", function(value)
+if value == true then
+print(true)
+else
+print(false)
+end
+end)
+end)
+
+
+
+Button = Page:CreateButton("Demon Hub", function()
+    loadstring(game:HttpGet('https://raw.githubusercontent.com/Piwwy0909/MakimaRemake/main/Cumback.Makima'))()
+CreateNotification("Title", "Description", function(value)
+if value == true then
+print(true)
+else
+print(false)
+end
+end)
+end)
+
+
+
+
+Button = Page:CreateButton("HOHO Hub", function()
     loadstring(game:HttpGet('https://raw.githubusercontent.com/acsu123/HOHO_H/main/Loading_UI'))()
 CreateNotification("Title", "Description", function(value)
 if value == true then
@@ -91,8 +144,17 @@ end)
 
 
 
-Button = Page:CreateButton("Zamex hub", "idk if it has key", function()
-    loadstring(game:HttpGet('https://raw.githubusercontent.com/Sixnumz/ZamexMobile/main/Zamex_Mobile.lua'))()
+
+local Page = Tab:CreateFrame("Shindo")
+
+
+Label = Page:CreateLabel("Label")
+Label:UpdateLabel("Shindo Life")
+
+
+
+Button = Page:CreateButton("Priemer", "Priemer", function()
+    loadstring(game:HttpGet('https://raw.githubusercontent.com/TrustsenseDev/Utilities/main/Premier.lua', true))()
 CreateNotification("Title", "Description", function(value)
 if value == true then
 print(true)
@@ -104,64 +166,10 @@ end)
 
 
 
-Button = Page:CreateButton("Ego hub", "idk if it has key", function()
-    loadstring(game:HttpGet("https://raw.githubusercontent.com/SuperIkka/Main/main/EgoLoaderMain", true))()
-CreateNotification("Title", "Description", function(value)
-if value == true then
-print(true)
-else
-print(false)
-end
-end)
-end)
 
-
-
-Button = Page:CreateButton("Atomic hub", "idk if it has key", function()
-    loadstring(game:HttpGet("https://raw.githubusercontent.com/ArceusXHub/atomic-hub/main/atomic-hub"))()
-CreateNotification("Title", "Description", function(value)
-if value == true then
-print(true)
-else
-print(false)
-end
-end)
-end
-
- 
-
-Button = Page:CreateButton("Demon hub", "idk if it has key", function()
-    loadstring(game:HttpGet('https://raw.githubusercontent.com/Piwwy0909/MakimaRemake/main/Cumback.Makima'))()
-CreateNotification("Title", "Description", function(value)
-if value == true then
-print(true)
-else
-print(false)
-end
-end)
-end
-
-
-
-Button = Page:CreateButton("Pedo hub", "idk if it has key", function()
-    loadstring(game:HttpGet('https://raw.githubusercontent.com/REWzaKunGz1/premium/main/PadoHub'))()
-CreateNotification("Title", "Description", function(value)
-if value == true then
-print(true)
-else
-print(false)
-end
-end)
-end      
-
-
-
-local Page = Tab:CreateFrame("Shindo Life")
-
-
-Button = Page:CreateButton("Platnum", "shindo life script", function()
+Button = Page:CreateButton("Platnum", "it has a key", function()
     loadstring(game:HttpGet("https://raw.githubusercontent.com/scriptpastebin/raw/main/Platinum"))()
-CreateNotification("Title", "Unpatached", function(value)
+CreateNotification("Title", "Description", function(value)
 if value == true then
 print(true)
 else
@@ -172,9 +180,23 @@ end)
 
 
 
-Button = Page:CreateButton("Lite hub", "Shindo life  ", function()
+
+Button = Page:CreateButton("VG Hub", "idk this one", function()
+    loadstring(game:HttpGet('https://raw.githubusercontent.com/1201for/V.G-Hub/main/V.Ghub'))()
+CreateNotification("Title", "Description", function(value)
+if value == true then
+print(true)
+else
+print(false)
+end
+end)
+end)
+
+
+
+Button = Page:CreateButton("Lite Hub", "idk this one", function()
     loadstring(game:HttpGet("https://raw.githubusercontent.com/SxnwDev/Premier/main/Free-Premier.lua", true))()
-CreateNotification("Title", "Unpatached", function(value)
+CreateNotification("Title", "Description", function(value)
 if value == true then
 print(true)
 else
@@ -186,64 +208,9 @@ end)
 
 
 
-Button = Page:CreateButton("infin rell coil", "Shindo life might be patched", function()
-    loadstring(game:HttpGet("https://raw.githubusercontent.com/KylnDantas/InfRellCoinsSL/main/file.lua"))()
-CreateNotification("Title", "Unpatached", function(value)
-if value == true then
-print(true)
-else
-print(false)
-end
-end)
-end)
-
-
-
-local Page = Tab:CreateFrame("Repear 2")
-
-
-Button = Page:CreateButton("lazyHub", "Repear 2 life", function()
-    loadstring(game:HttpGet("https://raw.githubusercontent.com/LioK251/RbScripts/main/lazyhub.lua"))()
-CreateNotification("Title", "Unpatached", function(value)
-if value == true then
-print(true)
-else
-print(false)
-end
-end)
-end)
-
-
-
-Button = Page:CreateButton("Keybrew", "Repear 2 ", function()
-    loadstring(game:HttpGet(('https://raw.githubusercontent.com/borntodiekuv/KeybrewHub/main/Reaper2'),true))()
-CreateNotification("Title", "Unpatached", function(value)
-if value == true then
-print(true)
-else
-print(false)
-end
-end)
-end)
-
-
-
-Button = Page:CreateButton("Sensai hub", "Repear 2 ", function()
-    loadstring(game:HttpGet("https://senseijoshy.com/Side-Scripts/Reaper2.lua"))()
-CreateNotification("Title", "Unpatached", function(value)
-if value == true then
-print(true)
-else
-print(false)
-end
-end)
-end)
-
-
-        
-Button = Page:CreateButton("Weinz hub", "Repear 2 ", function()
-    loadstring(game:HttpGet('https://weinzspace.com/loadscript.lua'))()
-CreateNotification("Title", "Unpatached", function(value)
+Button = Page:CreateButton("Phantom Hub", "idk this one", function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/destylol/masterhubv311/itachi/Main.lua"))()
+CreateNotification("Title", "Description", function(value)
 if value == true then
 print(true)
 else
