@@ -96,3 +96,24 @@ print(false)
 end
 end)
 end)
+
+
+
+
+
+
+
+
+local Page = Tab:CreateFrame("Repear 2")
+
+
+Button = Page:CreateButton("lazyHub", "Repear 2 life", function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/LioK251/RbScripts/main/lazyhub.lua"))()
+CreateNotification("Title", "Unpatached", function(value)
+if value == true then
+print(true)
+else
+print(false)
+end
+end)
+end)
