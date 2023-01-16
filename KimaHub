@@ -96,6 +96,99 @@ end)
 
 
 
+Button = Page:CreateButton("Zamex hub", "idk if it has key", function()
+    loadstring(game:HttpGet('https://raw.githubusercontent.com/Sixnumz/ZamexMobile/main/Zamex_Mobile.lua'))()
+CreateNotification("Title", "Description", function(value)
+if value == true then
+print(true)
+else
+print(false)
+end
+end)
+end)
+
+
+
+
+
+
+Button = Page:CreateButton("Ego hub", "idk if it has key", function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/SuperIkka/Main/main/EgoLoaderMain", true))()
+CreateNotification("Title", "Description", function(value)
+if value == true then
+print(true)
+else
+print(false)
+end
+end)
+end)
+
+
+
+
+
+Button = Page:CreateButton("Atomic hub", "idk if it has key", function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/ArceusXHub/atomic-hub/main/atomic-hub"))()
+CreateNotification("Title", "Description", function(value)
+if value == true then
+print(true)
+else
+print(false)
+end
+end)
+end
+
+
+
+
+
+
+Button = Page:CreateButton("Winable", "idk if it has key", function()
+    _G.Mode = "Normal" -- Aimbot / Normal
+loadstring(game:HttpGet("https://raw.githubusercontent.com/xlostpexz/tyuiop/Fps/Loading.lua"))()
+CreateNotification("Title", "Description", function(value)
+if value == true then
+print(true)
+else
+print(false)
+end
+end)
+end  
+
+
+
+
+
+Button = Page:CreateButton("Demon hub", "idk if it has key", function()
+    loadstring(game:HttpGet('https://raw.githubusercontent.com/Piwwy0909/MakimaRemake/main/Cumback.Makima'))()
+CreateNotification("Title", "Description", function(value)
+if value == true then
+print(true)
+else
+print(false)
+end
+end)
+end
+
+
+
+
+
+
+Button = Page:CreateButton("Pedo hub", "idk if it has key", function()
+    loadstring(game:HttpGet('https://raw.githubusercontent.com/REWzaKunGz1/premium/main/PadoHub'))()
+CreateNotification("Title", "Description", function(value)
+if value == true then
+print(true)
+else
+print(false)
+end
+end)
+end      
+
+
+
+
 
 
 
