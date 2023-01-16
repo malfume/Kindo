@@ -65,19 +65,9 @@ end)
 
 
 
-Button = Page:CreateButton("Ego Hub", "idk this one", function()
-    loadstring(game:HttpGet("https://raw.githubusercontent.com/SuperIkka/Main/main/EgoLoaderMain", true))()
-CreateNotification("Title", "Description", function(value)
-if value == true then
-print(true)
-else
-print(false)
-end
-end)
-end)
 
 
-Button = Page:CreateButton("Instant chest farm", function()
+Button = Page:CreateButton("InstantChestFarm", "Gets every chest stay in loading screen", function()
     loadstring(game:HttpGet("https://raw.githubusercontent.com/scriptpastebin/raw/main/ChestFarm"))()
 CreateNotification("Title", "Description", function(value)
 if value == true then
@@ -90,34 +80,9 @@ end)
 
 
 
-Button = Page:CreateButton("Atomic Hub", function()
-    loadstring(game:HttpGet("https://raw.githubusercontent.com/ArceusXHub/atomic-hub/main/atomic-hub"))()
-CreateNotification("Title", "Description", function(value)
-if value == true then
-print(true)
-else
-print(false)
-end
-end)
-end)
 
 
-
-Button = Page:CreateButton("Winable Hub", function()
-    _G.Mode = "Normal" -- Aimbot / Normal
-loadstring(game:HttpGet("https://raw.githubusercontent.com/xlostpexz/tyuiop/Fps/Loading.lua"))()
-CreateNotification("Title", "Description", function(value)
-if value == true then
-print(true)
-else
-print(false)
-end
-end)
-end)
-
-
-
-Button = Page:CreateButton("Demon Hub", function()
+Button = Page:CreateButton("DemonHUb", "Idk this script", function()
     loadstring(game:HttpGet('https://raw.githubusercontent.com/Piwwy0909/MakimaRemake/main/Cumback.Makima'))()
 CreateNotification("Title", "Description", function(value)
 if value == true then
@@ -131,7 +96,8 @@ end)
 
 
 
-Button = Page:CreateButton("HOHO Hub", function()
+
+Button = Page:CreateButton("HOHOHUB", "Has A key", function()
     loadstring(game:HttpGet('https://raw.githubusercontent.com/acsu123/HOHO_H/main/Loading_UI'))()
 CreateNotification("Title", "Description", function(value)
 if value == true then
@@ -141,6 +107,11 @@ print(false)
 end
 end)
 end)
+
+
+
+
+
 
 
 
@@ -167,8 +138,23 @@ end)
 
 
 
-Button = Page:CreateButton("Platnum", "it has a key", function()
-    loadstring(game:HttpGet("https://raw.githubusercontent.com/scriptpastebin/raw/main/Platinum"))()
+
+
+
+
+local Page = Tab:CreateFrame("Repear 2)
+
+
+Label = Page:CreateLabel("Label")
+Label:UpdateLabel("Repear 2 ")
+
+
+
+
+
+
+  Button = Page:CreateButton("LazyHub", "Some of the stuff may not work", function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/LioK251/RbScripts/main/lazyhub.lua"))()
 CreateNotification("Title", "Description", function(value)
 if value == true then
 print(true)
@@ -181,8 +167,12 @@ end)
 
 
 
-Button = Page:CreateButton("VG Hub", "idk this one", function()
-    loadstring(game:HttpGet('https://raw.githubusercontent.com/1201for/V.G-Hub/main/V.Ghub'))()
+
+
+
+
+   Button = Page:CreateButton("KeyBrewHub", "Some of the stuff may not work", function()
+    loadstring(game:HttpGet(('https://raw.githubusercontent.com/borntodiekuv/KeybrewHub/main/Reaper2'),true))()
 CreateNotification("Title", "Description", function(value)
 if value == true then
 print(true)
@@ -194,8 +184,15 @@ end)
 
 
 
-Button = Page:CreateButton("Lite Hub", "idk this one", function()
-    loadstring(game:HttpGet("https://raw.githubusercontent.com/SxnwDev/Premier/main/Free-Premier.lua", true))()
+
+
+
+
+
+
+
+     Button = Page:CreateButton("i forgot the name for this one", "Some of the stuff may not work", function()
+    loadstring(game:HttpGet("https://senseijoshy.com/Side-Scripts/Reaper2.lua"))()
 CreateNotification("Title", "Description", function(value)
 if value == true then
 print(true)
@@ -208,8 +205,15 @@ end)
 
 
 
-Button = Page:CreateButton("Phantom Hub", "idk this one", function()
-    loadstring(game:HttpGet("https://raw.githubusercontent.com/destylol/masterhubv311/itachi/Main.lua"))()
+
+
+
+
+
+
+
+     Button = Page:CreateButton("WeinzHub", "Some of the stuff may not work", function()
+    loadstring(game:HttpGet('https://weinzspace.com/loadscript.lua'))()
 CreateNotification("Title", "Description", function(value)
 if value == true then
 print(true)
