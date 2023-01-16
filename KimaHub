@@ -8,6 +8,18 @@ local Tab = Window:CreateTab("Scripts")
 local Page = Tab:CreateFrame("Opend Source")
 
 
+Button = Page:CreateButton("Universal Hub", "admin cmd", function()
+    loadstring(game:HttpGetAsync("https://raw.githubusercontent.com/richie0866/orca/master/public/snapshot.lua"))()
+CreateNotification("Title", "Unpatached", function(value)
+if value == true then
+print(true)
+else
+print(false)
+end
+end)
+end)
+
+
 local Page = Tab:CreateFrame("BloxFruit")
 
 
@@ -58,3 +70,71 @@ local Page = Tab:CreateFrame("Shindo")
 
 Label = Page:CreateLabel("Label")
 Label:UpdateLabel("Shindo Life")
+
+
+
+Button = Page:CreateButton("Priemer", "Priemer", function()
+    loadstring(game:HttpGet('https://raw.githubusercontent.com/TrustsenseDev/Utilities/main/Premier.lua', true))()
+CreateNotification("Title", "Description", function(value)
+if value == true then
+print(true)
+else
+print(false)
+end
+end)
+end)
+
+
+
+
+Button = Page:CreateButton("Platnum", "it has a key", function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/scriptpastebin/raw/main/Platinum"))()
+CreateNotification("Title", "Description", function(value)
+if value == true then
+print(true)
+else
+print(false)
+end
+end)
+end)
+
+
+
+
+Button = Page:CreateButton("VG Hub", "idk this one", function()
+    loadstring(game:HttpGet('https://raw.githubusercontent.com/1201for/V.G-Hub/main/V.Ghub'))()
+CreateNotification("Title", "Description", function(value)
+if value == true then
+print(true)
+else
+print(false)
+end
+end)
+end)
+
+
+
+Button = Page:CreateButton("Lite Hub", "idk this one", function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/SxnwDev/Premier/main/Free-Premier.lua", true))()
+CreateNotification("Title", "Description", function(value)
+if value == true then
+print(true)
+else
+print(false)
+end
+end)
+end)
+
+
+
+
+Button = Page:CreateButton("Phantom Hub", "idk this one", function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/destylol/masterhubv311/itachi/Main.lua"))()
+CreateNotification("Title", "Description", function(value)
+if value == true then
+print(true)
+else
+print(false)
+end
+end)
+end)
