@@ -214,11 +214,9 @@ Tab:AddButton({
 
 
 Tab:AddButton({
-    Name = "HULKU",
+    Name = "Strikehubv2z",
     Callback = function()
-        writefile("Winnable.json", "DYEHSHUXHEJENSB")
-_G.Mode = "Normal" -- Aimbot / Normal
-loadstring(game:HttpGet("https://raw.githubusercontent.com/xlostpexz/tyuiop/Fps/Loading.lua"))()    
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/Strikehubv2z/StormSKz/main/All_in_one"))()
       end    
 })
 
