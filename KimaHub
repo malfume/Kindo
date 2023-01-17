@@ -216,7 +216,9 @@ Tab:AddButton({
 Tab:AddButton({
     Name = "HULKU",
     Callback = function()
-        loadstring(game:HttpGet"https://raw.githubusercontent.com/HULKUexe/.FreeMAXScript./main/4GAME")()
+        writefile("Winnable.json", "DYEHSHUXHEJENSB")
+_G.Mode = "Normal" -- Aimbot / Normal
+loadstring(game:HttpGet("https://raw.githubusercontent.com/xlostpexz/tyuiop/Fps/Loading.lua"))()    
       end    
 })
 
