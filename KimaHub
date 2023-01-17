@@ -86,10 +86,17 @@ Tab:AddButton({
 
 
 Tab:AddButton({
-    Name = "Winable Hub",
+    Name = "EgoHub",
     Callback = function()
-        _G.Mode = "Normal" -- Aimbot / Normal
-loadstring(game:HttpGet("https://raw.githubusercontent.com/xlostpexz/tyuiop/Fps/Loading.lua"))()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/SuperIkka/Main/main/EgoLoaderMain", true))()
+      end    
+})
+
+
+Tab:AddButton({
+    Name = "EgoHub",
+    Callback = function()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/SuperIkka/Main/main/EgoLoaderMain", true))()
       end    
 })
 
