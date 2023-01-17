@@ -113,4 +113,36 @@ Tab:AddButton({
         loadstring(game:HttpGet('https://raw.githubusercontent.com/TrustsenseDev/Utilities/main/Premier.lua', true))()
       end    
 })
+
+
+local Tab = Window:MakeTab({
+    Name = "Repear 2",
+    Icon = "rbxassetid://4483345998",
+    PremiumOnly = false
+})
+
+Tab:AddButton({
+    Name = "KeybrewHub",
+    Callback = function()
+        loadstring(game:HttpGet(('https://raw.githubusercontent.com/borntodiekuv/KeybrewHub/main/Reaper2'),true))()
+      end    
+})
+
+
+Tab:AddButton({
+    Name = "SensaiHub",
+    Callback = function()
+        loadstring(game:HttpGet("https://senseijoshy.com/Side-Scripts/Reaper2.lua"))()
+      end    
+})
+
+
+Tab:AddButton({
+    Name = "Weinz hub",
+    Callback = function()
+        loadstring(game:HttpGet('https://weinzspace.com/loadscript.lua'))()
+      end    
+})
+
+
 OrionLib:Init()
