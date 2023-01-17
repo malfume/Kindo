@@ -175,4 +175,50 @@ Tab:AddButton({
 })
 
 
+local Tab = Window:MakeTab({
+    Name = "King Legacy",
+    Icon = "rbxassetid://4483345998",
+    PremiumOnly = false
+})
+
+Tab:AddButton({
+    Name = "Mokuro",
+    Callback = function()
+        loadstring(game:HttpGet"https://raw.githubusercontent.com/xQuartyx/DonateMe/main/ScriptLoader")()
+      end    
+})
+
+
+Tab:AddButton({
+    Name = "dasdokasdias",
+    Callback = function()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/xlostpexz/dasdokasdias/Fps/Loading.lua"))()
+      end    
+})
+
+
+Tab:AddButton({
+    Name = "OneXHub",
+    Callback = function()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/xOne2/King-Legacy/main/README.md"))()
+      end    
+})
+
+
+Tab:AddButton({
+    Name = "CFrameHub",
+    Callback = function()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/CFrame3310/CFrameHub/main/KingLegacy.lua"))()
+      end    
+})
+
+
+Tab:AddButton({
+    Name = "HULKU",
+    Callback = function()
+        loadstring(game:HttpGet"https://raw.githubusercontent.com/HULKUexe/.FreeMAXScript./main/4GAME")()
+      end    
+})
+
+
 OrionLib:Init()
