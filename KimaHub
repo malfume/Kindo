@@ -115,6 +115,22 @@ Tab:AddButton({
 })
 
 
+Tab:AddButton({
+    Name = "platnim may not work",
+    Callback = function()
+        loadstring(game:HttpGet("https://pastebin.com/raw/b0NEP3rG"))()
+      end    
+})
+
+
+Tab:AddButton({
+    Name = "vg hub",
+    Callback = function()
+        loadstring(game:HttpGet('https://raw.githubusercontent.com/1201for/V.G-Hub/main/V.Ghub'))()
+      end    
+})
+
+
 local Tab = Window:MakeTab({
     Name = "Repear 2",
     Icon = "rbxassetid://4483345998",
