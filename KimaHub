@@ -1,5 +1,5 @@
 local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
-local Window = OrionLib:MakeWindow({Name = "ChildBeaterhub", HidePremium = true, SaveConfig = true, ConfigFolder = "Child Molester"})
+local Window = OrionLib:MakeWindow({Name = "KuroHub", HidePremium = true, SaveConfig = true, ConfigFolder = "Child Molester"})
 
 local Tab = Window:MakeTab({
     Name = "OpendSource",
@@ -86,17 +86,17 @@ Tab:AddButton({
 
 
 Tab:AddButton({
-    Name = "EgoHub",
+    Name = "Instant ChestFarm",
     Callback = function()
-        loadstring(game:HttpGet("https://raw.githubusercontent.com/SuperIkka/Main/main/EgoLoaderMain", true))()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/scriptpastebin/raw/main/ChestFarm"))()
       end    
 })
 
 
 Tab:AddButton({
-    Name = "EgoHub",
+    Name = "Zamex",
     Callback = function()
-        loadstring(game:HttpGet("https://raw.githubusercontent.com/SuperIkka/Main/main/EgoLoaderMain", true))()
+        loadstring(game:HttpGet('https://raw.githubusercontent.com/Sixnumz/ZamexMobile/main/Zamex_Mobile.lua'))()
       end    
 })
 
