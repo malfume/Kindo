@@ -1,5 +1,5 @@
 local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
-local Window = OrionLib:MakeWindow({Name = "Kamari hub", HidePremium = true, SaveConfig = true, ConfigFolder = "Child Molester"})
+local Window = OrionLib:MakeWindow({Name = "ChildBeaterhub", HidePremium = true, SaveConfig = true, ConfigFolder = "Child Molester"})
 
 local Tab = Window:MakeTab({
     Name = "OpendSource",
@@ -57,6 +57,39 @@ Tab:AddButton({
     Name = "Atomic Hub",
     Callback = function()
         loadstring(game:HttpGet("https://raw.githubusercontent.com/ArceusXHub/atomic-hub/main/atomic-hub"))()
+      end    
+})
+
+
+Tab:AddButton({
+    Name = "Zee Hub",
+    Callback = function()
+        loadstring(game:HttpGet("https://scriptdee.com/free/ZeeHubV2.lua"))()
+      end    
+})
+
+
+Tab:AddButton({
+    Name = "pedo Hub",
+    Callback = function()
+        loadstring(game:HttpGet('https://raw.githubusercontent.com/REWzaKunGz1/premium/main/PadoHub'))()
+      end    
+})
+
+
+Tab:AddButton({
+    Name = "Demon Hub",
+    Callback = function()
+        loadstring(game:HttpGet('https://raw.githubusercontent.com/Piwwy0909/MakimaRemake/main/Cumback.Makima'))()
+      end    
+})
+
+
+Tab:AddButton({
+    Name = "Winable Hub",
+    Callback = function()
+        _G.Mode = "Normal" -- Aimbot / Normal
+loadstring(game:HttpGet("https://raw.githubusercontent.com/xlostpexz/tyuiop/Fps/Loading.lua"))()
       end    
 })
 
