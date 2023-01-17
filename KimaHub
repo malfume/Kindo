@@ -161,4 +161,18 @@ Tab:AddButton({
 })
 
 
+local Tab = Window:MakeTab({
+    Name = "Blue Lock",
+    Icon = "rbxassetid://4483345998",
+    PremiumOnly = false
+})
+
+Tab:AddButton({
+    Name = "Egoist",
+    Callback = function()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/Mstir16/legocheats/main/archive/EGOIST/script.lua"))()
+      end    
+})
+
+
 OrionLib:Init()
