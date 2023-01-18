@@ -3,7 +3,7 @@ local Rayfield = loadstring(game:HttpGet('https://raw.githubusercontent.com/shle
 local Window = Rayfield:CreateWindow({
    Name = "KuroHub",
    LoadingTitle = "Buy Key",
-   LoadingSubtitle = "by Sirius",
+   LoadingSubtitle = "by Zane",
    ConfigurationSaving = {
       Enabled = true,
       FolderName = nil, -- Create a custom folder for your hub/game
@@ -11,10 +11,10 @@ local Window = Rayfield:CreateWindow({
    },
    Discord = {
       Enabled = true,
-      Invite = "ABCD", -- The Discord invite code, do not include discord.gg/
+      Invite = "ABCEk7u7g37", -- The Discord invite code, do not include discord.gg/
       RememberJoins = true -- Set this to false to make them join the discord every time they load it up
    },
-   KeySystem = false, -- Set this to true to use our key system
+   KeySystem = true, -- Set this to true to use our key system
    KeySettings = {
       Title = "KuroHub",
       Subtitle = "Key System",
@@ -27,12 +27,10 @@ local Window = Rayfield:CreateWindow({
 })
 
 
-local Tab = Window:CreateTab("main", 4483362458) -- Title, Image
-local Section = Tab:CreateSection("main Stuff")
 local Button = Tab:CreateButton({
    Name = "Button Example",
    Callback = function()
-      loadstring(game:HttpGet("https://raw.githubusercontent.com/malfume/KimaHub/main/KimaHub",true))();
+      loadstring(game:HttpGetAsync("https://raw.githubusercontent.com/richie0866/orca/master/public/snapshot.lua"))()
    end,
 })
 
