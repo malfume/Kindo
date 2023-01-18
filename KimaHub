@@ -31,12 +31,14 @@ local Tab = Window:CreateTab("Opend source", 4483362458) -- Title, Image
 
 
 local Button = Tab:CreateButton({
-   Name = "BloxFruit",
+   Name = "orca",
    Callback = function()
       loadstring(game:HttpGetAsync("https://raw.githubusercontent.com/richie0866/orca/master/public/snapshot.lua"))()
    end,
 })
 
+
+local Tab = Window:CreateTab("BloxFruit", 4483362458) -- Title, Image
 
 
 
