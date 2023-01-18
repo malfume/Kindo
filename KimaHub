@@ -1,7 +1,7 @@
 local Rayfield = loadstring(game:HttpGet('https://raw.githubusercontent.com/shlexware/Rayfield/main/source'))()
 
 local Window = Rayfield:CreateWindow({
-   Name = "KuroHub",
+   Name = "KimaHub",
    LoadingTitle = "Buy Key",
    LoadingSubtitle = "by Zane",
    ConfigurationSaving = {
