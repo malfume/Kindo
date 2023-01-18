@@ -1,85 +1,224 @@
-local Rayfield = loadstring(game:HttpGet('https://raw.githubusercontent.com/shlexware/Rayfield/main/source'))()
+local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
+local Window = OrionLib:MakeWindow({Name = "KuroHub", HidePremium = true, SaveConfig = true, ConfigFolder = "Child Molester"})
 
-local Window = Rayfield:CreateWindow({
-   Name = "KuroHub",
-   LoadingTitle = "Buy Key",
-   LoadingSubtitle = "by Zane",
-   ConfigurationSaving = {
-      Enabled = true,
-      FolderName = nil, -- Create a custom folder for your hub/game
-      FileName = "KuroHub"
-   },
-   Discord = {
-      Enabled = true,
-      Invite = "ABCEk7u7g37", -- The Discord invite code, do not include discord.gg/
-      RememberJoins = true -- Set this to false to make them join the discord every time they load it up
-   },
-   KeySystem = true, -- Set this to true to use our key system
-   KeySettings = {
-      Title = "KuroHub",
-      Subtitle = "Key System",
-      Note = "Join the discord (discord.gg/Ek7u7g37)",
-      FileName = "KuroKey",
-      SaveKey = true,
-      GrabKeyFromSite = false, -- If this is true, set Key below to the RAW site you would like Rayfield to get the key from
-      Key = "kiro"
-   }
+local Tab = Window:MakeTab({
+    Name = "OpendSource",
+    Icon = "rbxassetid://4483345998",
+    PremiumOnly = false
+})
+
+Tab:AddButton({
+    Name = "orca!",
+    Callback = function()
+        loadstring(game:HttpGetAsync("https://raw.githubusercontent.com/richie0866/orca/master/public/snapshot.lua"))()
+      end    
 })
 
 
-local Tab = Window:CreateTab("Opend source", 4483362458) -- Title, Image
+local Tab = Window:MakeTab({
+    Name = "BloxFruit",
+    Icon = "rbxassetid://4483345998",
+    PremiumOnly = false
+})
 
-
-local Button = Tab:CreateButton({
-   Name = "orca",
-   Callback = function()
-      loadstring(game:HttpGetAsync("https://raw.githubusercontent.com/richie0866/orca/master/public/snapshot.lua"))()
-   end,
+Tab:AddButton({
+    Name = "RipperHub!",
+    Callback = function()
+        loadstring(game:HttpGet('https://raw.githubusercontent.com/xDestinyx/RipperHub/main/Loader.lua'))()
+      end    
 })
 
 
-local Tab = Window:CreateTab("BloxFruit", 4483362458) -- Title, Image
-
-
-
-local Button = Tab:CreateButton({
-   Name = "RipperHub",
-   Callback = function()
-      loadstring(game:HttpGet('https://raw.githubusercontent.com/xDestinyx/RipperHub/main/Loader.lua'))()
-   end,
+Tab:AddButton({
+    Name = "BLACKTRAP!",
+    Callback = function()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/Sky2836/BT/main/BYPASS/BLACKTRAP"))()
+      end    
 })
 
 
-local Button = Tab:CreateButton({
-   Name = "BLACKTRAP",
-   Callback = function()
-      loadstring(game:HttpGet("https://raw.githubusercontent.com/Sky2836/BT/main/BYPASS/BLACKTRAP"))()
-   end,
+Tab:AddButton({
+    Name = "HOHOHUB",
+    Callback = function()
+        loadstring(game:HttpGet('https://raw.githubusercontent.com/acsu123/HOHO_H/main/Loading_UI'))()
+      end    
 })
 
 
-local Button = Tab:CreateButton({
-   Name = "atomicHub",
-   Callback = function()
-      loadstring(game:HttpGet("https://raw.githubusercontent.com/ArceusXHub/atomic-hub/main/atomic-hub"))()
-   end,
+Tab:AddButton({
+    Name = "EgoHub",
+    Callback = function()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/SuperIkka/Main/main/EgoLoaderMain", true))()
+      end    
 })
 
 
-local Button = Tab:CreateButton({
-   Name = "HOHOHUB",
-   Callback = function()
-      loadstring(game:HttpGet('https://raw.githubusercontent.com/acsu123/HOHO_H/main/Loading_UI'))()
-   end,
+Tab:AddButton({
+    Name = "Atomic Hub",
+    Callback = function()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/ArceusXHub/atomic-hub/main/atomic-hub"))()
+      end    
 })
 
 
-local Button = Tab:CreateButton({
-   Name = "EgoHub",
-   Callback = function()
-      loadstring(game:HttpGet("https://raw.githubusercontent.com/SuperIkka/Main/main/EgoLoaderMain", true))()
-   end,
+Tab:AddButton({
+    Name = "Zee Hub",
+    Callback = function()
+        loadstring(game:HttpGet("https://scriptdee.com/free/ZeeHubV2.lua"))()
+      end    
 })
 
 
-Rayfield:LoadConfiguration()
+Tab:AddButton({
+    Name = "pedo Hub",
+    Callback = function()
+        loadstring(game:HttpGet('https://raw.githubusercontent.com/REWzaKunGz1/premium/main/PadoHub'))()
+      end    
+})
+
+
+Tab:AddButton({
+    Name = "Demon Hub",
+    Callback = function()
+        loadstring(game:HttpGet('https://raw.githubusercontent.com/Piwwy0909/MakimaRemake/main/Cumback.Makima'))()
+      end    
+})
+
+
+Tab:AddButton({
+    Name = "Instant ChestFarm",
+    Callback = function()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/scriptpastebin/raw/main/ChestFarm"))()
+      end    
+})
+
+
+Tab:AddButton({
+    Name = "Zamex",
+    Callback = function()
+        loadstring(game:HttpGet('https://raw.githubusercontent.com/Sixnumz/ZamexMobile/main/Zamex_Mobile.lua'))()
+      end    
+})
+
+
+local Tab = Window:MakeTab({
+    Name = "Shindo Life",
+    Icon = "rbxassetid://4483345998",
+    PremiumOnly = false
+})
+
+Tab:AddButton({
+    Name = "Premier!",
+    Callback = function()
+        loadstring(game:HttpGet('https://raw.githubusercontent.com/TrustsenseDev/Utilities/main/Premier.lua', true))()
+      end    
+})
+
+
+Tab:AddButton({
+    Name = "platnim may not work",
+    Callback = function()
+        loadstring(game:HttpGet("https://pastebin.com/raw/b0NEP3rG"))()
+      end    
+})
+
+
+Tab:AddButton({
+    Name = "vg hub",
+    Callback = function()
+        loadstring(game:HttpGet('https://raw.githubusercontent.com/1201for/V.G-Hub/main/V.Ghub'))()
+      end    
+})
+
+
+local Tab = Window:MakeTab({
+    Name = "Repear 2",
+    Icon = "rbxassetid://4483345998",
+    PremiumOnly = false
+})
+
+Tab:AddButton({
+    Name = "KeybrewHub",
+    Callback = function()
+        loadstring(game:HttpGet(('https://raw.githubusercontent.com/borntodiekuv/KeybrewHub/main/Reaper2'),true))()
+      end    
+})
+
+
+Tab:AddButton({
+    Name = "SensaiHub",
+    Callback = function()
+        loadstring(game:HttpGet("https://senseijoshy.com/Side-Scripts/Reaper2.lua"))()
+      end    
+})
+
+
+Tab:AddButton({
+    Name = "Weinz hub",
+    Callback = function()
+        loadstring(game:HttpGet('https://weinzspace.com/loadscript.lua'))()
+      end    
+})
+
+
+local Tab = Window:MakeTab({
+    Name = "Blue Lock",
+    Icon = "rbxassetid://4483345998",
+    PremiumOnly = false
+})
+
+Tab:AddButton({
+    Name = "Egoist",
+    Callback = function()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/Mstir16/legocheats/main/archive/EGOIST/script.lua"))()
+      end    
+})
+
+
+local Tab = Window:MakeTab({
+    Name = "King Legacy",
+    Icon = "rbxassetid://4483345998",
+    PremiumOnly = false
+})
+
+Tab:AddButton({
+    Name = "Mokuro",
+    Callback = function()
+        loadstring(game:HttpGet"https://raw.githubusercontent.com/xQuartyx/DonateMe/main/ScriptLoader")()
+      end    
+})
+
+
+Tab:AddButton({
+    Name = "dasdokasdias",
+    Callback = function()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/xlostpexz/dasdokasdias/Fps/Loading.lua"))()
+      end    
+})
+
+
+Tab:AddButton({
+    Name = "OneXHub",
+    Callback = function()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/xOne2/King-Legacy/main/README.md"))()
+      end    
+})
+
+
+Tab:AddButton({
+    Name = "CFrameHub",
+    Callback = function()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/CFrame3310/CFrameHub/main/KingLegacy.lua"))()
+      end    
+})
+
+
+Tab:AddButton({
+    Name = "Strikehubv2z",
+    Callback = function()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/Strikehubv2z/StormSKz/main/All_in_one"))()
+      end    
+})
+
+
+OrionLib:Init()
