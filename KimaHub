@@ -59,9 +59,9 @@ local Button = Tab:CreateButton({
 
 
 local Button = Tab:CreateButton({
-   Name = "BLACKTRAP",
+   Name = "atomicHub",
    Callback = function()
-      loadstring(game:HttpGet("https://raw.githubusercontent.com/Sky2836/BT/main/BYPASS/BLACKTRAP"))()
+      loadstring(game:HttpGet("https://raw.githubusercontent.com/ArceusXHub/atomic-hub/main/atomic-hub"))()
    end,
 })
 
