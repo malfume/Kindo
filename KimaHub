@@ -49,10 +49,10 @@ local ColorPicker = Tab:CreateColorPicker({
 
 
 local Slider = Tab:CreateSlider({
-   Name = "Slider Example",
+   Name = "Slider",
    Range = {0, 100},
    Increment = 10,
-   Suffix = "Bananas",
+   Suffix = "pages",
    CurrentValue = 10,
    Flag = "Slider1", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
    Callback = function(Value)
@@ -177,6 +177,24 @@ local Button = Tab:CreateButton({
    Name = "Weinzhub",
    Callback = function()
       loadstring(game:HttpGet("https://senseijoshy.com/Side-Scripts/Reaper2.lua"))()
+   end,
+})
+
+
+local Tab = Window:CreateTab("Da hood", 4483362458) -- Title, Image
+
+local Button = Tab:CreateButton({
+   Name = "Nuker",
+   Callback = function()
+      loadstring(game:HttpGet("https://raw.githubusercontent.com/Allvideo/test/main/Whitelist.txt"))()
+   end,
+})
+
+
+local Button = Tab:CreateButton({
+   Name = "zapped",
+   Callback = function()
+      loadstring(game:HttpGet('https://raw.githubusercontent.com/grekkk/relases/main/zapped.lua'))()
    end,
 })
 
