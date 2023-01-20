@@ -114,9 +114,17 @@ local Button = Tab:CreateButton({
 
 
 local Button = Tab:CreateButton({
-   Name = "vg hub",
+   Name = "Nexus",
    Callback = function()
-      loadstring(game:HttpGet('https://raw.githubusercontent.com/1201for/V.G-Hub/main/V.Ghub'))()
+      loadstring(game:HttpGet("https://raw.githubusercontent.com/Demmx/ProjectNexus/main/Loader.lua"))()
+   end,
+})
+
+
+local Button = Tab:CreateButton({
+   Name = "ProjectWd",
+   Callback = function()
+      loadstring(game:HttpGet("https://raw.githubusercontent.com/Muhammad6196/Project-WD/main/Main.lua"))()
    end,
 })
 
