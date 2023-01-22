@@ -2,6 +2,23 @@ local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shl
 local Window = OrionLib:MakeWindow({Name = "KuroHub", HidePremium = true, SaveConfig = true, ConfigFolder = "Child Molester"})
 
 
+Tab:AddDropdown({
+	Name = "Dropdown",
+	Default = "1",
+	Options = {"1", "2"},
+	Callback = function(Value)
+		print(Value)
+	end    
+})
+
+--[[
+Name = <string> - The name of the dropdown.
+Default = <string> - The default value of the dropdown.
+Options = <table> - The options in the dropdown.
+Callback = <function> - The function of the dropdown.
+]]
+
+
 local Tab = Window:MakeTab({
     Name = "OpendSource",
     Icon = "rbxassetid://4483345998",
