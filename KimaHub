@@ -323,14 +323,6 @@ Tab:AddButton({
 })
 
 
-Tab:AddButton({
-    Name = "Weinz hub",
-    Callback = function()
-        loadstring(game:HttpGet('https://weinzspace.com/loadscript.lua'))()
-      end    
-})
-
-
 local Tab = Window:MakeTab({
     Name = "Blue Lock",
     Icon = "rbxassetid://4483345998",
