@@ -254,6 +254,14 @@ Tab:AddButton({
 })
 
 
+Tab:AddButton({
+    Name = "UraniumHub",
+    Callback = function()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/Augustzyzx/UraniumMobile/main/UraniV1.lua"))()
+      end    
+})
+
+
 local Tab = Window:MakeTab({
     Name = "Shindo Life",
     Icon = "rbxassetid://4483345998",
