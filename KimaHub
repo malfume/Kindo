@@ -111,6 +111,14 @@ Tab:AddButton({
 
 
 Tab:AddButton({
+    Name = "Zee Hub v2",
+    Callback = function()
+        loadstring(game:HttpGet("https://scriptdee.com/free/ZeeHubNew.lua"))()
+      end    
+})
+
+
+Tab:AddButton({
     Name = "pedo Hub",
     Callback = function()
         loadstring(game:HttpGet('https://raw.githubusercontent.com/REWzaKunGz1/premium/main/PadoHub'))()
@@ -282,6 +290,14 @@ Tab:AddButton({
     Name = "UraniumHub",
     Callback = function()
         loadstring(game:HttpGet("https://raw.githubusercontent.com/Augustzyzx/UraniumMobile/main/UraniV1.lua"))()
+      end    
+})
+
+
+Tab:AddButton({
+    Name = "UraniumHub",
+    Callback = function()
+        loadstring(game:HttpGet('https://raw.githubusercontent.com/natherzx/Nethez-Project/main/Security'))()
       end    
 })
 
