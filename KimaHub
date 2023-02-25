@@ -355,19 +355,6 @@ Tab:AddButton({
 })
 
 
-local Tab = Window:MakeTab({
-    Name = "Blue Lock",
-    Icon = "rbxassetid://4483345998",
-    PremiumOnly = false
-})
-
-Tab:AddButton({
-    Name = "Egoist",
-    Callback = function()
-        loadstring(game:HttpGet("https://raw.githubusercontent.com/Mstir16/legocheats/main/archive/EGOIST/script.lua"))()
-      end    
-})
-
 
 local Tab = Window:MakeTab({
     Name = "King Legacy",
@@ -414,19 +401,6 @@ Tab:AddButton({
       end    
 })
 
-
-local Tab = Window:MakeTab({
-    Name = "FruitBattleGround",
-    Icon = "rbxassetid://4483345998",
-    PremiumOnly = false
-})
-
-Tab:AddButton({
-    Name = "Premier!",
-    Callback = function()
-        loadstring(game:HttpGet("https://raw.githubusercontent.com/xlostpexz/FBBBBBBBBBBBBBBBBBBBBBB/Fps/Loading.lua"))()
-      end    
-})
 
 
 OrionLib:Init()
