@@ -17,6 +17,14 @@ Tab:AddButton({
 
 
 Tab:AddButton({
+    Name = "Orca v2 beta",
+    Callback = function()
+        loadstring(game:HttpGet('https://raw.githubusercontent.com/SentinalCoder/SentinelX/main/loader',true))()
+      end    
+})
+
+
+Tab:AddButton({
     Name = "Universal aimbot with fov",
     Callback = function()
         loadstring(game:HttpGet("https://pastebin.com/raw/ygp8Enye"))()
