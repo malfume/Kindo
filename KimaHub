@@ -2,7 +2,7 @@ local DiscordLib = loadstring(game:HttpGet"https://raw.githubusercontent.com/daw
 
 local win = DiscordLib:Window("NiggerHub beta.v1")
 
-local serv = win:Server("Main", "http://www.roblox.com/asset/?id=6031075938")
+local serv = win:Server("Main", "http://www.roblox.com/asset/?id=4483345998")
 
 local btns = serv:Channel("OpendSource")
 
@@ -373,6 +373,20 @@ btns:Button("Universal aimbot with fov", function()
   btns:Button("Ranked Platnumier", function()
     DiscordLib:Notification("Notification", "GoodJob Nigger", "Thank you daddy!")
     loadstring(game:HttpGet("https://raw.githubusercontent.com/leakediz/top-g/main/combat%20warriors"))()
+  end)
+  
+  btns:Seperator()
+
+  btns:Button("zap", function()
+    DiscordLib:Notification("Notification", "GoodJob Nigger", "Thank you daddy!")
+    loadstring(game:HttpGet("https://www.itots.tk/zaphub/combat-warriors.lua", true))()
+  end)
+  
+  btns:Seperator()
+
+  btns:Button("max", function()
+    DiscordLib:Notification("Notification", "GoodJob Nigger", "Thank you daddy!")
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/ufouzzed/CWShitterHub/main/CWScript.lua"))()
   end)
   
   btns:Seperator()
