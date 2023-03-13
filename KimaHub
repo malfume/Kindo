@@ -386,3 +386,26 @@ btns:Button("Universal aimbot with fov", function()
   
   btns:Seperator()
 
+
+  local btns = serv:Channel("FruitBattleGround")
+
+  btns:Button("Winoable", function()
+    DiscordLib:Notification("Notification", "GoodJob Nigger", "Thank you daddy!")
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/xlostpexz/FBBBBBBBBBBBBBBBBBBBBBB/Fps/Loading.lua"))()
+  end)
+  
+  btns:Seperator()
+
+  btns:Button("green", function()
+    DiscordLib:Notification("Notification", "GoodJob Nigger", "Thank you daddy!")
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/cueshut/scripts/main/fruity"))()
+  end)
+  
+  btns:Seperator()
+
+  btns:Button("Jumble", function()
+    DiscordLib:Notification("Notification", "GoodJob Nigger", "Thank you daddy!")
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/JumbleBumble/Scripts/main/FruitBattlegrounds.lua"))()
+  end)
+  
+  btns:Seperator()
