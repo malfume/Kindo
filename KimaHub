@@ -1,430 +1,388 @@
-local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
-local Window = OrionLib:MakeWindow({Name = "NiggerHub", HidePremium = true, SaveConfig = true, ConfigFolder = "Child Molester hub"})
+local DiscordLib = loadstring(game:HttpGet"https://raw.githubusercontent.com/dawid-scripts/UI-Libs/main/discord%20lib.txt")()
 
-local Tab = Window:MakeTab({
-    Name = "OpendSource",
-    Icon = "rbxassetid://4483345998",
-    PremiumOnly = false
-})
+local win = DiscordLib:Window("NiggerHub beta.v1")
 
+local serv = win:Server("Main", "http://www.roblox.com/asset/?id=6031075938")
 
-Tab:AddButton({
-    Name = "Orca",
-    Callback = function()
-        loadstring(game:HttpGetAsync("https://raw.githubusercontent.com/richie0866/orca/master/public/snapshot.lua"))()
-      end    
-})
+local btns = serv:Channel("OpendSource")
+
+btns:Button("orca", function()
+DiscordLib:Notification("Notification", "Killed everyone!", "Okay!")
+loadstring(game:HttpGetAsync("https://raw.githubusercontent.com/richie0866/orca/master/public/snapshot.lua"))()
+end)
 
 
-Tab:AddButton({
-    Name = "Orca v2 beta",
-    Callback = function()
-        loadstring(game:HttpGet('https://raw.githubusercontent.com/SentinalCoder/SentinelX/main/loader',true))()
-      end    
-})
+btns:Button("orcav2", function()
+DiscordLib:Notification("Notification", "GoodJob Nigger", "Thank you daddy")
+loadstring(game:HttpGetAsync("https://raw.githubusercontent.com/richie0866/orca/master/public/snapshot.lua"))()
+end)
+
+btns:Seperator()
+
+btns:Button("Universal aimbot with fov", function()
+    DiscordLib:Notification("Notification", "GoodJob Nigger", "Thank you daddy")
+    loadstring(game:HttpGet("https://pastebin.com/raw/ygp8Enye"))()
+    end)
 
 
-Tab:AddButton({
-    Name = "Universal aimbot with fov",
-    Callback = function()
-        loadstring(game:HttpGet("https://pastebin.com/raw/ygp8Enye"))()
-      end    
-})
-
-
-Tab:AddButton({
-    Name = "Universal aimbot",
-    Callback = function()
+    btns:Button("Universal aimbot without fov", function()
+        DiscordLib:Notification("Notification", "GoodJob Nigger", "Thank you daddy")
         loadstring(game:HttpGet("https://pastebin.com/raw/CwQcEnEd"))()
-      end    
-})
-
-
-Tab:AddButton({
-    Name = "Infinity Yield",
-    Callback = function()
-        loadstring(game:HttpGet('https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source'))()
-      end    
-})
-
-
-Tab:AddButton({
-    Name = "Horien",
-    Callback = function()
-        loadstring(game:HttpGet"https://thedragonslayer2.github.io/AutoExec.html")()
-      end    
-})
-
-
-local Tab = Window:MakeTab({
-    Name = "BloxFruit",
-    Icon = "rbxassetid://4483345998",
-    PremiumOnly = false
-})
-
-Tab:AddButton({
-    Name = "RipperHub!",
-    Callback = function()
-        loadstring(game:HttpGet('https://raw.githubusercontent.com/xDestinyx/RipperHub/main/Loader.lua'))()
-      end    
-})
+        end)
+
+
+        btns:Button("infinity yield", function()
+            DiscordLib:Notification("Notification", "GoodJob Nigger", "Thank you daddy")
+            loadstring(game:HttpGet("https://pastebin.com/raw/CwQcEnEd"))()
+            end)
+
+
+            btns:Button("iforgot the name of it", function()
+                DiscordLib:Notification("Notification", "GoodJob Nigger", "Thank you daddy")
+                loadstring(game:HttpGet"https://thedragonslayer2.github.io/AutoExec.html")()
+                end)
+
+
+
+                local btns = serv:Channel("BloxFruit")
+
+                btns:Button("RipperHub", function()
+                DiscordLib:Notification("Notification", "GoodJob Nigger", "Thank you daddy!")
+                loadstring(game:HttpGet('https://raw.githubusercontent.com/xDestinyx/RipperHub/main/Loader.lua'))()
+                end)
+
+                btns:Seperator()
+
+                btns:Button("MokuraHub", function()
+                    DiscordLib:Notification("Notification", "GoodJob Nigger", "Thank you daddy!")
+                    loadstring(game:HttpGet"https://raw.githubusercontent.com/xQuartyx/DonateMe/main/ScriptLoader")()
+                    end)
+
+                    btns:Seperator()
+                    
+                    btns:Button("BLACKTRAP", function()
+                        DiscordLib:Notification("Notification", "GoodJob Nigger", "Thank you daddy!")
+                        loadstring(game:HttpGet("https://raw.githubusercontent.com/Sky2836/BT/main/BYPASS/BLACKTRAP"))()
+                        end)
+
+                        btns:Seperator()
+                        
+                        btns:Button("HOHOHUB", function()
+                            DiscordLib:Notification("Notification", "GoodJob Nigger", "Thank you daddy!")
+                            loadstring(game:HttpGet('https://raw.githubusercontent.com/acsu123/HOHO_H/main/Loading_UI'))()
+                            end)
+
+                            btns:Seperator()
+                            
+                            btns:Button("EgoHub", function()
+                                DiscordLib:Notification("Notification", "GoodJob Nigger", "Thank you daddy!")
+                                loadstring(game:HttpGet("https://raw.githubusercontent.com/SuperIkka/Main/main/EgoLoaderMain", true))()
+                                end)
+
+                                btns:Seperator()
+
+
+                                btns:Button("Atomic Hub", function()
+                                    DiscordLib:Notification("Notification", "GoodJob Nigger", "Thank you daddy!")
+                                    loadstring(game:HttpGet("https://raw.githubusercontent.com/ArceusXHub/atomic-hub/main/atomic-hub"))()
+                                    end)
+    
+                                    btns:Seperator()
+
+
+                                    btns:Button("ZeeHub", function()
+                                        DiscordLib:Notification("Notification", "GoodJob Nigger", "Thank you daddy!")
+                                        loadstring(game:HttpGet("https://scriptdee.com/free/ZeeHubV2.lua"))()
+                                        end)
+        
+                                        btns:Seperator()
+
+
+                                        btns:Button("Zee Hub v2", function()
+                                            DiscordLib:Notification("Notification", "GoodJob Nigger", "Thank you daddy!")
+                                            loadstring(game:HttpGet("https://scriptdee.com/free/ZeeHubNew.lua"))()
+                                            end)
+            
+                                            btns:Seperator()
+                                            btns:Button("Demon Hub", function()
+                                                DiscordLib:Notification("Notification", "GoodJob Nigger", "Thank you daddy!")
+                                                loadstring(game:HttpGet('https://raw.githubusercontent.com/Piwwy0909/MakimaRemake/main/Cumback.Makima'))()
+                                                end)
+                
+                                                btns:Seperator()
+
+                                                btns:Button("Instant ChestFarm", function()
+                                                    DiscordLib:Notification("Notification", "GoodJob Nigger", "Thank you daddy!")
+                                                    loadstring(game:HttpGet("https://raw.githubusercontent.com/scriptpastebin/raw/main/Chest_onoff"))()
+                                                    end)
+                    
+                                                    btns:Seperator()
+
+                                                    btns:Button("InstantChestFarm v2", function()
+                                                        DiscordLib:Notification("Notification", "GoodJob Nigger", "Thank you daddy!")
+                                                        loadstring(game:HttpGet("https://raw.githubusercontent.com/NickelHUBB/SonicTuru/main/ChestFarmOp"))()
+                                                        end)
+                        
+                                                        btns:Seperator()
+
+
+                                                        btns:Button("Zamex2", function()
+                                                            DiscordLib:Notification("Notification", "GoodJob Nigger", "Thank you daddy!")
+                                                            loadstring(game:HttpGet('https://raw.githubusercontent.com/Sixnumz/ZamexMobile/main/Zamex_Mobile.lua'))()
+                                                            end)
+                            
+                                                            btns:Seperator()
 
-
-Tab:AddButton({
-    Name = "MokuraHub!",
-    Callback = function()
-        loadstring(game:HttpGet"https://raw.githubusercontent.com/xQuartyx/DonateMe/main/ScriptLoader")()
-      end    
-})
+                                                            btns:Button("Mango", function()
+                                                                DiscordLib:Notification("Notification", "GoodJob Nigger", "Thank you daddy!")
+                                                                loadstring(game:HttpGet('https://gitlab.com/L1ZOT/mango-hub/-/raw/main/Mango-Bloxf-Fruits-Beta'))()
+                                                                end)
+                                
+                                                                btns:Seperator()
+
+
+                                                                btns:Button("Zee Hub v2", function()
+                                                                    DiscordLib:Notification("Notification", "GoodJob Nigger", "Thank you daddy!")
+                                                                    loadstring(game:HttpGet("https://scriptdee.com/free/ZeeHubNew.lua"))()
+                                                                    end)
+                                    
+                                                                    btns:Seperator()
+
+
+                                                                    btns:Button("tableHub", function()
+                                                                        DiscordLib:Notification("Notification", "GoodJob Nigger", "Thank you daddy!")
+                                                                        loadstring(game:HttpGet('https://raw.githubusercontent.com/1f0yt/community/master/table'))()
+                                                                        end)
+                                        
+                                                                        btns:Seperator()
+
+
+                                                                        btns:Button("TAWAN_HUB", function()
+                                                                            DiscordLib:Notification("Notification", "GoodJob Nigger", "Thank you daddy!")
+                                                                            loadstring(game:HttpGet('https://raw.githubusercontent.com/kill55547/TAWAN_HUB/main/hub.lua.txt'))()
+                                                                            end)
+                                            
+                                                                            btns:Seperator()
+
+
+                                                                            btns:Button("TUPERX", function()
+                                                                                DiscordLib:Notification("Notification", "GoodJob Nigger", "Thank you daddy!")
+                                                                                loadstring(game:HttpGet('https://raw.githubusercontent.com/TUPERX/TUPERX/Main/MenuBF/README.md'))()
+                                                                                end)
+                                                
+                                                                                btns:Seperator()
+
+
+                                                                                btns:Button("Unique", function()
+                                                                                    DiscordLib:Notification("Notification", "GoodJob Nigger", "Thank you daddy!")
+                                                                                    loadstring(game:HttpGet('https://rawscripts.net/raw/UPDATE-16-Blox-Fruits-Unique-Hub-LEAK-6735'))()
+                                                                                    end)
+                                                    
+                                                                                    btns:Seperator()
+
+
+                                                                                    btns:Button("BlazeHub", function()
+                                                                                        DiscordLib:Notification("Notification", "GoodJob Nigger", "Thank you daddy!")
+                                                                                        loadstring(game:HttpGet('https://raw.githubusercontent.com/WindowsXp12/BlxzeRBLX/main/BLxzeHub.lua'))()
+                                                                                        end)
+                                                        
+                                                                                        btns:Seperator()
+
+
+
+                                                                                        btns:Button("NeaPchX2", function()
+                                                                                            DiscordLib:Notification("Notification", "GoodJob Nigger", "Thank you daddy!")
+                                                                                            loadstring(game:HttpGet('https://raw.githubusercontent.com/NeaPchX2/2XHUB-UPDBIG/main/README.md'))()
+                                                                                            end)
+                                                            
+                                                                                            btns:Seperator()
+
+
+                                                                                            btns:Button("Playback", function()
+                                                                                                DiscordLib:Notification("Notification", "GoodJob Nigger", "Thank you daddy!")
+                                                                                                loadstring(game:HttpGet('https://raw.githubusercontent.com/NeaPchX2/Playback-X-HUB/main/Protected.lua.txt'))()
+                                                                                                end)
+                                                                
+                                                                                                btns:Seperator()
+
+
+                                                                                                btns:Button("EastHub", function()
+                                                                                                    DiscordLib:Notification("Notification", "GoodJob Nigger", "Thank you daddy!")
+                                                                                                    loadstring(game:HttpGet('https://raw.githubusercontent.com/Brineeee/EastHub/main/lua'))()
+                                                                                                    end)
+                                                                    
+                                                                                                    btns:Seperator()
+
+
+                                                                                                    btns:Button("ChibaHuB", function()
+                                                                                                        DiscordLib:Notification("Notification", "GoodJob Nigger", "Thank you daddy!")
+                                                                                                        loadstring(game:HttpGet('https://raw.githubusercontent.com/KindIhave/ChibaHuB/main/Chiba-BF.txt'))()
+                                                                                                        end)
+                                                                        
+                                                                                                        btns:Seperator()
+
+
+                                                                                                        btns:Button("OneXHub", function()
+                                                                                                            DiscordLib:Notification("Notification", "GoodJob Nigger", "Thank you daddy!")
+                                                                                                            loadstring(game:HttpGet('https://raw.githubusercontent.com/xOne2/One-x-HUB/main/README.md'))()
+                                                                                                            end)
+                                                                            
+                                                                                                            btns:Seperator()
+
+
+                                                                                                            btns:Button("Putaya", function()
+                                                                                                                DiscordLib:Notification("Notification", "GoodJob Nigger", "Thank you daddy!")
+                                                                                                                loadstring(game:HttpGet('https://raw.githubusercontent.com/Putaya/HITBOXKAK/main/PutayaFree'))()
+                                                                                                                end)
+                                                                                
+                                                                                                                btns:Seperator()
+
+                                                                                                                btns:Button("Zee Hub v3", function()
+                                                                                                                    DiscordLib:Notification("Notification", "GoodJob Nigger", "Thank you daddy!")
+                                                                                                                    loadstring(game:HttpGet('https://raw.githubusercontent.com/Kaizenofficiall/ZenHub/main/Loader'))()
+                                                                                                                    end)
+                                                                                    
+                                                                                                                    btns:Seperator()
+
+                                                                                                                    btns:Button("BlodyXHub", function()
+                                                                                                                        DiscordLib:Notification("Notification", "GoodJob Nigger", "Thank you daddy!")
+                                                                                                                        loadstring(game:HttpGet('https://raw.githubusercontent.com/BlodyXHub/Xeniel_All/main/ForAll'))()
+                                                                                                                        end)
+                                                                                        
+                                                                                                                        btns:Seperator()
+
+                                                                                                                        btns:Button("Name", function()
+                                                                                                                            DiscordLib:Notification("Notification", "GoodJob Nigger", "Thank you daddy!")
+                                                                                                                            loadstring(game:HttpGet('https://raw.githubusercontent.com/Kaizenofficiall/ZenHub/main/Loader'))()
+                                                                                                                            end)
+                                                                                            
+                                                                                                                            btns:Seperator()
+
+                                                                                                                            btns:Button("XHUB", function()
+                                                                                                                                DiscordLib:Notification("Notification", "GoodJob Nigger", "Thank you daddy!")
+                                                                                                                                loadstring(game:HttpGet('https://raw.githubusercontent.com/NeaPchX2/Playback-X-HUB/main/Protected.lua.txt'))()
+                                                                                                                                end)
+                                                                                                
+                                                                                                                                btns:Seperator()
+
+                                                                                                                                btns:Button("UraniumHub", function()
+                                                                                                                                    DiscordLib:Notification("Notification", "GoodJob Nigger", "Thank you daddy!")
+                                                                                                                                    loadstring(game:HttpGet("https://raw.githubusercontent.com/Augustzyzx/UraniumMobile/main/UraniV1.lua"))()
+                                                                                                                                    end)
+                                                                                                    
+                                                                                                                                    btns:Seperator()
+
+                                                                                                                                    btns:Button("Nether", function()
+                                                                                                                                        DiscordLib:Notification("Notification", "GoodJob Nigger", "Thank you daddy!")
+                                                                                                                                        loadstring(game:HttpGet('https://raw.githubusercontent.com/natherzx/Nethez-Project/main/Security'))()
+                                                                                                                                        end)
+                                                                                                        
+                                                                                                                                        btns:Seperator()
+  local btns = serv:Channel("Shindo life")
+
+   btns:Button("Premier", function()
+     DiscordLib:Notification("Notification", "GoodJob Nigger", "Thank you daddy!")
+     loadstring(game:HttpGet('https://raw.githubusercontent.com/TrustsenseDev/Utilities/main/Premier.lua', true))()
+   end)
+   
+   btns:Seperator()
+
+   btns:Button("platnum", function()
+    DiscordLib:Notification("Notification","GoodJob Nigger", "Thank you daddy!")
+    loadstring(game:HttpGet("https://pastebin.com/raw/b0NEP3rG"))()
+  end) 
+
+  btns:Seperator()
+
+  btns:Button("Vg Hub", function()
+    DiscordLib:Notification("Notification", "GoodJob Nigger", "Thank you daddy!")
+    loadstring(game:HttpGet('https://raw.githubusercontent.com/1201for/V.G-Hub/main/V.Ghub'))()
+  end)
+  
+  btns:Seperator()
+
+  btns:Button("WdMain", function()
+    DiscordLib:Notification("Notification", "GoodJob Nigger", "Thank you daddy!")
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/Muhammad6196/Project-WD/main/Main.lua"))()
+  end)
+  
+  btns:Seperator() 
+
+  btns:Button("ProjectNexus", function()
+    DiscordLib:Notification("Notification", "GoodJob Nigger", "Thank you daddy!")
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/Demmx/ProjectNexus/main/Loader.lua"))()
+  end)
+  
+  btns:Seperator() 
+
+  local btns = serv:Channel("Repear 2")
+
+   btns:Button("KeybrewHub", function()
+     DiscordLib:Notification("Notification", "GoodJob Nigger", "Thank you daddy!")
+     loadstring(game:HttpGet(('https://raw.githubusercontent.com/borntodiekuv/KeybrewHub/main/Reaper2'),true))()
+   end)
+   
+   btns:Seperator() 
+
+   btns:Button("SensaiHub", function()
+    DiscordLib:Notification("Notification", "GoodJob Nigger", "Thank you daddy!")
+    loadstring(game:HttpGet("https://senseijoshy.com/Side-Scripts/Reaper2.lua"))()
+  end)
+  
+  btns:Seperator() 
+
+  local btns = serv:Channel("King Legacy")
+
+  btns:Button("Mokuro", function()
+    DiscordLib:Notification("Notification", "GoodJob Nigger", "Thank you daddy!")
+    loadstring(game:HttpGet"https://raw.githubusercontent.com/xQuartyx/DonateMe/main/ScriptLoader")()
+  end)
+  
+  btns:Seperator()
+  
+  btns:Button("dasdokasdias", function()
+    DiscordLib:Notification("Notification", "GoodJob Nigger", "Thank you daddy!")
+    loadstring(game:HttpGet"https://raw.githubusercontent.com/xQuartyx/DonateMe/main/ScriptLoader")()
+  end)
+  
+  btns:Seperator() 
+
+  btns:Button("OneXHub", function()
+    DiscordLib:Notification("Notification", "GoodJob Nigger", "Thank you daddy!")
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/xOne2/King-Legacy/main/README.md"))()
+  end)
+  
+  btns:Seperator()
+
+  btns:Button("CFrameHub", function()
+    DiscordLib:Notification("Notification", "GoodJob Nigger", "Thank you daddy!")
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/CFrame3310/CFrameHub/main/KingLegacy.lua"))()
+  end)
+  
+  btns:Seperator() 
+
+  btns:Button("Strikehubv2z", function()
+    DiscordLib:Notification("Notification", "GoodJob Nigger", "Thank you daddy!")
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/Strikehubv2z/StormSKz/main/All_in_one"))()
+  end)
+  
+  btns:Seperator() 
+
+  local btns = serv:Channel("combat warrior")
+
+  btns:Button("Ranked Platnumier", function()
+    DiscordLib:Notification("Notification", "GoodJob Nigger", "Thank you daddy!")
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/leakediz/top-g/main/combat%20warriors"))()
+  end)
+  
+  btns:Seperator()
+
+  local btns = serv:Channel("aba")
+
+  btns:Button("abunio", function()
+    DiscordLib:Notification("Notification", "GoodJob Nigger", "Thank you daddy!")
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/travislmao/pub-scripts/main/abagui", true))()
+  end)
+  
+  btns:Seperator()
 
-
-Tab:AddButton({
-    Name = "BLACKTRAP!",
-    Callback = function()
-        loadstring(game:HttpGet("https://raw.githubusercontent.com/Sky2836/BT/main/BYPASS/BLACKTRAP"))()
-      end    
-})
-
-
-Tab:AddButton({
-    Name = "HOHOHUB",
-    Callback = function()
-        loadstring(game:HttpGet('https://raw.githubusercontent.com/acsu123/HOHO_H/main/Loading_UI'))()
-      end    
-})
-
-
-Tab:AddButton({
-    Name = "EgoHub",
-    Callback = function()
-        loadstring(game:HttpGet("https://raw.githubusercontent.com/SuperIkka/Main/main/EgoLoaderMain", true))()
-      end    
-})
-
-
-Tab:AddButton({
-    Name = "Atomic Hub",
-    Callback = function()
-        loadstring(game:HttpGet("https://raw.githubusercontent.com/ArceusXHub/atomic-hub/main/atomic-hub"))()
-      end    
-})
-
-
-Tab:AddButton({
-    Name = "Zee Hub",
-    Callback = function()
-        loadstring(game:HttpGet("https://scriptdee.com/free/ZeeHubV2.lua"))()
-      end    
-})
-
-
-Tab:AddButton({
-    Name = "Zee Hub v2",
-    Callback = function()
-        loadstring(game:HttpGet("https://scriptdee.com/free/ZeeHubNew.lua"))()
-      end    
-})
-
-
-Tab:AddButton({
-    Name = "pedo Hub",
-    Callback = function()
-        loadstring(game:HttpGet('https://raw.githubusercontent.com/REWzaKunGz1/premium/main/PadoHub'))()
-      end    
-})
-
-
-Tab:AddButton({
-    Name = "Demon Hub",
-    Callback = function()
-        loadstring(game:HttpGet('https://raw.githubusercontent.com/Piwwy0909/MakimaRemake/main/Cumback.Makima'))()
-      end    
-})
-
-
-Tab:AddButton({
-    Name = "Instant ChestFarm",
-    Callback = function()
-        loadstring(game:HttpGet("https://raw.githubusercontent.com/scriptpastebin/raw/main/Chest_onoff"))()
-      end    
-})
-
-
-Tab:AddButton({
-    Name = "Zamex",
-    Callback = function()
-        loadstring(game:HttpGet('https://raw.githubusercontent.com/Sixnumz/ZamexMobile/main/Zamex_Mobile.lua'))()
-      end    
-})
-
-
-Tab:AddButton({
-    Name = "Mango",
-    Callback = function()
-        loadstring(game:HttpGet('https://gitlab.com/L1ZOT/mango-hub/-/raw/main/Mango-Bloxf-Fruits-Beta'))()
-      end    
-})
-
-
-Tab:AddButton({
-    Name = "tableHub",
-    Callback = function()
-        loadstring(game:HttpGet('https://raw.githubusercontent.com/1f0yt/community/master/table'))()
-      end    
-})
-
-
-Tab:AddButton({
-    Name = "TAWAN_HUB",
-    Callback = function()
-        loadstring(game:HttpGet('https://raw.githubusercontent.com/kill55547/TAWAN_HUB/main/hub.lua.txt'))()
-      end    
-})
-
-
-Tab:AddButton({
-    Name = "TUPERX",
-    Callback = function()
-        loadstring(game:HttpGet('https://raw.githubusercontent.com/TUPERX/TUPERX/Main/MenuBF/README.md'))()
-      end    
-})
-
-
-Tab:AddButton({
-    Name = "Unique",
-    Callback = function()
-        loadstring(game:HttpGet('https://rawscripts.net/raw/UPDATE-16-Blox-Fruits-Unique-Hub-LEAK-6735'))()
-      end    
-})
-
-
-Tab:AddButton({
-    Name = "BlazeHub",
-    Callback = function()
-        loadstring(game:HttpGet('https://raw.githubusercontent.com/WindowsXp12/BlxzeRBLX/main/BLxzeHub.lua'))()
-      end    
-})
-
-
-Tab:AddButton({
-    Name = "NeaPchX2",
-    Callback = function()
-        loadstring(game:HttpGet('https://raw.githubusercontent.com/NeaPchX2/2XHUB-UPDBIG/main/README.md'))()
-      end    
-})
-
-
-Tab:AddButton({
-    Name = "Playback",
-    Callback = function()
-        loadstring(game:HttpGet('https://raw.githubusercontent.com/NeaPchX2/Playback-X-HUB/main/Protected.lua.txt'))()
-      end    
-})
-
-
-Tab:AddButton({
-    Name = "EastHub",
-    Callback = function()
-        loadstring(game:HttpGet('https://raw.githubusercontent.com/Brineeee/EastHub/main/lua'))()
-      end    
-})
-
-
-Tab:AddButton({
-    Name = "ChibaHuB",
-    Callback = function()
-        loadstring(game:HttpGet('https://raw.githubusercontent.com/KindIhave/ChibaHuB/main/Chiba-BF.txt'))()
-      end    
-})
-
-
-Tab:AddButton({
-    Name = "OneXHub",
-    Callback = function()
-        loadstring(game:HttpGet('https://raw.githubusercontent.com/xOne2/One-x-HUB/main/README.md'))()
-      end    
-})
-
-
-Tab:AddButton({
-    Name = "Putaya",
-    Callback = function()
-        loadstring(game:HttpGet('https://raw.githubusercontent.com/Putaya/HITBOXKAK/main/PutayaFree'))()
-      end    
-})
-
-
-Tab:AddButton({
-    Name = "ZeeHubV2",
-    Callback = function()
-        loadstring(game:HttpGet('https://raw.githubusercontent.com/Kaizenofficiall/ZenHub/main/Loader'))()
-      end    
-})
-
-
-Tab:AddButton({
-    Name = "ProjectMeow",
-    Callback = function()
-        loadstring(game:HttpGet('https://rawscripts.net/raw/Project-Meow_421'))()
-      end    
-})
-
-
-Tab:AddButton({
-    Name = "SHAREHACK",
-    Callback = function()
-        loadstring(game:HttpGet('https://raw.githubusercontent.com/SHAREHACK/script/main/fusion1'))()
-      end    
-})
-
-
-Tab:AddButton({
-    Name = "BlodyXHub",
-    Callback = function()
-        loadstring(game:HttpGet('https://raw.githubusercontent.com/BlodyXHub/Xeniel_All/main/ForAll'))()
-      end    
-})
-
-
-Tab:AddButton({
-    Name = "XHUB",
-    Callback = function()
-        loadstring(game:HttpGet('https://raw.githubusercontent.com/NeaPchX2/Playback-X-HUB/main/Protected.lua.txt'))()
-      end    
-})
-
-
-Tab:AddButton({
-    Name = "UraniumHub",
-    Callback = function()
-        loadstring(game:HttpGet("https://raw.githubusercontent.com/Augustzyzx/UraniumMobile/main/UraniV1.lua"))()
-      end    
-})
-
-
-Tab:AddButton({
-    Name = "UraniumHub",
-    Callback = function()
-        loadstring(game:HttpGet('https://raw.githubusercontent.com/natherzx/Nethez-Project/main/Security'))()
-      end    
-})
-
-
-local Tab = Window:MakeTab({
-    Name = "Shindo Life",
-    Icon = "rbxassetid://4483345998",
-    PremiumOnly = false
-})
-
-Tab:AddButton({
-    Name = "Premier!",
-    Callback = function()
-        loadstring(game:HttpGet('https://raw.githubusercontent.com/TrustsenseDev/Utilities/main/Premier.lua', true))()
-      end    
-})
-
-
-Tab:AddButton({
-    Name = "platnim may not work",
-    Callback = function()
-        loadstring(game:HttpGet("https://pastebin.com/raw/b0NEP3rG"))()
-      end    
-})
-
-
-Tab:AddButton({
-    Name = "vg hub",
-    Callback = function()
-        loadstring(game:HttpGet('https://raw.githubusercontent.com/1201for/V.G-Hub/main/V.Ghub'))()
-      end    
-})
-
-
-Tab:AddButton({
-    Name = "WdMain",
-    Callback = function()
-        loadstring(game:HttpGet("https://raw.githubusercontent.com/Muhammad6196/Project-WD/main/Main.lua"))()
-      end    
-})
-
-
-Tab:AddButton({
-    Name = "ProjectNexus",
-    Callback = function()
-        loadstring(game:HttpGet("https://raw.githubusercontent.com/Demmx/ProjectNexus/main/Loader.lua"))()
-      end    
-})
-
-
-
-local Tab = Window:MakeTab({
-    Name = "Repear 2",
-    Icon = "rbxassetid://4483345998",
-    PremiumOnly = false
-})
-
-Tab:AddButton({
-    Name = "KeybrewHub",
-    Callback = function()
-        loadstring(game:HttpGet(('https://raw.githubusercontent.com/borntodiekuv/KeybrewHub/main/Reaper2'),true))()
-      end    
-})
-
-
-Tab:AddButton({
-    Name = "SensaiHub",
-    Callback = function()
-        loadstring(game:HttpGet("https://senseijoshy.com/Side-Scripts/Reaper2.lua"))()
-      end    
-})
-
-
-
-local Tab = Window:MakeTab({
-    Name = "King Legacy",
-    Icon = "rbxassetid://4483345998",
-    PremiumOnly = false
-})
-
-Tab:AddButton({
-    Name = "Mokuro",
-    Callback = function()
-        loadstring(game:HttpGet"https://raw.githubusercontent.com/xQuartyx/DonateMe/main/ScriptLoader")()
-      end    
-})
-
-
-Tab:AddButton({
-    Name = "dasdokasdias",
-    Callback = function()
-        loadstring(game:HttpGet("https://raw.githubusercontent.com/xlostpexz/dasdokasdias/Fps/Loading.lua"))()
-      end    
-})
-
-
-Tab:AddButton({
-    Name = "OneXHub",
-    Callback = function()
-        loadstring(game:HttpGet("https://raw.githubusercontent.com/xOne2/King-Legacy/main/README.md"))()
-      end    
-})
-
-
-Tab:AddButton({
-    Name = "CFrameHub",
-    Callback = function()
-        loadstring(game:HttpGet("https://raw.githubusercontent.com/CFrame3310/CFrameHub/main/KingLegacy.lua"))()
-      end    
-})
-
-
-Tab:AddButton({
-    Name = "Strikehubv2z",
-    Callback = function()
-        loadstring(game:HttpGet("https://raw.githubusercontent.com/Strikehubv2z/StormSKz/main/All_in_one"))()
-      end    
-})
-
-
-
-OrionLib:Init()
