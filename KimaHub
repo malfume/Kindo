@@ -33,7 +33,7 @@ btns:Button("Universal aimbot with fov", function()
 
         btns:Button("infinity yield", function()
             DiscordLib:Notification("Notification", "GoodJob Nigger", "Thank you daddy")
-            loadstring(game:HttpGet("https://pastebin.com/raw/CwQcEnEd"))()
+            loadstring(game:HttpGet('https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source'))()
             end)
 
 
