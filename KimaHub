@@ -331,6 +331,13 @@ btns:Button("Universal aimbot with fov", function()
                                                                                                                                         
                                                                                                                                         btns:Seperator()
 
+                                                                                                                                        btns:Button("Turbo", function()
+                                                                                                                                          DiscordLib:Notification("Notification", "GoodJob Nigger", "Thank you daddy!")
+                                                                                                                                          loadstring(Game:HttpGet"https://gitlab.com/turbohubz/loader.xyz/loader/-/raw/main/TurboHub-Loader")()
+                                                                                                                                        end)
+                                                                                                                                        
+                                                                                                                                        btns:Seperator()
+
 
   local btns = serv:Channel("Shindo life")
 
