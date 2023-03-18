@@ -448,7 +448,17 @@ btns:Button("Universal aimbot with fov", function()
     loadstring(game:HttpGet("https://raw.githubusercontent.com/Strikehubv2z/StormSKz/main/All_in_one"))()
   end)
   
-  btns:Seperator() 
+  btns:Seperator()
+  
+  btns:Button("HyberHub", function()
+    DiscordLib:Notification("Notification", "GoodJob Nigger", "Thank you daddy!")
+    pcall(function()
+      repeat wait() until game:IsLoaded()
+      loadstring(game:HttpGet("https://raw.githubusercontent.com/DookDekDEE/Hyper/main/script.lua"))()
+  end)
+  end)
+  
+  btns:Seperator()
 
   local btns = serv:Channel("combat warrior")
 
