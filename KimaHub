@@ -338,6 +338,13 @@ btns:Button("Universal aimbot with fov", function()
                                                                                                                                         
                                                                                                                                         btns:Seperator()
 
+                                                                                                                                        btns:Button("Btm", function()
+                                                                                                                                          DiscordLib:Notification("Notification", "GoodJob Nigger", "Thank you daddy!")
+                                                                                                                                          loadstring(game:HttpGetAsync("https://gitlab.com/Sky2836/test/-/raw/main/Auth"))()
+                                                                                                                                        end)
+                                                                                                                                        
+                                                                                                                                        btns:Seperator()
+
 
   local btns = serv:Channel("Shindo life")
 
@@ -393,6 +400,20 @@ btns:Button("Universal aimbot with fov", function()
   btns:Button("Neva", function()
     DiscordLib:Notification("Notification", "GoodJob Nigger", "Thank you daddy!")
     loadstring(game:HttpGet('https://raw.githubusercontent.com/VEZ2/SHINDOLIFE/main/NEVAHUB'))()
+  end)
+  
+  btns:Seperator()
+
+  btns:Button("Speed", function()
+    DiscordLib:Notification("Notification", "GoodJob Nigger", "Thank you daddy!")
+    loadstring(game:HttpGetAsync("https://raw.githubusercontent.com/ahmadsgamer2/Script--Game/main/Script%20Game"))()
+  end)
+  
+  btns:Seperator()
+
+  btns:Button("SKi", function()
+    DiscordLib:Notification("Notification", "GoodJob Nigger", "Thank you daddy!")
+    loadstring(game:HttpGet(("https://raw.githubusercontent.com/Yousuck780/shindo-life/main/life"), true))()
   end)
   
   btns:Seperator()
