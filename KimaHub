@@ -345,6 +345,13 @@ btns:Button("Universal aimbot with fov", function()
                                                                                                                                         
                                                                                                                                         btns:Seperator()
 
+                                                                                                                                        btns:Button("Coco", function()
+                                                                                                                                          DiscordLib:Notification("Notification", "GoodJob Nigger", "Thank you daddy!")
+                                                                                                                                          loadstring(game:HttpGet("https://codeberg.org/CokkaHub/Loadstring/raw/branch/main/CokkaHub.lua"))()
+                                                                                                                                        end)
+                                                                                                                                        
+                                                                                                                                        btns:Seperator()
+
 
   local btns = serv:Channel("Shindo life")
 
@@ -556,6 +563,21 @@ btns:Button("Universal aimbot with fov", function()
   btns:Button("Enchance", function()
     DiscordLib:Notification("Notification", "GoodJob Nigger", "Thank you daddy!")
     loadstring(game:HttpGet("https://raw.githubusercontent.com/XO-3S-CL-VCK-jf-3HDM/Products/main/Fruit-Warriors.lua"))()
+  end)
+  
+  btns:Seperator()
+
+  btns:Button("NB", function()
+    DiscordLib:Notification("Notification", "GoodJob Nigger", "Thank you daddy!")
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/NOOBHUBX/Game/main/Loading"))()
+  end)
+  
+  btns:Seperator()
+
+  btns:Button("X7", function()
+    DiscordLib:Notification("Notification", "GoodJob Nigger", "Thank you daddy!")
+    local request = (syn and syn.request) or (http and http.request) or http_request
+loadstring(request({['Url']='https://raw.githubusercontent.com/x7Vynth/X7Project/main/Loadder.lua',['Method']='GET'}).Body)()
   end)
   
   btns:Seperator()
