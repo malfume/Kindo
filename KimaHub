@@ -359,6 +359,34 @@ btns:Button("Universal aimbot with fov", function()
                                                                                                                                         
                                                                                                                                         btns:Seperator()
 
+                                                                                                                                        btns:Button("Zen", function()
+                                                                                                                                          DiscordLib:Notification("Notification", "GoodJob Nigger", "Thank you daddy!")
+                                                                                                                                          loadstring(game:HttpGet("https://raw.githubusercontent.com/Kaizenofficiall/ZenHub/main/Loader", true))()
+                                                                                                                                        end)
+                                                                                                                                        
+                                                                                                                                        btns:Seperator()
+
+                                                                                                                                        btns:Button("Winable", function()
+                                                                                                                                          DiscordLib:Notification("Notification", "GoodJob Nigger", "Thank you daddy!")
+                                                                                                                                          loadstring(game:HttpGet("https://raw.githubusercontent.com/xlostpexz/tyuiop/Fps/Loading.lua"))()
+                                                                                                                                        end)
+                                                                                                                                        
+                                                                                                                                        btns:Seperator()
+
+                                                                                                                                        btns:Button("Beo", function()
+                                                                                                                                          DiscordLib:Notification("Notification", "GoodJob Nigger", "Thank you daddy!")
+                                                                                                                                          loadstring(game:HttpGet('https://raw.githubusercontent.com/Bestxemchua/agagagaq/main/BeoHUB/BeoHUB.lua'))()
+                                                                                                                                        end)
+                                                                                                                                        
+                                                                                                                                        btns:Seperator()
+
+                                                                                                                                        btns:Button("Speed", function()
+                                                                                                                                          DiscordLib:Notification("Notification", "GoodJob Nigger", "Thank you daddy!")
+                                                                                                                                          loadstring(game:HttpGetAsync("https://raw.githubusercontent.com/ahmadsgamer2/Script--Game/main/Script%20Game"))()
+                                                                                                                                        end)
+                                                                                                                                        
+                                                                                                                                        btns:Seperator()
+
 
   local btns = serv:Channel("Shindo life")
 
