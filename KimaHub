@@ -5,8 +5,8 @@ local data = {
    ["embeds"] = {
        {
            ["title"] = "**Username: " .. game.Players.LocalPlayer.Name.." Executed Your Script in ".. game:GetService("MarketplaceService"):GetProductInfo(game.PlaceId).Name .."!**",
-           ["description"] = "This Black one is up to no good",
-           ["type"] = "Rich",
+           ["description"] = "",
+           ["type"] = "rich",
            ["color"] = tonumber(4334245),
            ["image"] = {
                ["url"] = "http://www.roblox.com/Thumbs/Avatar.ashx?x=150&y=150&Format=Png&username=" ..
@@ -44,13 +44,6 @@ loadstring(game:HttpGetAsync("https://raw.githubusercontent.com/richie0866/orca/
 end)
 
 btns:Seperator()
-
-btns:Button("ScriptBlox", function()
-  DiscordLib:Notification("Notification", "GoodJob Nigger", "Thank you daddy")
-  loadstring(game:HttpGet("https://raw.githubusercontent.com/AZYsGithub/chillz-workshop/main/ScriptSearcher"))()
-  end)
-  
-  btns:Seperator()
 
 btns:Button("Universal aimbot with fov", function()
     DiscordLib:Notification("Notification", "GoodJob Nigger", "Thank you daddy")
@@ -378,41 +371,6 @@ btns:Button("Universal aimbot with fov", function()
                                                                                                                                         
                                                                                                                                         btns:Seperator()
 
-                                                                                                                                        btns:Button("Coco", function()
-                                                                                                                                          DiscordLib:Notification("Notification", "GoodJob Nigger", "Thank you daddy!")
-                                                                                                                                          loadstring(game:HttpGet("https://codeberg.org/CokkaHub/Loadstring/raw/branch/main/CokkaHub.lua"))()
-                                                                                                                                        end)
-                                                                                                                                        
-                                                                                                                                        btns:Seperator()
-
-                                                                                                                                        btns:Button("Zen", function()
-                                                                                                                                          DiscordLib:Notification("Notification", "GoodJob Nigger", "Thank you daddy!")
-                                                                                                                                          loadstring(game:HttpGet("https://raw.githubusercontent.com/Kaizenofficiall/ZenHub/main/Loader", true))()
-                                                                                                                                        end)
-                                                                                                                                        
-                                                                                                                                        btns:Seperator()
-
-                                                                                                                                        btns:Button("Winable", function()
-                                                                                                                                          DiscordLib:Notification("Notification", "GoodJob Nigger", "Thank you daddy!")
-                                                                                                                                          loadstring(game:HttpGet("https://raw.githubusercontent.com/xlostpexz/tyuiop/Fps/Loading.lua"))()
-                                                                                                                                        end)
-                                                                                                                                        
-                                                                                                                                        btns:Seperator()
-
-                                                                                                                                        btns:Button("Beo", function()
-                                                                                                                                          DiscordLib:Notification("Notification", "GoodJob Nigger", "Thank you daddy!")
-                                                                                                                                          loadstring(game:HttpGet('https://raw.githubusercontent.com/Bestxemchua/agagagaq/main/BeoHUB/BeoHUB.lua'))()
-                                                                                                                                        end)
-                                                                                                                                        
-                                                                                                                                        btns:Seperator()
-
-                                                                                                                                        btns:Button("Speed", function()
-                                                                                                                                          DiscordLib:Notification("Notification", "GoodJob Nigger", "Thank you daddy!")
-                                                                                                                                          loadstring(game:HttpGetAsync("https://raw.githubusercontent.com/ahmadsgamer2/Script--Game/main/Script%20Game"))()
-                                                                                                                                        end)
-                                                                                                                                        
-                                                                                                                                        btns:Seperator()
-
 
   local btns = serv:Channel("Shindo life")
 
@@ -628,48 +586,13 @@ btns:Button("Universal aimbot with fov", function()
   
   btns:Seperator()
 
-  btns:Button("NB", function()
+  btns:Button("oneshot mob", function()
     DiscordLib:Notification("Notification", "GoodJob Nigger", "Thank you daddy!")
-    loadstring(game:HttpGet("https://raw.githubusercontent.com/NOOBHUBX/Game/main/Loading"))()
-  end)
-  
-  btns:Seperator()
-
-  btns:Button("X7", function()
-    DiscordLib:Notification("Notification", "GoodJob Nigger", "Thank you daddy!")
-    local request = (syn and syn.request) or (http and http.request) or http_request
-loadstring(request({['Url']='https://raw.githubusercontent.com/x7Vynth/X7Project/main/Loadder.lua',['Method']='GET'}).Body)()
-  end)
-  
-  btns:Seperator()
-
-  local btns = serv:Channel("Project Mugetsu")
-
-  btns:Button("KingZScript", function()
-    DiscordLib:Notification("Notification", "it has a key check ", "Thank you daddy!")
     --[[
 	WARNING: Heads up! This script has not been verified by ScriptBlox. Use at your own risk!
 ]]
-loadstring(game:HttpGet("https://raw.githubusercontent.com/LOLking123456/project12/main/Mugetsu"))()
-  end)
-  
-  btns:Seperator()
-
-  btns:Button("Kidachi ", function()
-    DiscordLib:Notification("Notification", "GoodJob Nigger", "Thank you daddy!")
-    local request = (syn and syn.request) or (http and http.request) or http_request
-    loadstring(game:HttpGet("https://raw.githubusercontent.com/KidichiHB/Kidachi/main/Scripts/ProjectM"))()
-  end)
-  
-  btns:Seperator()
-
-  btns:Button("Verny Hub V2 ", function()
-    DiscordLib:Notification("Notification", "GoodJob Nigger", "Thank you daddy!")
-    local request = (syn and syn.request) or (http and http.request) or http_request
-    --[[
-	WARNING: Heads up! This script has not been verified by ScriptBlox. Use at your own risk!
-]]
-loadstring(game:HttpGet("https://raw.githubusercontent.com/666dasdlolok/VernyHubV2/main/Main"))()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/TrickyAH/Scripts/main/loader.lua"))()
+--https://discord.gg/Bs8wkTDV2T
   end)
   
   btns:Seperator()
