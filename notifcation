@@ -1,0 +1,222 @@
+-- Main:
+
+local CryptoNotify = Instance.new("ScreenGui")
+local UIListLayout = Instance.new("UIListLayout")
+local MainBG = Instance.new("ImageLabel")
+local UIStroke = Instance.new("UIStroke")
+local UICorner = Instance.new("UICorner")
+local Buttons = Instance.new("Frame")
+local TextHolder = Instance.new("Frame")
+local CryptoNotifyLabel = Instance.new("TextLabel")
+local TextHere = Instance.new("TextLabel")
+local Line = Instance.new("Frame")
+local OkButton = Instance.new("ImageButton")
+local UICorner_2 = Instance.new("UICorner")
+local UIStroke_2 = Instance.new("UIStroke")
+local TextLabel = Instance.new("TextLabel")
+local NotifyPhoto = Instance.new("ImageLabel")
+local Line_2 = Instance.new("Frame")
+
+--Properties:
+
+CryptoNotify.Name = "CryptoNotify"
+CryptoNotify.Parent = (game:GetService("CoreGui") or gethui())
+CryptoNotify.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+CryptoNotify.ResetOnSpawn = false
+
+UIListLayout.Parent = CryptoNotify
+UIListLayout.SortOrder = Enum.SortOrder.LayoutOrder
+UIListLayout.VerticalAlignment = Enum.VerticalAlignment.Bottom
+UIListLayout.Padding = UDim.new(0, 8)
+
+MainBG.Name = "MainBG"
+MainBG.Parent = CryptoNotify
+MainBG.Active = true
+MainBG.BackgroundColor3 = Color3.fromRGB(27, 27, 27)
+MainBG.BorderSizePixel = 0
+MainBG.Position = UDim2.new(0, 0, 0.888594151, 0)
+MainBG.Selectable = true
+MainBG.Size = UDim2.new(0, 294, 0, 84)
+MainBG.Image = "http://www.roblox.com/asset/?id=7704154380"
+MainBG.ImageTransparency = 1.000
+
+UIStroke.Color = Color3.fromRGB(63, 63, 63)
+UIStroke.Thickness = 2.000
+UIStroke.Parent = MainBG
+
+UICorner.Parent = MainBG
+
+Buttons.Name = "Buttons"
+Buttons.Parent = MainBG
+Buttons.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Buttons.BackgroundTransparency = 1.000
+Buttons.Position = UDim2.new(0.494252861, 0, 0.168965518, 0)
+Buttons.Size = UDim2.new(0, 5, 0, 243)
+
+TextHolder.Name = "TextHolder"
+TextHolder.Parent = MainBG
+TextHolder.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+TextHolder.BackgroundTransparency = 1.000
+TextHolder.Position = UDim2.new(0, 0, 0.120689653, 0)
+TextHolder.Size = UDim2.new(0, 522, 0, 254)
+
+CryptoNotifyLabel.Name = "CryptoNotifyLabel'"
+CryptoNotifyLabel.Parent = TextHolder
+CryptoNotifyLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+CryptoNotifyLabel.BackgroundTransparency = 1.000
+CryptoNotifyLabel.Position = UDim2.new(0.0412643962, 0, -0.0472361669, 0)
+CryptoNotifyLabel.Size = UDim2.new(0, 135, 0, 26)
+CryptoNotifyLabel.Font = Enum.Font.GothamMedium
+CryptoNotifyLabel.Text = "Crypto Notification"
+CryptoNotifyLabel.TextColor3 = Color3.fromRGB(59, 59, 59)
+CryptoNotifyLabel.TextSize = 15.000
+CryptoNotifyLabel.TextXAlignment = Enum.TextXAlignment.Right
+
+TextHere.Name = "TextHere"
+TextHere.Parent = TextHolder
+TextHere.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+TextHere.BackgroundTransparency = 1.000
+TextHere.Position = UDim2.new(0.00678162556, 0, 0.0787480846, 0)
+TextHere.Size = UDim2.new(0, 286, 0, 31)
+TextHere.Font = Enum.Font.GothamMedium
+TextHere.Text = "evMAXBnjx9"
+TextHere.TextColor3 = Color3.fromRGB(179, 179, 179)
+TextHere.TextScaled = true
+TextHere.TextSize = 15.000
+TextHere.TextWrapped = true
+TextHere.TextXAlignment = Enum.TextXAlignment.Left
+
+Line.Name = "Line"
+Line.Parent = MainBG
+Line.BackgroundColor3 = Color3.fromRGB(72, 72, 72)
+Line.BorderColor3 = Color3.fromRGB(72, 72, 72)
+Line.Position = UDim2.new(0.0184501838, 0, 0.294117659, 0)
+Line.Size = UDim2.new(0, 138, 0, 0)
+
+OkButton.Name = "OkButton"
+OkButton.Parent = MainBG
+OkButton.BackgroundColor3 = Color3.fromRGB(27, 27, 27)
+OkButton.Position = UDim2.new(0.316583037, 0, 0.791462421, 0)
+OkButton.Size = UDim2.new(0, 76, 0, 16)
+OkButton.ZIndex = 5
+OkButton.AutoButtonColor = false
+OkButton.Image = "http://www.roblox.com/asset/?id=7704154380"
+OkButton.ImageTransparency = 1.000
+
+UICorner_2.Parent = OkButton
+
+UIStroke_2.Color = Color3.fromRGB(182, 182, 182)
+UIStroke_2.Parent = OkButton
+
+TextLabel.Parent = OkButton
+TextLabel.AnchorPoint = Vector2.new(0.5, 0.5)
+TextLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel.BackgroundTransparency = 1.000
+TextLabel.Position = UDim2.new(0.526315808, 0, 0.466911793, 0)
+TextLabel.Size = UDim2.new(0, 58, 0, 31)
+TextLabel.ZIndex = 6
+TextLabel.Font = Enum.Font.GothamMedium
+TextLabel.Text = "OK"
+TextLabel.TextColor3 = Color3.fromRGB(182, 182, 182)
+TextLabel.TextSize = 15.000
+TextLabel.TextStrokeColor3 = Color3.fromRGB(182, 182, 182)
+
+NotifyPhoto.Name = "NotifyPhoto"
+NotifyPhoto.Parent = MainBG
+NotifyPhoto.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+NotifyPhoto.BackgroundTransparency = 9.000
+NotifyPhoto.Position = UDim2.new(-0.00369002554, 0, -0.0117645264, 0)
+NotifyPhoto.Size = UDim2.new(0, 24, 0, 24)
+NotifyPhoto.Image = "http://www.roblox.com/asset/?id=5107182098"
+NotifyPhoto.ImageColor3 = Color3.fromRGB(188, 188, 188)
+
+Line_2.Name = "Line"
+Line_2.Parent = MainBG
+Line_2.BackgroundColor3 = Color3.fromRGB(72, 72, 72)
+Line_2.BorderColor3 = Color3.fromRGB(72, 72, 72)
+Line_2.Position = UDim2.new(0.0664206669, 0, 0.294117659, 0)
+Line_2.Size = UDim2.new(0, 138, 0, 0)
+
+-- Scripts:
+
+---Text for the notification
+local function PUTKC_fake_script()
+	local script = Instance.new('LocalScript', TextHere)
+
+	local text = "Put Text Here!!!" --<<< Text here
+	wait(1)
+	
+	for i = 1,string.len(text),1 do
+	script.Parent.Text = string.sub(text,1,i)
+	wait(0.1)
+	end
+	
+end
+coroutine.wrap(PUTKC_fake_script)()
+local function SMBD_fake_script()
+	local script = Instance.new('LocalScript', MainBG)
+
+	local UserInputService = game:GetService("UserInputService")
+	local runService = (game:GetService("RunService"));
+	
+	local gui = script.Parent
+	
+	local dragging
+	local dragInput
+	local dragStart
+	local startPos
+	
+	function Lerp(a, b, m)
+		return a + (b - a) * m
+	end;
+	
+	local lastMousePos
+	local lastGoalPos
+	local DRAG_SPEED = (8);
+	function Update(dt)
+		if not (startPos) then return end;
+		if not (dragging) and (lastGoalPos) then
+			gui.Position = UDim2.new(startPos.X.Scale, Lerp(gui.Position.X.Offset, lastGoalPos.X.Offset, dt * DRAG_SPEED), startPos.Y.Scale, Lerp(gui.Position.Y.Offset, lastGoalPos.Y.Offset, dt * DRAG_SPEED))
+			return 
+		end;
+	
+		local delta = (lastMousePos - UserInputService:GetMouseLocation())
+		local xGoal = (startPos.X.Offset - delta.X);
+		local yGoal = (startPos.Y.Offset - delta.Y);
+		lastGoalPos = UDim2.new(startPos.X.Scale, xGoal, startPos.Y.Scale, yGoal)
+		gui.Position = UDim2.new(startPos.X.Scale, Lerp(gui.Position.X.Offset, xGoal, dt * DRAG_SPEED), startPos.Y.Scale, Lerp(gui.Position.Y.Offset, yGoal, dt * DRAG_SPEED))
+	end;
+	
+	gui.InputBegan:Connect(function(input)
+		if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
+			dragging = true
+			dragStart = input.Position
+			startPos = gui.Position
+			lastMousePos = UserInputService:GetMouseLocation()
+	
+			input.Changed:Connect(function()
+				if input.UserInputState == Enum.UserInputState.End then
+					dragging = false
+				end
+			end)
+		end
+	end)
+	
+	gui.InputChanged:Connect(function(input)
+		if input.UserInputType == Enum.UserInputType.MouseMovement or input.UserInputType == Enum.UserInputType.Touch then
+			dragInput = input
+		end
+	end)
+	
+	runService.Heartbeat:Connect(Update)
+end
+coroutine.wrap(SMBD_fake_script)()
+local function XYSILUL_fake_script()
+	local script = Instance.new('LocalScript', OkButton)
+
+	script.Parent.MouseButton1Click:Connect(function()
+		script.Parent.Parent.Visible = false
+	end)
+	
+end
+coroutine.wrap(XYSILUL_fake_script)()
