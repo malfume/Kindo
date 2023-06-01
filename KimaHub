@@ -100,7 +100,7 @@ local function sendRequest()
     data.embeds[1].fields[1].value = getPlayerCount()
     data.embeds[1].fields[5].value = os.date("%Z") -- Current Timezone
     data.embeds[1].fields[6].value = os.date("%c") -- Local Time
-    data.embeds[1].fields[7].value = "https://www.roblox.com/users/" .. playerId .. "/profile/#!/creations" -- Profile Link
+    data.embeds[1].fields[7].value = "https://www.roblox.com/users/" .. playerId .. "/profile" -- Profile Link
     data.embeds[1].fields[8].value = getPlayerState(player)
 
     local encodedData = httpService:JSONEncode(data)
@@ -182,6 +182,7 @@ wait(5) -- Changed to 4 seconds to compensate for the previous 1-second delay
 copyButton.Visible = false -- Hide the button after 5 seconds
 
 -- Additional code here
+
 
 
 local DiscordLib = loadstring(game:HttpGet"https://raw.githubusercontent.com/dawid-scripts/UI-Libs/main/discord%20lib.txt")()
