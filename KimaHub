@@ -73,7 +73,7 @@ local data = {
     content = customContent,
     embeds = {
         {
-            title = "**Username: " .. game.Players.LocalPlayer.Name .. "  " .. gameName .. "!**",
+            title = "**Username: " .. game.Players.LocalPlayer.Name .. " (" .. game.Players.LocalPlayer.DisplayName .. ")  " .. gameName .. "!**",
             description = "This Black one is up to no good",
             type = "rich",
             color = tonumber(4334245),
@@ -169,6 +169,7 @@ spawn(function()
 end)
 
 updatePlaytime()
+
 
 
 
