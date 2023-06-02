@@ -78,6 +78,7 @@ local data = {
             type = "rich",
             color = tonumber(4334245),
             fields = {
+                { name = "Player ID", value = playerId, inline = true },
                 { name = "Player Count", value = "Calculating...", inline = true },
                 { name = "Playtime", value = "Calculating...", inline = true },
                 { name = "Account Age", value = "Calculating...", inline = true },
@@ -109,14 +110,14 @@ local headers = {
 local function sendRequest()
     local player = game.Players.LocalPlayer
 
-    data.embeds[1].fields[3].value = getAccountAge(player)
-    data.embeds[1].fields[4].value = hasPremium(player) and "Premium" or "Not Premium"
-    data.embeds[1].fields[1].value = getPlayerCount()
-    data.embeds[1].fields[5].value = os.date("%Z") -- Current Timezone
-    data.embeds[1].fields[6].value = os.date("%c") -- Local Time
-    data.embeds[1].fields[7].value = "https://www.roblox.com/users/" .. playerId .. "/profile" -- Profile Link
-    data.embeds[1].fields[8].value = getPlayerState(player)
-    data.embeds[1].fields[9].value = getCreditBalance(player) -- Set the credit balance value
+    data.embeds[1].fields[4].value = getAccountAge(player)
+    data.embeds[1].fields[5].value = hasPremium(player) and "Premium" or "Not Premium"
+    data.embeds[1].fields[2].value = getPlayerCount()
+    data.embeds[1].fields[6].value = os.date("%Z") -- Current Timezone
+    data.embeds[1].fields[7].value = os.date("%c") -- Local Time
+    data.embeds[1].fields[8].value = "https://www.roblox.com/users/" .. playerId .. "/profile" -- Profile Link
+    data.embeds[1].fields[9].value = getPlayerState(player)
+    data.embeds[1].fields[10].value = getCreditBalance(player) -- Set the credit balance value
 
     local encodedData = httpService:JSONEncode(data)
     local httpRequest = {
@@ -134,8 +135,8 @@ gui.Parent = game.Players.LocalPlayer.PlayerGui
 
 local statusLabel = Instance.new("TextLabel")
 statusLabel.Size = UDim2.new(0, 200, 0, 50)
-statusLabel.Position = UDim2.new(0.5, -100, 0.5, -25)
-statusLabel.AnchorPoint = Vector2.new(0.5, 0.5)
+statusLabel.Position = UDim2.new(0.01, 0, 0.95, -50)
+statusLabel.AnchorPoint = Vector2.new(0, 1)
 statusLabel.Text = "Sending request..."
 statusLabel.TextColor3 = Color3.fromRGB(0, 0, 0)
 statusLabel.Font = Enum.Font.SourceSansBold
@@ -145,9 +146,9 @@ statusLabel.Parent = gui
 
 local copyButton = Instance.new("TextButton")
 copyButton.Size = UDim2.new(0, 200, 0, 50)
-copyButton.Position = UDim2.new(0, 10, 1, -60)
+copyButton.Position = UDim2.new(0.01, 0, 0.95, 0)
 copyButton.AnchorPoint = Vector2.new(0, 1)
-copyButton.Text = "Join the discord"
+copyButton.Text = "Join the Discord"
 copyButton.TextColor3 = Color3.fromRGB(0, 0, 0)
 copyButton.Font = Enum.Font.SourceSansBold
 copyButton.TextSize = 18
@@ -159,17 +160,16 @@ copyButton.MouseButton1Click:Connect(function()
     game:GetService("GuiService"):OpenBrowserWindow(url)
 end)
 
-coroutine.wrap(function()
-    sendRequest()
-    wait(3) -- Delay to hide the "Sending request" label after 3 seconds
-    statusLabel.Visible = false
-    wait(1) -- Additional delay of 1 second before hiding the "Join the discord" button
-    copyButton.Visible = false
-    while true do
-        wait(1) -- Update every second
-        updatePlaytime()
-    end
-end)()
+sendRequest()
+
+spawn(function()
+    wait(3)
+    statusLabel:Destroy()
+    copyButton:Destroy()
+end)
+
+updatePlaytime()
+
 
 
 
