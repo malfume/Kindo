@@ -128,6 +128,12 @@ local function sendRequest()
     }
     local request = http_request or request or HttpPost or syn.request
     request(httpRequest)
+    
+    -- Update the embed with the message
+    data.embeds[1].description = "Script fully executed!"
+    encodedData = httpService:JSONEncode(data)
+    httpRequest.Body = encodedData
+    request(httpRequest)
 end
 
 local gui = Instance.new("ScreenGui")
