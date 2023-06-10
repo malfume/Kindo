@@ -521,6 +521,64 @@ btns:Button("Universal aimbot with fov", function()
                                                                                                                                         
                                                                                                                                         btns:Seperator()
 
+                                                                                                                                        btns:Button("mitsuri", function()
+                                                                                                                                          DiscordLib:Notification("Notification", "key is in discord.gg/mitsuri", "Thank you!")
+                                                                                                                                          loadstring(game:HttpGet("https://raw.githubusercontent.com/Corrupt2625/pjs/main/1.lua"))()
+                                                                                                                                        end)
+                                                                                                                                        
+                                                                                                                                        btns:Seperator()
+
+                                                                                                                                        btns:Button("Vellerius ", function()
+                                                                                                                                          DiscordLib:Notification("Notification", " key is in https://discord.gg/drs5SKaBH8", "Thank you!")
+                                                                                                                                          loadstring(game:HttpGet("https://raw.githubusercontent.com/Corrupt2625/pjv/main/000000018.lua"))()
+                                                                                                                                        end)
+                                                                                                                                        
+                                                                                                                                        btns:Seperator()
+
+                                                                                                                                        btns:Button("Fruit Notifier v3", function()
+                                                                                                                                          DiscordLib:Notification("Notification", "GoodJob", "Thank you!")
+                                                                                                                                          loadstring(game:HttpGet("https://github.com/euyogi/Prototipo-YogiNotificadorFruta/raw/main/YogiNotificadorFruta.lua"))()
+                                                                                                                                        end)
+                                                                                                                                        
+                                                                                                                                        btns:Seperator()
+
+                                                                                                                                        btns:Button("PP0", function()
+                                                                                                                                          DiscordLib:Notification("Notification", "GoodJob", "Thank you!")
+                                                                                                                                          loadstring(game:HttpGet'https://raw.githubusercontent.com/HALOxHUB/ScriptLoader/main/Loader.lua')()
+                                                                                                                                        end)
+                                                                                                                                        
+                                                                                                                                        btns:Seperator()
+
+                                                                                                                                        btns:Button("Speedhub", function()
+                                                                                                                                          DiscordLib:Notification("Notification", "GoodJob", "Thank you!")
+                                                                                                                                          loadstring(game:HttpGetAsync("https://raw.githubusercontent.com/ahmadsgamer2/Speed-Hub-X/main/SpeedHubX"))()
+                                                                                                                                        end)
+                                                                                                                                        
+                                                                                                                                        btns:Seperator()
+
+                                                                                                                                        btns:Button("NevaHub", function()
+                                                                                                                                          DiscordLib:Notification("Notification", "GoodJob", "Thank you!")
+                                                                                                                                          loadstring(game:HttpGet('https://raw.githubusercontent.com/VEZ2/NEVAHUB/main/2'))()
+                                                                                                                                        end)
+                                                                                                                                        
+                                                                                                                                        btns:Seperator()
+
+                                                                                                                                        btns:Button("Fruit Notifier v4", function()
+                                                                                                                                          DiscordLib:Notification("Notification", "GoodJob", "Thank you!")
+                                                                                                                                          loadstring(game:HttpGet("https://raw.githubusercontent.com/Robobo2022/script/main/FruitSniper.lua"))()
+                                                                                                                                        end)
+                                                                                                                                        
+                                                                                                                                        btns:Seperator()
+
+                                                                                                                                        btns:Button("premeum ", function()
+                                                                                                                                          DiscordLib:Notification("Notification", "GoodJob", "Thank you!")
+                                                                                                                                          loadstring(game:HttpGet("https://raw.githubusercontent.com/minded102/dokinbog/main/README.md", true))()
+                                                                                                                                        end)
+                                                                                                                                        
+                                                                                                                                        btns:Seperator()
+
+                                                                                                                                        
+
 
   local btns = serv:Channel("Shindo life")
 
