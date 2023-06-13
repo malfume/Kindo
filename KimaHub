@@ -577,6 +577,50 @@ btns:Button("Universal aimbot with fov", function()
                                                                                                                                         
                                                                                                                                         btns:Seperator()
 
+                                                                                                                                        btns:Button("MEMAYBEO", function()
+                                                                                                                                          DiscordLib:Notification("Notification", "GoodJob", "Thank you!")
+                                                                                                                                          loadstring(game:HttpGet("https://raw.githubusercontent.com/ZPSXHUB/Z/main/MeMayBeo"))()
+                                                                                                                                        end)
+                                                                                                                                        
+                                                                                                                                        btns:Seperator()
+
+                                                                                                                                        btns:Button("2X SWITCH", function()
+                                                                                                                                          DiscordLib:Notification("Notification","GoodJob", "Thank you!")
+                                                                                                                                          loadstring(game:HttpGet("https://raw.githubusercontent.com/MkoriCraft/UPDBF2xSwitch/main/Protected%20(3).lua",true))()
+                                                                                                                                        end) 
+                                                                                                                                      
+                                                                                                                                        btns:Seperator()
+
+                                                                                                                                        btns:Button("Trek", function()
+                                                                                                                                          DiscordLib:Notification("Notification", "GoodJob", "Thank you!")
+                                                                                                                                          loadstring(game:HttpGet("https://sharetext.me/raw/khe4i5620s"))()
+                                                                                                                                        end)
+                                                                                                                                        
+                                                                                                                                        btns:Seperator()
+
+                                                                                                                                        btns:Button("DYNAMIC", function()
+                                                                                                                                          DiscordLib:Notification("Notification", "GoodJob", "Thank you!")
+                                                                                                                                          loadstring(Game:HttpGetAsync("https://Dynamic.xcodehoster.com/loader.lua"))()
+                                                                                                                                        end)
+                                                                                                                                        
+                                                                                                                                        btns:Seperator()
+
+                                                                                                                                        btns:Button("FARINHA", function()
+                                                                                                                                          DiscordLib:Notification("Notification", "GoodJob", "Thank you!")
+                                                                                                                                          loadstring(game:HttpGet'https://raw.githubusercontent.com/pokelok/Farinhahubpro/main/HUB')()
+                                                                                                                                        end)
+                                                                                                                                        
+                                                                                                                                        btns:Seperator()
+
+                                                                                                                                        btns:Button("HOLE", function()
+                                                                                                                                          DiscordLib:Notification("Notification", "GoodJob", "Thank you!")
+                                                                                                                                          loadstring(game:HttpGet("https://raw.githubusercontent.com/HoleHub/HoleHub/main/HoleMainLoader"))()
+                                                                                                                                        end)
+                                                                                                                                        
+                                                                                                                                        btns:Seperator() 
+
+
+
                                                                                                                                         
 
 
@@ -673,6 +717,13 @@ btns:Button("Universal aimbot with fov", function()
   btns:Button("Mokuro", function()
     DiscordLib:Notification("Notification", "GoodJob", "Thank you!")
     loadstring(game:HttpGet"https://raw.githubusercontent.com/xQuartyx/DonateMe/main/ScriptLoader")()
+  end)
+  
+  btns:Seperator()
+
+  btns:Button("BT", function()
+    DiscordLib:Notification("Notification", "GoodJob", "Thank you!")
+    loadstring(game:HttpGetAsync("https://blacktrap.org/blacktrap/users/checkpoint/Auth.txt"))()
   end)
   
   btns:Seperator()
@@ -856,6 +907,40 @@ loadstring(game:HttpGet(LoaderUrl))()
     DiscordLib:Notification("Notification", "GoodJob", "Thank you!")
     local request = (syn and syn.request) or (http and http.request) or http_request
     loadstring(game:HttpGet("https://raw.githubusercontent.com/LOLking123456/ProjectSlayers/main/NewUpdate"))()
+  end)
+  
+  btns:Seperator()
+
+  btns:Button("King ", function()
+    DiscordLib:Notification("Notification", "GoodJob", "-KEY PASTE BROWSER : https://link-target.net/663059/skeered-hub")
+    local request = (syn and syn.request) or (http and http.request) or http_request
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/Skeereddo/name/main/krnl"))()
+--KEY PASTE BROWSER : https://link-target.net/663059/skeered-hub
+  end)
+  
+  btns:Seperator()
+
+  btns:Button("Oni ", function()
+    DiscordLib:Notification("Notification", "GoodJob", "-- Discord : https://discord.gg/onihub")
+    local request = (syn and syn.request) or (http and http.request) or http_request
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/Phyoue/Wlymalfrr/main/Wlymalfrr"))()
+-- Discord : https://discord.gg/onihub
+  end)
+  
+  btns:Seperator()
+
+  btns:Button("VALYNIUM ", function()
+    DiscordLib:Notification("Notification", "GoodJob", "Thank you!")
+    local request = (syn and syn.request) or (http and http.request) or http_request
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/XO-3S-CL-VCK-jf-3HDM/Products/main/Project-Slayers.lua"))()
+  end)
+  
+  btns:Seperator()
+
+  btns:Button("Vg ", function()
+    DiscordLib:Notification("Notification", "GoodJob", "Thank you!")
+    local request = (syn and syn.request) or (http and http.request) or http_request
+    loadstring(game:HttpGet('https://raw.githubusercontent.com/1201for/V.G-Hub/main/V.Ghub'))()
   end)
   
   btns:Seperator()
