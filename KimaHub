@@ -1070,3 +1070,12 @@ btns:Seperator()
   end)
   
   btns:Seperator()
+
+
+  btns:Button("orionHub for type soul autofarm ", function()
+    DiscordLib:Notification("Notification", "GoodJob", "Thank you!")
+    local request = (syn and syn.request) or (http and http.request) or http_request
+    loadstring(game:HttpGet('https://raw.githubusercontent.com/Alrbuddy/new/main/Types'))()
+  end)
+  
+  btns:Seperator()
