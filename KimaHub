@@ -134,7 +134,7 @@ end)
 
 local DiscordLib = loadstring(game:HttpGet"https://raw.githubusercontent.com/dawid-scripts/UI-Libs/main/discord%20lib.txt")()
 
-local win = DiscordLib:Window("Rudolpj.v1")
+local win = DiscordLib:Window("=======KimaHub======")
 
 local serv = win:Server("Main", "http://www.roblox.com/asset/?id=4483345998")
 
@@ -1052,6 +1052,21 @@ loadstring(game:HttpGet(LoaderUrl))()
     DiscordLib:Notification("Notification", "GoodJob", "Thank you!")
     local request = (syn and syn.request) or (http and http.request) or http_request
     loadstring(game:HttpGet('https://raw.githubusercontent.com/1201for/V.G-Hub/main/V.Ghub'))()
+  end)
+  
+  btns:Seperator()
+
+
+
+
+local btns = serv:Channel("TYPE://SOUL")
+
+btns:Seperator()
+
+  btns:Button("Redx ", function()
+    DiscordLib:Notification("Notification", "GoodJob", "Thank you!")
+    local request = (syn and syn.request) or (http and http.request) or http_request
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/xtrey10x/xtrey10x-hub/main/type%20soul"))()
   end)
   
   btns:Seperator()
