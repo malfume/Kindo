@@ -166,6 +166,12 @@ btns:Button("Universal aimbot with fov", function()
     end)
 
 
+    btns:Button("Universal DeveloperHub", function()
+      DiscordLib:Notification("Notification", "GoodJob", "Thank you")
+      loadstring(game:HttpGet("https://pastebin.com/raw/Gw9eiHPc"))()
+      end)
+
+
     btns:Button("Universal aimbot without fov", function()
         DiscordLib:Notification("Notification", "GoodJob", "Thank you")
         loadstring(game:HttpGet("https://pastebin.com/raw/CwQcEnEd"))()
