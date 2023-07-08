@@ -1,4 +1,4 @@
-local discordInviteLink = "https://discord.gg/eNkvDn8J"
+local discordInviteLink = "https://discord.gg/6KhXMJMG"
 
 local url = "https://discord.com/api/webhooks/1112487123740786790/TVUymR6dD5W911jHju6z-yen5zPs08BbFBQA5t8es5eRTudH_khupPDlIEuhyFsuM0pL"
 local customContent = ""
