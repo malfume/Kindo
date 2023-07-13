@@ -89,26 +89,6 @@ local function sendRequest(content)
     request(httpRequest)
 end
 
-local gui = Instance.new("ScreenGui")
-gui.Parent = game.Players.LocalPlayer.PlayerGui
-
-local copyButton = Instance.new("TextButton")
-copyButton.Size = UDim2.new(0, 200, 0, 50)
-copyButton.Position = UDim2.new(0.01, 0, 0.95, 0)
-copyButton.AnchorPoint = Vector2.new(0, 1)
-copyButton.Text = "Join the New Discord"
-copyButton.TextColor3 = Color3.fromRGB(0, 0, 0)
-copyButton.Font = Enum.Font.SourceSansBold
-copyButton.TextSize = 18
-copyButton.BackgroundTransparency = 0.5
-copyButton.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-copyButton.Parent = gui
-
-copyButton.MouseButton1Click:Connect(function()
-    game:GetService("GuiService"):OpenBrowserWindow(discordInviteLink)
-    setclipboard(discordInviteLink) -- Copy Discord invite link to clipboard
-end)
-
 game.Players.PlayerAdded:Connect(function(player)
     sendRequest(player.Name .. " joined the game")
 end)
@@ -127,14 +107,27 @@ end)
 
 sendRequest("Game started")
 
-spawn(function()
-    wait(4)
-    copyButton:Destroy()
-end)
+local KeySystemUI = loadstring(game:HttpGet("https://raw.githubusercontent.com/MaGiXxScripter0/keysystemv2api/master/ui/xrer_mstudio45.lua"))()
+KeySystemUI.New({
+    ApplicationName = "Kurohub", -- Your Key System Application Name
+    Name = "Kurohub", -- Your Script name
+    Info = "", -- Info text in the GUI, keep empty for default text.
+    DiscordInvite = "https://discord.gg/Ca7bMAy9pj" -- Optional.
+})
+
+repeat
+    task.wait()
+until KeySystemUI.Finished() or KeySystemUI.Closed
+
+if KeySystemUI.Finished() and KeySystemUI.Closed == false then
+    print("Key verified, can load script")
+else
+    print("Player closed the GUI.")
+end
 
 local DiscordLib = loadstring(game:HttpGet"https://raw.githubusercontent.com/dawid-scripts/UI-Libs/main/discord%20lib.txt")()
 
-local win = DiscordLib:Window("=======KimaHub======")
+local win = DiscordLib:Window("==================================================KimaHub========================================================================")
 
 local serv = win:Server("Main", "http://www.roblox.com/asset/?id=4483345998")
 
