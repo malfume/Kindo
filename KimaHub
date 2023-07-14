@@ -1297,4 +1297,35 @@ btns:Seperator()
             loadstring(game:HttpGet(('https://raw.githubusercontent.com/funhaji/FunHubScriptLoader/main/RBL/KEYSYSTEM'),true))()
           end)
           
-          btns:Seperator()          
+          btns:Seperator()
+          
+          
+          local btns = serv:Channel("BedWars 🔥")
+
+          btns:Seperator()
+          
+            btns:Button("Burify ", function()
+              DiscordLib:Notification("Notification", "GoodJob", "Thank you!")
+              local request = (syn and syn.request) or (http and http.request) or http_request
+              loadstring(game:HttpGet("https://raw.githubusercontent.com/NEWBUTIF/Universal-Script-Hub/main/Butif%20Hub"))()
+            end)
+            
+            btns:Seperator()
+            
+            
+            btns:Button("RRCreations ", function()
+              DiscordLib:Notification("Notification", "GoodJob", "Thank you!")
+              local request = (syn and syn.request) or (http and http.request) or http_request
+              loadstring(game:HttpGet('https://raw.githubusercontent.com/Pa1nx/BloodBathScripts/main/BedWarsBETA'))()
+            end)
+            
+            btns:Seperator()
+            
+            
+            btns:Button("Tenacity ", function()
+              DiscordLib:Notification("Notification", "GoodJob", "Thank you!")
+              local request = (syn and syn.request) or (http and http.request) or http_request
+              loadstring(game:HttpGet('https://raw.githubusercontent.com/Storm99999/Tenacity4Roblox/main/script.lua'))()
+            end)
+            
+            btns:Seperator() 
