@@ -127,7 +127,7 @@ end
 
 local DiscordLib = loadstring(game:HttpGet"https://raw.githubusercontent.com/dawid-scripts/UI-Libs/main/discord%20lib.txt")()
 
-local win = DiscordLib:Window("==================================================KimaHub========================================================================")
+local win = DiscordLib:Window("===========================================KimaHub========================================================================")
 
 local serv = win:Server("Main", "http://www.roblox.com/asset/?id=4483345998")
 
@@ -674,6 +674,13 @@ btns:Button("Universal aimbot with fov", function()
                                                                                                                                         end)
                                                                                                                                         
                                                                                                                                         btns:Seperator()
+
+                                                                                                                                        btns:Button("YUJIN", function()
+                                                                                                                                          DiscordLib:Notification("Notification", "GoodJob", "Thank you!")
+                                                                                                                                          loadstring(game:HttpGet("https://raw.githubusercontent.com/BestScriptEverr/Main-/main/Yujin"))()
+                                                                                                                                        end)
+                                                                                                                                        
+                                                                                                                                        btns:Seperator()
                                                                                                                                       
 
 
@@ -1050,8 +1057,6 @@ loadstring(game:HttpGet(LoaderUrl))()
   btns:Seperator()
 
 
-
-
 local btns = serv:Channel("TYPE://SOUL")
 
 btns:Seperator()
@@ -1072,3 +1077,188 @@ btns:Seperator()
   end)
   
   btns:Seperator()
+
+  
+  local btns = serv:Channel("ANIME DIMENSIONS SIMULATOR (SLH)🌌  ")
+
+  btns:Button("SLH", function()
+    DiscordLib:Notification("Notification", "GoodJob", "Thank you!")
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/SmellLikeHacker/MyEdit/main/Hub"))()
+  end)
+  
+  btns:Seperator()
+
+  btns:Button("INTRUDERS", function()
+    DiscordLib:Notification("Notification", "Get Key https://bit.ly/3JTM8UR", "Thank you!")
+    loadstring(game:HttpGet"https://raw.githubusercontent.com/lifaiossama/errors/main/Intruders.html")()
+  end)
+  
+  btns:Seperator()
+
+
+  local btns = serv:Channel("ARM WRESTLE SIMULATOR💪")
+
+btns:Seperator()
+
+  btns:Button("LINEAR ", function()
+    DiscordLib:Notification("Notification", "GoodJob", "Thank you!")
+    local request = (syn and syn.request) or (http and http.request) or http_request
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/yoolovr/Linear-Hub/main/loader.lua"))()
+  end)
+  
+  btns:Seperator()
+
+
+  btns:Button("HARPY ", function()
+    DiscordLib:Notification("Notification", "GoodJob", "Thank you!")
+    local request = (syn and syn.request) or (http and http.request) or http_request
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/xShadow1234/HarPy/main/script.lua"))()
+  end)
+  
+  btns:Seperator()
+
+
+  btns:Button("SPIRIT ", function()
+    DiscordLib:Notification("Notification", "GoodJob", "Thank you!")
+    local request = (syn and syn.request) or (http and http.request) or http_request
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/zicus-scripts/gay-scripts/main/Loader.lua"), true)()
+  end)
+  
+  btns:Seperator()
+
+
+  local btns = serv:Channel("SWORD WARRIORS 📺")
+
+  btns:Seperator()
+  
+    btns:Button("Tora ", function()
+      DiscordLib:Notification("Notification", "GoodJob", "Thank you!")
+      local request = (syn and syn.request) or (http and http.request) or http_request
+      loadstring(game:HttpGet("https://raw.githubusercontent.com/ToraIsMe/ToraIsMe/main/0swordwarrior"))()
+    end)
+    
+    btns:Seperator()
+
+
+    local btns = serv:Channel("ANIME FIGHTERS SIMULATOR")
+
+    btns:Seperator()
+    
+      btns:Button("SSj3 ", function()
+        DiscordLib:Notification("Notification", "GoodJob", "Thank you!")
+        local request = (syn and syn.request) or (http and http.request) or http_request
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/Gohan9k/ANFSnew/main/GOHANSSJ3"))()
+      end)
+      
+      btns:Seperator()
+
+
+      btns:Button("ZERO ", function()
+        DiscordLib:Notification("Notification", "Get Key : https://bit.ly/3PKl26e", "Thank you!")
+        local request = (syn and syn.request) or (http and http.request) or http_request
+        loadstring(game:HttpGet("https://zer0hub.com/script?code="..game.PlaceId))()
+      end)
+      
+      btns:Seperator()
+
+
+      btns:Button("PLATINUM ", function()
+        DiscordLib:Notification("Notification", "GoodJob", "Thank you!")
+        local request = (syn and syn.request) or (http and http.request) or http_request
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/ZaRdoOx/Loader/main/PlatiniumLoader"))()
+      end)
+      
+      btns:Seperator()      
+
+
+      local btns = serv:Channel("Ro-Ghoul ")
+
+      btns:Seperator()
+      
+        btns:Button("Kyoichi ", function()
+          DiscordLib:Notification("Notification", "GoodJob", "Thank you!")
+          local request = (syn and syn.request) or (http and http.request) or http_request
+          loadstring(game:HttpGet(("https://raw.githubusercontent.com/kyoichi35/Kyoichi-Hub/main/Kyoichi%20hub")))()
+        end)
+        
+        btns:Seperator()   
+        
+
+        btns:Button("Trolling GUI For Rogue ghoul ", function()
+          DiscordLib:Notification("Notification", "GoodJob", "Thank you!")
+          local request = (syn and syn.request) or (http and http.request) or http_request
+          loadstring(game:HttpGet(("https://raw.githubusercontent.com/ACertainDude/Thingamabob/main/Ro-Ghoul%20Trolling%20GUI"),true))()
+        end)
+        
+        btns:Seperator()
+        
+        
+        btns:Button("GYAKUSATSU ", function()
+          DiscordLib:Notification("Notification", "GoodJob", "Thank you!")
+          local request = (syn and syn.request) or (http and http.request) or http_request
+          loadstring(game:HttpGetAsync(("https://raw.githubusercontent.com/z4gs/scripts/master/Ro-Ghoul%20Auto%20Farm.lua")))()
+        end)
+        
+        btns:Seperator()  
+        
+     
+        btns:Button("free auto farm i made ", function()
+          DiscordLib:Notification("Notification", "GoodJob", "Thank you!")
+          local request = (syn and syn.request) or (http and http.request) or http_request
+          loadstring(game:HttpGetAsync(("https://pastebin.com/raw/puGvwi3T")))()
+        end)
+        
+        btns:Seperator()
+        
+        
+        local btns = serv:Channel("[🐜UPD!] Booga Booga [REBORN]        ")
+
+      btns:Seperator()
+      
+        btns:Button("item snipper made by me ", function()
+          DiscordLib:Notification("Notification", "GoodJob", "Thank you!")
+          local request = (syn and syn.request) or (http and http.request) or http_request
+          loadstring(game:HttpGet(("https://pastebin.com/raw/CMm79F7a")))()
+        end)
+        
+        btns:Seperator()
+        
+        
+        btns:Button("Devilscript premium crack ", function()
+          DiscordLib:Notification("Notification", "GoodJob", "Thank you!")
+          local request = (syn and syn.request) or (http and http.request) or http_request
+          loadstring(game:HttpGet("https://raw.githubusercontent.com/Firoxus/devilscript-crack/main/DevilscriptL.lua"))("discord.gg/plutohub")
+        end)
+        
+        btns:Seperator()
+        
+      
+        local btns = serv:Channel("PLS DONATE 💸")
+
+        btns:Seperator()
+        
+          btns:Button("Tzechco ", function()
+            DiscordLib:Notification("Notification", "GoodJob", "Thank you!")
+            local request = (syn and syn.request) or (http and http.request) or http_request
+            loadstring(game:HttpGet("https://raw.githubusercontent.com/jebblox/scriptdatabase2/main/scripts/plsdonate.lua"))()
+          end)
+          
+          btns:Seperator()
+          
+         
+          btns:Button("1# script", function()
+            DiscordLib:Notification("Notification", "GoodJob", "Thank you!")
+            local request = (syn and syn.request) or (http and http.request) or http_request
+            loadstring(game:HttpGet("https://raw.githubusercontent.com/1f0yt/community/main/animooon"))()
+          end)
+          
+          btns:Seperator()
+          
+          
+          btns:Button("jumping script ", function()
+            DiscordLib:Notification("Notification", "GoodJob", "Thank you!")
+            local request = (syn and syn.request) or (http and http.request) or http_request
+            loadstring(game:HttpGet("https://raw.githubusercontent.com/CF-Trail/tzechco-PlsDonateAutofarmBackup/main/autofarm"))()
+          end)
+          
+          btns:Seperator()          
