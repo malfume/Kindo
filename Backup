@@ -3036,3 +3036,12 @@ library.ConfigSection:AddButton({
 	end
 })
 --LIBRARY END
+--custom notification thing, library required for this to work
+local LastNotification = 0
+function library:SendNotification(duration, message)
+	Notify({
+		Description = message;
+		Title = "OutliersHub";
+		Duration = duration;
+	});
+end
