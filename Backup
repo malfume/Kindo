@@ -1,4 +1,4 @@
--LIBRARY START
+--LIBRARY START
 --Services
 getgenv().runService = game:GetService"RunService"
 getgenv().textService = game:GetService"TextService"
