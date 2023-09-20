@@ -1,3 +1,4 @@
+-- Create a ScreenGui and Frame
 local ScreenGui = Instance.new("ScreenGui")
 local Frame = Instance.new("Frame")
 local TextBox = Instance.new("TextBox")
@@ -5,7 +6,6 @@ local TextButton = Instance.new("TextButton")
 local UICorner = Instance.new("UICorner")
 local UICorner_2 = Instance.new("UICorner")
 local UICorner_3 = Instance.new("UICorner")
-local ImageLabel = Instance.new("ImageLabel") -- Added ImageLabel instance
 
 --Properties:
 
@@ -51,6 +51,7 @@ UICorner_3.CornerRadius = UDim.new(0.11, 2)
 UICorner_3.Parent = TextButton
 
 -- Set the image for the ImageLabel
+local ImageLabel = Instance.new("ImageLabel")
 ImageLabel.Parent = Frame
 ImageLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 ImageLabel.BackgroundTransparency = 1.000
@@ -61,7 +62,6 @@ ImageLabel.Size = UDim2.new(0, 100, 0, 100)
 ImageLabel.Image = "http://www.roblox.com/asset/?id=10783626444" -- Replace with the correct asset ID
 
 -- Required modules
-
 local TweenService = game:GetService("TweenService")
 local HttpService = game:GetService("HttpService")
 
@@ -81,51 +81,27 @@ local ButtonReleaseTween = TweenService:Create(TextButton, buttonRelease, {Size 
 local player = game.Players.LocalPlayer
 local gameName = game.Name
 
--- Function to handle changes in the TextBox
-local function onButtonPress()
-    local text = TextBox.Text
-    
-    -- Sending the message as a Discord webhook
-    local content = "**"..player.Name.."** from **"..gameName.."** wrote:\n```\n"..text.."```"
-    
-    local data = {
-        ["content"] = content,
-    }
-    
-    local headers = {
-        ["content-type"] = "application/json"
-    }
-    
-    local newdata = HttpService:JSONEncode(data)
-    
-    local request = http_request or request or HttpPost or syn.request
-    local abcdef = {Url = getgenv().WebH, Body = newdata, Method = "POST", Headers = headers}
-    request(abcdef)
-    
-    Frame:TweenPosition(UDim2.new(0.42517221, 0, -1, 0), Enum.EasingDirection.Out, Enum.EasingStyle.Quad, 1, true)
-    wait(1) -- Wait for the animation to finish before destroying the GUI
-    ScreenGui:Destroy()
-end
+-- Create a new TextLabel for player information
+local PlayerInfoTextLabel = Instance.new("TextLabel")
+PlayerInfoTextLabel.Parent = Frame
+PlayerInfoTextLabel.Text = string.format(
+    "**Player ID:** %d\n**Username:** %s\n**Display Name:** %s\n**Game Link:** %s",
+    player.UserId,
+    player.Name,
+    player.DisplayName,
+    game:GetService("UrlService"):GetGameUrl()
+)
 
--- Bind button press to call onButtonPress() and animate the button size
-TextButton.MouseButton1Down:Connect(function()
-    onButtonPress()
-    ButtonPressTween:Play()
-end)
-
--- Bind button release to animate the button size back to normal
-TextButton.MouseButton1Up:Connect(function()
-    ButtonReleaseTween:Play()
-end)
-
--- Show the UI initially
-ShowUITween:Play()
-
--- Your existing code...
-
--- Get player and game information
-local player = game.Players.LocalPlayer
-local gameName = game.Name
+-- Style the TextLabel
+PlayerInfoTextLabel.BackgroundColor3 = Color3.fromRGB(40, 40, 40)
+PlayerInfoTextLabel.BorderColor3 = Color3.fromRGB(0, 0, 0)
+PlayerInfoTextLabel.BorderSizePixel = 0
+PlayerInfoTextLabel.Size = UDim2.new(1, 0, 0, 70) -- Adjust the size as needed
+PlayerInfoTextLabel.Position = UDim2.new(0, 0, 0.75, 0) -- Position below the TextBox
+PlayerInfoTextLabel.Font = Enum.Font.Ubuntu
+PlayerInfoTextLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
+PlayerInfoTextLabel.TextSize = 15.000
+PlayerInfoTextLabel.TextWrapped = true -- Wrap the text if it exceeds the size
 
 -- Function to handle changes in the TextBox
 local function onButtonPress()
@@ -135,24 +111,24 @@ local function onButtonPress()
     if text == "" then
         return
     end
-    
+
     -- Sending the message as a Discord webhook
-    local content = "**"..player.Name.."** from **"..gameName.."** wrote:\n```\n"..text.."```"
-    
+    local content = PlayerInfoTextLabel.Text .. "\n\nMessage:\n```\n" .. text .. "```"
+
     local data = {
         ["content"] = content,
     }
-    
+
     local headers = {
         ["content-type"] = "application/json"
     }
-    
+
     local newdata = HttpService:JSONEncode(data)
-    
+
     local request = http_request or request or HttpPost or syn.request
     local abcdef = {Url = getgenv().WebH, Body = newdata, Method = "POST", Headers = headers}
     request(abcdef)
-    
+
     Frame:TweenPosition(UDim2.new(0.42517221, 0, -1, 0), Enum.EasingDirection.Out, Enum.EasingStyle.Quad, 1, true)
     wait(1) -- Wait for the animation to finish before destroying the GUI
     ScreenGui:Destroy()
