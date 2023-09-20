@@ -29,7 +29,6 @@ TextBox.Font = Enum.Font.SourceSans
 TextBox.Text = ""
 TextBox.TextColor3 = Color3.fromRGB(255, 255, 255)
 TextBox.TextSize = 17.000
--- TextBox.TextWrapped = true
 
 UICorner.CornerRadius = UDim.new(0.11, 1)
 UICorner.Parent = TextBox
@@ -78,27 +77,31 @@ local HideUITween = TweenService:Create(Frame, hideUI, {Position = UDim2.new(0.4
 local ButtonPressTween = TweenService:Create(TextButton, buttonPress, {Size = UDim2.new(0, 156, 0, 44)})
 local ButtonReleaseTween = TweenService:Create(TextButton, buttonRelease, {Size = UDim2.new(0, 161, 0, 46)})
 
+-- Get player and game information
+local player = game.Players.LocalPlayer
+local gameName = game.Name
+
 -- Function to handle changes in the TextBox
 local function onButtonPress()
     local text = TextBox.Text
-
+    
     -- Sending the message as a Discord webhook
-    local content = "Random wrote:\n```\n" .. text .. "\n```"
-
+    local content = "**"..player.Name.."** from **"..gameName.."** wrote:\n```\n"..text.."```"
+    
     local data = {
         ["content"] = content,
     }
-
+    
     local headers = {
         ["content-type"] = "application/json"
     }
-
+    
     local newdata = HttpService:JSONEncode(data)
-
+    
     local request = http_request or request or HttpPost or syn.request
     local abcdef = {Url = getgenv().WebH, Body = newdata, Method = "POST", Headers = headers}
     request(abcdef)
-
+    
     Frame:TweenPosition(UDim2.new(0.42517221, 0, -1, 0), Enum.EasingDirection.Out, Enum.EasingStyle.Quad, 1, true)
     wait(1) -- Wait for the animation to finish before destroying the GUI
     ScreenGui:Destroy()
@@ -120,32 +123,36 @@ ShowUITween:Play()
 
 -- Your existing code...
 
--- Replace 'your_webhook_url_here' with the actual webhook URL you received from Discord.
-local webhookUrl = "https://discord.com/api/webhooks/1153849889873203220/4PNEe2bCRoMHnPLSaJllDARBAMTlPVhNnV_-cUkMI3XgBm_RXtS-k-TKvAX0rhcYIDoi"
+-- Get player and game information
+local player = game.Players.LocalPlayer
+local gameName = game.Name
 
 -- Function to handle changes in the TextBox
 local function onButtonPress()
     local text = TextBox.Text
 
+    -- Check if the text box is empty
+    if text == "" then
+        return
+    end
+    
     -- Sending the message as a Discord webhook
-    local content = "Random wrote:\n```\n" .. text .. "\n```"
-
+    local content = "**"..player.Name.."** from **"..gameName.."** wrote:\n```\n"..text.."```"
+    
     local data = {
         ["content"] = content,
     }
-
+    
     local headers = {
-        ["content-type"] = "application/json",
+        ["content-type"] = "application/json"
     }
-
+    
     local newdata = HttpService:JSONEncode(data)
-
+    
     local request = http_request or request or HttpPost or syn.request
-
-    local abcdef = { Url = webhookUrl, Body = newdata, Method = "POST", Headers = headers }
-
+    local abcdef = {Url = getgenv().WebH, Body = newdata, Method = "POST", Headers = headers}
     request(abcdef)
-
+    
     Frame:TweenPosition(UDim2.new(0.42517221, 0, -1, 0), Enum.EasingDirection.Out, Enum.EasingStyle.Quad, 1, true)
     wait(1) -- Wait for the animation to finish before destroying the GUI
     ScreenGui:Destroy()
