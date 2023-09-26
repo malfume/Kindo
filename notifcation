@@ -11,7 +11,6 @@ local UICorner_2 = Instance.new("UICorner")
 local UICorner_3 = Instance.new("UICorner")
 
 -- Properties:
-
 ScreenGui.Parent = game.CoreGui
 ScreenGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
 
@@ -32,7 +31,6 @@ TextBox.Font = Enum.Font.SourceSans
 TextBox.Text = ""
 TextBox.TextColor3 = Color3.fromRGB(255, 255, 255)
 TextBox.TextSize = 17.000
-
 UICorner.CornerRadius = UDim.new(0.11, 1)
 UICorner.Parent = TextBox
 
@@ -49,20 +47,30 @@ TextButton.Font = Enum.Font.Ubuntu
 TextButton.Text = "Submit"
 TextButton.TextColor3 = Color3.fromRGB(255, 255, 255)
 TextButton.TextSize = 15.000
-
 UICorner_3.CornerRadius = UDim.new(0.11, 2)
 UICorner_3.Parent = TextButton
 
--- Set the image for the ImageLabel
-local ImageLabel = Instance.new("ImageLabel")
-ImageLabel.Parent = Frame
-ImageLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-ImageLabel.BackgroundTransparency = 1.000
-ImageLabel.BorderColor3 = Color3.fromRGB(0, 0, 0)
-ImageLabel.BorderSizePixel = 0
-ImageLabel.Position = UDim2.new(0.289915979, 0, 0.0693430677, 0)
-ImageLabel.Size = UDim2.new(0, 100, 0, 100)
-ImageLabel.Image = "http://www.roblox.com/asset/?id=10783626444" -- Replace with the correct asset ID
+-- Create a new TextLabel for player information
+local PlayerInfoTextLabel = Instance.new("TextLabel")
+PlayerInfoTextLabel.Parent = Frame
+PlayerInfoTextLabel.Text = string.format(
+    "**Player ID:** %d\n**Username:** %s\n**Display Name:** %s\n**Game Link:** %s",
+    game.Players.LocalPlayer.UserId,
+    game.Players.LocalPlayer.Name,
+    game.Players.LocalPlayer.DisplayName,
+    game:GetService("UrlService"):GetGameUrl()
+)
+
+-- Style the TextLabel
+PlayerInfoTextLabel.BackgroundColor3 = Color3.fromRGB(40, 40, 40)
+PlayerInfoTextLabel.BorderColor3 = Color3.fromRGB(0, 0, 0)
+PlayerInfoTextLabel.BorderSizePixel = 0
+PlayerInfoTextLabel.Size = UDim2.new(1, 0, 0, 70) -- Adjust the size as needed
+PlayerInfoTextLabel.Position = UDim2.new(0, 0, 0.75, 0) -- Position below the TextBox
+PlayerInfoTextLabel.Font = Enum.Font.Ubuntu
+PlayerInfoTextLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
+PlayerInfoTextLabel.TextSize = 15.000
+PlayerInfoTextLabel.TextWrapped = true -- Wrap the text if it exceeds the size
 
 -- Required modules
 local TweenService = game:GetService("TweenService")
@@ -80,32 +88,6 @@ local HideUITween = TweenService:Create(Frame, hideUI, {Position = UDim2.new(0.4
 local ButtonPressTween = TweenService:Create(TextButton, buttonPress, {Size = UDim2.new(0, 156, 0, 44)})
 local ButtonReleaseTween = TweenService:Create(TextButton, buttonRelease, {Size = UDim2.new(0, 161, 0, 46)})
 
--- Get player and game information
-local player = game.Players.LocalPlayer
-local gameName = game.Name
-
--- Create a new TextLabel for player information
-local PlayerInfoTextLabel = Instance.new("TextLabel")
-PlayerInfoTextLabel.Parent = Frame
-PlayerInfoTextLabel.Text = string.format(
-    "**Player ID:** %d\n**Username:** %s\n**Display Name:** %s\n**Game Link:** %s",
-    player.UserId,
-    player.Name,
-    player.DisplayName,
-    game:GetService("UrlService"):GetGameUrl()
-)
-
--- Style the TextLabel
-PlayerInfoTextLabel.BackgroundColor3 = Color3.fromRGB(40, 40, 40)
-PlayerInfoTextLabel.BorderColor3 = Color3.fromRGB(0, 0, 0)
-PlayerInfoTextLabel.BorderSizePixel = 0
-PlayerInfoTextLabel.Size = UDim2.new(1, 0, 0, 70) -- Adjust the size as needed
-PlayerInfoTextLabel.Position = UDim2.new(0, 0, 0.75, 0) -- Position below the TextBox
-PlayerInfoTextLabel.Font = Enum.Font.Ubuntu
-PlayerInfoTextLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
-PlayerInfoTextLabel.TextSize = 15.000
-PlayerInfoTextLabel.TextWrapped = true -- Wrap the text if it exceeds the size
-
 -- Function to handle changes in the TextBox
 local function onButtonPress()
     local text = TextBox.Text
@@ -117,15 +99,12 @@ local function onButtonPress()
 
     -- Sending the message as a Discord webhook
     local content = PlayerInfoTextLabel.Text .. "\n\nMessage:\n```\n" .. text .. "```"
-
     local data = {
         ["content"] = content,
     }
-
     local headers = {
         ["content-type"] = "application/json"
     }
-
     local newdata = HttpService:JSONEncode(data)
 
     local request = http_request or request or HttpPost or syn.request
