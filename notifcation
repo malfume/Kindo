@@ -7,51 +7,16 @@ local Frame = Instance.new("Frame")
 local TextBox = Instance.new("TextBox")
 local TextButton = Instance.new("TextButton")
 local UICorner = Instance.new("UICorner")
-local UICorner_2 = Instance.new("UICorner")
+local UICorner_2 = Instance new("UICorner")
 local UICorner_3 = Instance.new("UICorner")
+local ClearButton = Instance.new("TextButton")
+local LoadingLabel = Instance.new("TextLabel")
+local PlayerInfoTextLabel = Instance.new("TextLabel")
 
--- Properties:
-ScreenGui.Parent = game.CoreGui
-ScreenGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
-
-Frame.Parent = ScreenGui
-Frame.BackgroundColor3 = Color3.fromRGB(27, 27, 27)
-Frame.BorderColor3 = Color3.fromRGB(0, 0, 0)
-Frame.BorderSizePixel = 0
-Frame.Position = UDim2.new(0.12517221, 0, 0.329177052, 0) -- Show the UI by default
-Frame.Size = UDim2.new(0, 238, 0, 274)
-
-TextBox.Parent = Frame
-TextBox.BackgroundColor3 = Color3.fromRGB(40, 40, 40)
-TextBox.BorderColor3 = Color3.fromRGB(0, 0, 0)
-TextBox.BorderSizePixel = 0
-TextBox.Position = UDim2.new(0.155462191, 0, 0.503649652, 0)
-TextBox.Size = UDim2.new(0, 164, 0, 30)
-TextBox.Font = Enum.Font.SourceSans
-TextBox.Text = ""
-TextBox.TextColor3 = Color3.fromRGB(255, 255, 255)
-TextBox.TextSize = 17.000
-UICorner.CornerRadius = UDim.new(0.11, 1)
-UICorner.Parent = TextBox
-
-UICorner_2.CornerRadius = UDim.new(0.10, 1)
-UICorner_2.Parent = Frame
-
-TextButton.Parent = Frame
-TextButton.BackgroundColor3 = Color3.fromRGB(40, 40, 40)
-TextButton.BorderColor3 = Color3.fromRGB(0, 0, 0)
-TextButton.BorderSizePixel = 0
-TextButton.Position = UDim2.new(0.159663871, 0, 0.655474448, 0)
-TextButton.Size = UDim2.new(0, 164, 0, 20)
-TextButton.Font = Enum.Font.Ubuntu
-TextButton.Text = "Submit"
-TextButton.TextColor3 = Color3.fromRGB(255, 255, 255)
-TextButton.TextSize = 15.000
-UICorner_3.CornerRadius = UDim.new(0.11, 2)
-UICorner_3.Parent = TextButton
+-- Add a parameter to control whether to close the UI after sending the webhook
+local CloseAfterSend = true
 
 -- Create a new TextLabel for player information
-local PlayerInfoTextLabel = Instance.new("TextLabel")
 PlayerInfoTextLabel.Parent = Frame
 PlayerInfoTextLabel.Text = string.format(
     "**Player ID:** %d\n**Username:** %s\n**Display Name:** %s\n**Game Link:** %s",
@@ -86,7 +51,7 @@ local buttonRelease = TweenInfo.new(0.1, Enum.EasingStyle.Quad, Enum.EasingDirec
 local ShowUITween = TweenService:Create(Frame, showUI, {Position = UDim2.new(0.42517221, 0, 0.329177052, 0)})
 local HideUITween = TweenService:Create(Frame, hideUI, {Position = UDim2.new(0.42517221, 0, -1, 0)})
 local ButtonPressTween = TweenService:Create(TextButton, buttonPress, {Size = UDim2.new(0, 156, 0, 44)})
-local ButtonReleaseTween = TweenService:Create(TextButton, buttonRelease, {Size = UDim2.new(0, 161, 0, 46)})
+local ButtonReleaseTween = TweenService:Create(TextButton, buttonRelease, {Size = UDim2.new(0, 161, 0, 46})
 
 -- Function to handle changes in the TextBox
 local function onButtonPress()
@@ -111,9 +76,14 @@ local function onButtonPress()
     local abcdef = {Url = getgenv().WebH, Body = newdata, Method = "POST", Headers = headers}
     request(abcdef)
 
-    Frame:TweenPosition(UDim2.new(0.42517221, 0, -1, 0), Enum.EasingDirection.Out, Enum.EasingStyle.Quad, 1, true)
-    wait(1) -- Wait for the animation to finish before destroying the GUI
-    ScreenGui:Destroy()
+    -- Update the LoadingLabel (WebhookStatusLabel)
+    LoadingLabel.Text = "Webhook sent successfully!"
+
+    if CloseAfterSend then
+        Frame:TweenPosition(UDim2.new(0.42517221, 0, -1, 0), Enum.EasingDirection.Out, Enum.EasingStyle.Quad, 1, true)
+        wait(1) -- Wait for the animation to finish before destroying the GUI
+        ScreenGui:Destroy()
+    end
 end
 
 -- Bind button press to call onButtonPress() and animate the button size
@@ -125,6 +95,24 @@ end)
 -- Bind button release to animate the button size back to normal
 TextButton.MouseButton1Up:Connect(function()
     ButtonReleaseTween:Play()
+end)
+
+-- Function to handle clearing the text box and LoadingLabel text
+local function onClearButtonClick()
+    TextBox.Text = ""
+    LoadingLabel.Text = ""
+end
+
+-- Bind ClearButton to call onClearButtonClick()
+ClearButton.MouseButton1Down:Connect(function()
+    onClearButtonClick()
+end)
+
+-- Bind the CloseButton to close the UI
+TextButton.MouseButton1Down:Connect(function()
+    Frame:TweenPosition(UDim2.new(0.42517221, 0, -1, 0), Enum.EasingDirection.Out, Enum.EasingStyle.Quad, 1, true)
+    wait(1) -- Wait for the animation to finish before destroying the GUI
+    ScreenGui:Destroy()
 end)
 
 -- Show the UI initially
