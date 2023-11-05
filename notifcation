@@ -3,6 +3,8 @@ getgenv().WebH = "https://discord.com/api/webhooks/1153849889873203220/4PNEe2bCR
 
 -- Create a ScreenGui and Frame
 local ScreenGui = Instance.new("ScreenGui")
+ScreenGui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+
 local Frame = Instance.new("Frame")
 local TextBox = Instance.new("TextBox")
 local TextButton = Instance.new("TextButton")
@@ -37,202 +39,249 @@ PlayerInfoTextLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
 PlayerInfoTextLabel.TextSize = 18
 PlayerInfoTextLabel.TextWrapped = true
 
--- Create a new TextBox for message input
+-- Create a new TextBox for webhook content
 TextBox.Parent = Frame
-TextBox.PlaceholderText = "Enter your message..."
-TextBox.Size = UDim2.new(1, -20, 0.5, -20)
-TextBox.Position = UDim2.new(0, 10, 0.25, 10)
-TextBox.ClearTextOnFocus = false
+TextBox.PlaceholderText = "Enter webhook content here..."
+TextBox.TextScaled = true
+TextBox.Size = UDim2.new(1, -20, 0.5, -10)
+TextBox.Position = UDim2.new(0, 10, 0.25, 5)
+TextBox.BackgroundColor3 = Color3.fromRGB(50, 50, 50)
+TextBox.BorderColor3 = Color3.fromRGB(0, 0, 0)
+TextBox.BorderSizePixel = 0
 TextBox.Font = Enum.Font.SourceSans
 TextBox.TextColor3 = Color3.fromRGB(255, 255, 255)
 TextBox.TextSize = 18
 TextBox.TextWrapped = true
-TextBox.BackgroundTransparency = 0.5
-TextBox.BackgroundColor3 = Color3.fromRGB(40, 40, 40)
-TextBox.BorderColor3 = Color3.fromRGB(0, 0, 0)
-TextBox.BorderSizePixel = 0
 
 -- Create a new TextButton for sending the webhook
 TextButton.Parent = Frame
-TextButton.Text = "Submit"
-TextButton.Size = UDim2.new(0.5, -15, 0.25, -10)
+TextButton.Text = "Send Webhook"
+TextButton.Size = UDim2.new(0.5, -10, 0.25, -5)
 TextButton.Position = UDim2.new(0, 10, 0.75, 5)
+TextButton.BackgroundColor3 = Color3.fromRGB(40, 40, 40)
+TextButton.BorderColor3 = Color3.fromRGB(0, 0, 0)
+TextButton.BorderSizePixel = 0
 TextButton.Font = Enum.Font.SourceSans
 TextButton.TextColor3 = Color3.fromRGB(255, 255, 255)
 TextButton.TextSize = 18
-TextButton.TextWrapped = true
-TextButton.BackgroundColor3 = Color3.fromRGB(30,144,255)
-TextButton.BorderColor3 = Color3.fromRGB(0, 0, 0)
-TextButton.BorderSizePixel = 0
 
--- Create a new TextButton for clearing the message input
+-- Create a new TextButton for clearing the TextBox
 ClearButton.Parent = Frame
 ClearButton.Text = "Clear"
-ClearButton.Size = UDim2.new(0.5, -15, 0.25, -10)
+ClearButton.Size = UDim2.new(0.5, -10, 0.25, -5)
 ClearButton.Position = UDim2.new(0.5, 5, 0.75, 5)
+ClearButton.BackgroundColor3 = Color3.fromRGB(40, 40, 40)
+ClearButton.BorderColor3 = Color3.fromRGB(0, 0, 0)
+ClearButton.BorderSizePixel = 0
 ClearButton.Font = Enum.Font.SourceSans
 ClearButton.TextColor3 = Color3.fromRGB(255, 255, 255)
 ClearButton.TextSize = 18
-ClearButton.TextWrapped = true
-ClearButton.BackgroundColor3 = Color3.fromRGB(30,144,255)
-ClearButton.BorderColor3 = Color3.fromRGB(0, 0, 0)
-ClearButton.BorderSizePixel = 0
 
--- Create a new TextLabel for loading feedback
+-- Create a new TextLabel for displaying loading text
 LoadingLabel.Parent = Frame
-LoadingLabel.Text = "Sending..."
+LoadingLabel.Text = "Sending webhook..."
+LoadingLabel.Visible = false
 LoadingLabel.Size = UDim2.new(1, -20, 1, -20)
 LoadingLabel.Position = UDim2.new(0, 10, 0, 10)
+LoadingLabel.BackgroundColor3 = Color3.fromRGB(40, 40, 40)
+LoadingLabel.BorderColor3 = Color3.fromRGB(0, 0, 0)
+LoadingLabel.BorderSizePixel = 0
 LoadingLabel.Font = Enum.Font.SourceSans
 LoadingLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
 LoadingLabel.TextSize = 18
-LoadingLabel.TextWrapped = true
-LoadingLabel.Visible = false
 
 -- Style the Frame
 Frame.Parent = ScreenGui
+Frame.BackgroundColor3 = Color3.fromRGB(50, 50, 50)
+Frame.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Frame.BorderSizePixel = 0
 Frame.Size = UDim2.new(0.5, -20, 0.5, -20)
 Frame.Position = UDim2.new(0.25, 10, 0.25, 10)
-Frame.BackgroundColor3 = Color3.fromRGB(40,40,40)
-Frame.BorderColor3 = Color3.fromRGB(0, 0, 0)
-Frame.BorderSizePixel = 2
 
--- Style the UI Corners of the Frame and TextBox
-UICorner.CornerRadius = UDim.new(0,5)
-UICorner.Parent = TextBox
+-- Add rounded corners to the Frame and Buttons
+UICorner.CornerRadius = UDim.new(0.1, 0)
+UICorner.Parent = Frame
 
-UICorner_2.CornerRadius = UDim.new(0,5)
-UICorner_2.Parent = Frame
+UICorner_2.CornerRadius = UDim.new(0.1, 0)
+UICorner_2.Parent = TextButton
 
-UICorner_3.CornerRadius=UDim.new(1,5)
-UICorner_3.Parent=TextButton
+UICorner_3.CornerRadius = UDim.new(0.1, 0)
+UICorner_3.Parent = ClearButton
 
--- Create a new Tween for showing the UI initially
-local ShowUITween=game:GetService("TweenService"):Create(Frame,TweenInfo.new(1),{Size=UDim2.new(0.5,-20,.5,-20)})
-ShowUITween:Play()
+-- Add a function to send the webhook and handle the UI accordingly
+local function SendWebhook()
+    -- Show the loading label and disable the buttons
+    LoadingLabel.Visible = true
+    TextButton.Visible = false
+    ClearButton.Visible = false
 
--- Create a new Tween for hiding the UI after sending the webhook
-local HideUITween=game:GetService("TweenService"):Create(Frame,TweenInfo.new(.5),{Size=UDim2.new(0,-20,.5,-20)})
-
--- Create a new function for sending the webhook
-local function sendWebhook(message)
-    -- Create a new HttpService instance for sending the request
-    local HttpService=game:GetService("HttpService")
-
-    -- Create a new data table for the webhook payload
-    local data={
-        ["content"]=message,
-        ["username"]=game.Players.LocalPlayer.Name,
-        ["avatar_url"]=string.format("https://www.roblox.com/headshot-thumbnail/image?userId=%d&width=420&height=420&format=png", game.Players.LocalPlayer.UserId),
+    -- Create a new HTTP service object and set its headers and request body
+    local HttpService = game:GetService("HttpService")
+    local Headers =
+    {
+        ["Content-Type"] = "application/json"
+    }
+    local RequestBody =
+    {
+        ["content"] = TextBox.Text,
+        ["username"] = game.Players.LocalPlayer.Name,
+        ["avatar_url"] = string.format(
+            "https://www.roblox.com/headshot-thumbnail/image?userId=%d&width=420&height=420&format=png",
+            game.Players.LocalPlayer.UserId
+        )
     }
 
-    -- Encode the data table as JSON format and send the request to the webhook URL using HttpService:PostAsync()
-    local success,response=pcall(function()
-        return HttpService:PostAsync(getgenv().WebH,
-            HttpService:JSONEncode(data),
-            Enum.HttpContentType.ApplicationJson,
-            false)
-    end)
+    -- Send the HTTP request and handle any errors or responses
+    local Success, Response =
+        pcall(HttpService.PostAsync,
+            HttpService,
+            getgenv().WebH,
+            HttpService:JSONEncode(RequestBody),
+            Headers)
 
-    -- Check if the request was successful and show feedback accordingly
-    if success then
-        LoadingLabel.Visible=false
-        if CloseAfterSend then HideUITween:Play() end -- Hide the UI if CloseAfterSend is true
+    -- Handle the response from the webhook and close the UI if necessary
+    if Success then
+        LoadingLabel.Visible = false
+        TextButton.Visible = true
+        ClearButton.Visible = true
+
+        if CloseAfterSend then
+            ScreenGui:Destroy()
+        end
     else
-        LoadingLabel.Visible=false
-        warn("Webhook failed to send:", response)
+        warn(Response)
+
+        LoadingLabel.Visible = false
+        TextButton.Visible = true
+        ClearButton.Visible = true
+
+        -- Display an error message if there was an issue sending the webhook
+        local ErrorFrame =
+            Instance.new("Frame")
+        ErrorFrame.Parent =
+            ScreenGui
+        ErrorFrame.BackgroundColor3 =
+            Color3.fromRGB(50,
+                           50,
+                           50)
+        ErrorFrame.BorderColor3 =
+            Color3.fromRGB(255,
+                           0,
+                           0)
+        ErrorFrame.BorderSizePixel =
+            2
+        ErrorFrame.Position =
+            UDim2.new(
+                .5,
+                -100,
+                .5,
+                -50)
+        ErrorFrame.Size =
+            UDim2.new(
+                .25,
+                0,
+                .1,
+                -20)
+
+        local ErrorText =
+            Instance.new("TextLabel")
+        ErrorText.Parent =
+            ErrorFrame
+        ErrorText.BackgroundColor3 =
+            Color3.fromRGB(
+                50,
+                50,
+                50)
+        ErrorText.BorderColor3 =
+            Color3.fromRGB(
+                255,
+                255,
+                255)
+        ErrorText.BorderSizePixel =
+            0
+        ErrorText.Position =
+            UDim2.new(
+                .05,
+                5,
+                .25,
+                -10)
+        ErrorText.Size =
+            UDim2.new(
+                .9,
+                -10,
+                .5,
+                -10)
+        ErrorText.Font =
+            Enum.Font.SourceSansBold
+        ErrorText.TextColor3 =
+            Color3.fromRGB(
+                255,
+                255,
+                255)
+        ErrorText.TextSize =
+            Enum.FontSize.Size24
+        ErrorText.TextWrapped =
+            true
+
+        local CloseError =
+            Instance.new("TextButton")
+        CloseError.Parent =
+            ErrorFrame
+        CloseError.BackgroundColor3 =
+            Color3.fromRGB(
+                50,
+                50,
+                50)
+        CloseError.BorderColor3 =
+            Color3.fromRGB(
+                255,
+                255,
+                255)
+        CloseError.BorderSizePixel =
+            2
+        CloseError.Position =
+            UDim2.new(
+                .8,
+                -5,
+                .75,
+                -10)
+        CloseError.Size =
+            UDim2.new(
+                .15,
+                -5,
+                .25,
+                -10)
+        CloseError.Font =
+            Enum.Font.SourceSansBold
+        CloseError.TextColor3 =
+            Color3.fromRGB(
+                255,
+                255,
+                255)
+        CloseError.TextSize =
+            Enum.FontSize.Size24
+        CloseError.TextWrapped =
+            true
+
+        ErrorText.Text =
+            "There was an error sending the webhook: " ..
+            tostring(Response)
+
+        CloseError.Text =
+            "Close"
+
+        CloseError.MouseButton1Click:Connect(
+            function()
+                ErrorFrame:Destroy()
+            end)
+
     end
+
 end
 
--- Create a new function for handling button presses
-local function onButtonPress()
-    -- Get the message from the TextBox and send it to the webhook using sendWebhook()
-    local message=TextBox.Text
-    if message~="" then -- Check if the message is not empty before sending it
-        LoadingLabel.Visible=true
-        sendWebhook(message)
-    end
-end
+-- Connect the SendWebhook function to the TextButton's MouseButton1Click event and the ClearButton's MouseButton1Click event to clear the TextBox's text
+TextButton.MouseButton1Click:Connect(SendWebhook)
 
--- Connect the onButtonPress() function to the TextButton's MouseButton1Click event using TextButton.MouseButton1Click:Connect()
-TextButton.MouseButton1Click:Connect(onButtonPress)
-
--- Create a new function for clearing the TextBox's text when ClearButton is clicked
-local function onClearButtonClick()
-    TextBox.Text=""
-end
-
--- Connect the onClearButtonClick() function to the ClearButton's MouseButton1Click event using ClearButton.MouseButton1Click:Connect()
-ClearButton.MouseButton1Click:Connect(onClearButtonClick)
-
--- Add a new event handler to close the UI when CloseButton is clicked using ScreenGui.Enabled=false and wait() to prevent input blocking issues.
-ScreenGui.Enabled=true -- Set ScreenGui.Enabled=true initially to allow input.
-ScreenGui:GetPropertyChangedSignal("Enabled"):Connect(function()
-    if not ScreenGui.Enabled then wait() ScreenGui:Destroy() end -- Destroy ScreenGui after waiting to prevent input blocking issues.
-end)
-
--- Add a new event handler to show feedback when CloseButton is clicked using LoadingLabel.Text="Closing..." and wait() to prevent input blocking issues.
-ScreenGui:FindFirstChildOfClass("CloseButton").MouseButton1Click:Connect(function()
-    LoadingLabel.Visible=true LoadingLabel.Text="Closing..."
-end)
-
--- Add a new event handler to hide feedback when CloseButton is clicked using LoadingLabel.Visible=false and wait() to prevent input blocking issues.
-ScreenGui:FindFirstChildOfClass("CloseButton").MouseButton1Click:Connect(function()
-    LoadingLabel.Visible=false wait()
-end)
-
--- Add a new event handler to hide the UI when CloseAfterSend is true using HideUITween:Play() and wait() to prevent input blocking issues.
-ScreenGui:FindFirstChildOfClass("CloseButton").MouseButton1Click:Connect(function()
-    if CloseAfterSend then HideUITween:Play() end wait()
-end)
-
--- Add a new event handler to show feedback when CloseAfterSend is true using LoadingLabel.Visible=true and wait() to prevent input blocking issues.
-ScreenGui:FindFirstChildOfClass("CloseButton").MouseButton1Click:Connect(function()
-    if CloseAfterSend then LoadingLabel.Visible=true LoadingLabel.Text="Sending..." end wait()
-end)
-
--- Add a new event handler to clear the TextBox's text when CloseAfterSend is true using TextBox.Text="" and wait() to prevent input blocking issues.
-ScreenGui:FindFirstChildOfClass("CloseButton").MouseButton1Click:Connect(function()
-    if CloseAfterSend then TextBox.Text="" end wait()
-end)
-
--- Add a new event handler to close the UI when CloseAfterSend is true using ScreenGui.Enabled=false and wait() to prevent input blocking issues.
-ScreenGui:FindFirstChildOfClass("CloseButton").MouseButton1Click:Connect(function()
-    if CloseAfterSend then ScreenGui.Enabled=false end wait()
-end)
-
--- Add a new event handler to play ShowUITween when CloseAfterSend is true using ShowUITween:Play() and wait() to prevent input blocking issues.
-ScreenGui:FindFirstChildOfClass("CloseButton").MouseButton1Click:Connect(function()
-    if CloseAfterSend then ShowUITween:Play() end wait()
-end)
-
--- Add a new event handler to clear the TextBox's text when CloseAfterSend is false using TextBox.Text="" and wait() to prevent input blocking issues.
-ScreenGui:FindFirstChildOfClass("CloseButton").MouseButton1Click:Connect(function()
-    if not CloseAfterSend then TextBox.Text="" end wait()
-end)
-
--- Add a new event handler to hide feedback when CloseAfterSend is false using LoadingLabel.Visible=false and wait() to prevent input blocking issues.
-ScreenGui:FindFirstChildOfClass("CloseButton").MouseButton1Click:Connect(function()
-    if not CloseAfterSend then LoadingLabel.Visible=false end wait()
-end)
-
--- Add a new event handler to play ShowUITween when CloseAfterSend is false using ShowUITween:Play() and wait() to prevent input blocking issues.
-ScreenGui:FindFirstChildOfClass("CloseButton").MouseButton1Click:Connect(function()
-    if not CloseAfterSend then ShowUITween:Play() end wait()
-end)
-
--- Add a new event handler to set ScreenGui.Enabled=true when CloseAfterSend is false using ScreenGui.Enabled=true and wait() to prevent input blocking issues.
-ScreenGui:FindFirstChildOfClass("CloseButton").MouseButton1Click:Connect(function()
-    if not CloseAfterSend then ScreenGui.Enabled=true end wait()
-end)
-
--- Add a new event handler to clear the TextBox's text when ScreenGui is destroyed using TextBox.Text="".
-ScreenGui.AncestryChanged:Connect(function(_, parent)
-    if parent==nil then TextBox.Text="" end -- Clear TextBox text when ScreenGui is destroyed.
-end)
-
--- Add a new event handler to play ShowUITween when ScreenGui is destroyed using ShowUITween:Play().
-ScreenGui.AncestryChanged:Connect(function(_, parent)
-    if parent==nil then ShowUITween:Play() end -- Play ShowUITween when ScreenGui is destroyed.
-end)
-
+ClearButton.MouseButton1Click:Connect(function()
+    TextBox.Text = ""
+end)```
