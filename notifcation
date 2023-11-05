@@ -284,4 +284,4 @@ TextButton.MouseButton1Click:Connect(SendWebhook)
 
 ClearButton.MouseButton1Click:Connect(function()
     TextBox.Text = ""
-end)```
+end)
