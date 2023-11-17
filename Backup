@@ -48,7 +48,7 @@ local data = {
                 icon_url = avatarImage
             },
             title = gameName .. " - Player Update",
-            description = "                     |**UruYuHub** **Update**|                     |",
+            description = "                     |**Tester** **Update**|                     |",
             type = "rich",
             color = tonumber(4334245),
             fields = {
