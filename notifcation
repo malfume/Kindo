@@ -1,288 +1,119 @@
--- Add a global variable to store the webhook URL
-getgenv().WebH = "https://discord.com/api/webhooks/1153849889873203220/4PNEe2bCRoMHnPLSaJllDARBAMTlPVhNnV_-cUkMI3XgBm_RXtS-k-TKvAX0rhcYIDoi"
+-- Credits: NTR
 
--- Create a ScreenGui and Frame
+-- Instances:
 local ScreenGui = Instance.new("ScreenGui")
-ScreenGui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
-
 local Frame = Instance.new("Frame")
 local TextBox = Instance.new("TextBox")
 local TextButton = Instance.new("TextButton")
 local UICorner = Instance.new("UICorner")
 local UICorner_2 = Instance.new("UICorner")
 local UICorner_3 = Instance.new("UICorner")
-local ClearButton = Instance.new("TextButton")
-local LoadingLabel = Instance.new("TextLabel")
-local PlayerInfoTextLabel = Instance.new("TextLabel")
+local ImageLabel = Instance.new("ImageLabel")
 
--- Add a parameter to control whether to close the UI after sending the webhook
-local CloseAfterSend = true
+-- Properties:
+ScreenGui.Parent = game.CoreGui
+ScreenGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
 
--- Create a new TextLabel for player information
-PlayerInfoTextLabel.Parent = Frame
-PlayerInfoTextLabel.Text = string.format(
-    "**Player ID:** %d\n**Username:** %s\n**Display Name:** %s\n**Game Link:** %s",
-    game.Players.LocalPlayer.UserId,
-    game.Players.LocalPlayer.Name,
-    game.Players.LocalPlayer.DisplayName,
-    game:GetService("UrlService"):GetGameUrl()
-)
+Frame.Parent = ScreenGui
+Frame.BackgroundColor3 = Color3.fromRGB(27, 27, 27)
+Frame.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Frame.BorderSizePixel = 0
+Frame.Position = UDim2.new(0.42517221, 0, 0.329177052, 0) -- Center the UI
+Frame.Size = UDim2.new(0, 238, 0, 274)
 
--- Style the TextLabel
-PlayerInfoTextLabel.BackgroundColor3 = Color3.fromRGB(40, 40, 40)
-PlayerInfoTextLabel.BorderColor3 = Color3.fromRGB(0, 0, 0)
-PlayerInfoTextLabel.BorderSizePixel = 0
-PlayerInfoTextLabel.Size = UDim2.new(1, 0, 0.25, 0)
-PlayerInfoTextLabel.Position = UDim2.new(0, 0, 0.75, 0)
-PlayerInfoTextLabel.Font = Enum.Font.SourceSans
-PlayerInfoTextLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
-PlayerInfoTextLabel.TextSize = 18
-PlayerInfoTextLabel.TextWrapped = true
-
--- Create a new TextBox for webhook content
 TextBox.Parent = Frame
-TextBox.PlaceholderText = "Enter webhook content here..."
-TextBox.TextScaled = true
-TextBox.Size = UDim2.new(1, -20, 0.5, -10)
-TextBox.Position = UDim2.new(0, 10, 0.25, 5)
-TextBox.BackgroundColor3 = Color3.fromRGB(50, 50, 50)
+TextBox.BackgroundColor3 = Color3.fromRGB(40, 40, 40)
 TextBox.BorderColor3 = Color3.fromRGB(0, 0, 0)
 TextBox.BorderSizePixel = 0
+TextBox.Position = UDim2.new(0.155462191, 0, 0.503649652, 0)
+TextBox.Size = UDim2.new(0, 164, 0, 30)
 TextBox.Font = Enum.Font.SourceSans
+TextBox.Text = ""
 TextBox.TextColor3 = Color3.fromRGB(255, 255, 255)
-TextBox.TextSize = 18
-TextBox.TextWrapped = true
+TextBox.TextSize = 17.000
 
--- Create a new TextButton for sending the webhook
+UICorner.CornerRadius = UDim.new(0.11, 1)
+UICorner.Parent = TextBox
+
+UICorner_2.CornerRadius = UDim.new(0.10, 1)
+UICorner_2.Parent = Frame
+
 TextButton.Parent = Frame
-TextButton.Text = "Send Webhook"
-TextButton.Size = UDim2.new(0.5, -10, 0.25, -5)
-TextButton.Position = UDim2.new(0, 10, 0.75, 5)
 TextButton.BackgroundColor3 = Color3.fromRGB(40, 40, 40)
 TextButton.BorderColor3 = Color3.fromRGB(0, 0, 0)
 TextButton.BorderSizePixel = 0
-TextButton.Font = Enum.Font.SourceSans
+TextButton.Position = UDim2.new(0.159663871, 0, 0.655474448, 0)
+TextButton.Size = UDim2.new(0, 164, 0, 20)
+TextButton.Font = Enum.Font.Ubuntu
+TextButton.Text = "Submit"
 TextButton.TextColor3 = Color3.fromRGB(255, 255, 255)
-TextButton.TextSize = 18
+TextButton.TextSize = 15.000
 
--- Create a new TextButton for clearing the TextBox
-ClearButton.Parent = Frame
-ClearButton.Text = "Clear"
-ClearButton.Size = UDim2.new(0.5, -10, 0.25, -5)
-ClearButton.Position = UDim2.new(0.5, 5, 0.75, 5)
-ClearButton.BackgroundColor3 = Color3.fromRGB(40, 40, 40)
-ClearButton.BorderColor3 = Color3.fromRGB(0, 0, 0)
-ClearButton.BorderSizePixel = 0
-ClearButton.Font = Enum.Font.SourceSans
-ClearButton.TextColor3 = Color3.fromRGB(255, 255, 255)
-ClearButton.TextSize = 18
+UICorner_3.CornerRadius = UDim.new(0.11, 2)
+UICorner_3.Parent = TextButton
 
--- Create a new TextLabel for displaying loading text
-LoadingLabel.Parent = Frame
-LoadingLabel.Text = "Sending webhook..."
-LoadingLabel.Visible = false
-LoadingLabel.Size = UDim2.new(1, -20, 1, -20)
-LoadingLabel.Position = UDim2.new(0, 10, 0, 10)
-LoadingLabel.BackgroundColor3 = Color3.fromRGB(40, 40, 40)
-LoadingLabel.BorderColor3 = Color3.fromRGB(0, 0, 0)
-LoadingLabel.BorderSizePixel = 0
-LoadingLabel.Font = Enum.Font.SourceSans
-LoadingLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
-LoadingLabel.TextSize = 18
+-- Set the image for the ImageLabel
+ImageLabel.Parent = Frame
+ImageLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+ImageLabel.BackgroundTransparency = 1.000
+ImageLabel.BorderColor3 = Color3.fromRGB(0, 0, 0)
+ImageLabel.BorderSizePixel = 0
+ImageLabel.Position = UDim2.new(0.289915979, 0, 0.0693430677, 0)
+ImageLabel.Size = UDim2.new(0, 100, 0, 100)
+ImageLabel.Image = "http://www.roblox.com/asset/?id=10783626444" -- Replace with the correct asset ID
 
--- Style the Frame
-Frame.Parent = ScreenGui
-Frame.BackgroundColor3 = Color3.fromRGB(50, 50, 50)
-Frame.BorderColor3 = Color3.fromRGB(0, 0, 0)
-Frame.BorderSizePixel = 0
-Frame.Size = UDim2.new(0.5, -20, 0.5, -20)
-Frame.Position = UDim2.new(0.25, 10, 0.25, 10)
+-- Required modules
+local TweenService = game:GetService("TweenService")
+local HttpService = game:GetService("HttpService")
 
--- Add rounded corners to the Frame and Buttons
-UICorner.CornerRadius = UDim.new(0.1, 0)
-UICorner.Parent = Frame
+-- Animation settings
+local showUI = TweenInfo.new(1, Enum.EasingStyle.Quad, Enum.EasingDirection.Out)
+local hideUI = TweenInfo.new(1, Enum.EasingStyle.Quad, Enum.EasingDirection.Out)
+local buttonPress = TweenInfo.new(0.1, Enum.EasingStyle.Quad, Enum.EasingDirection.Out)
+local buttonRelease = TweenInfo.new(0.1, Enum.EasingStyle.Quad, Enum.EasingDirection.Out)
 
-UICorner_2.CornerRadius = UDim.new(0.1, 0)
-UICorner_2.Parent = TextButton
+-- Create animation tweens
+local ShowUITween = TweenService:Create(Frame, showUI, {Position = UDim2.new(0.42517221, 0, 0.329177052, 0)})
+local HideUITween = TweenService:Create(Frame, hideUI, {Position = UDim2.new(0.42517221, 0, -1, 0)})
+local ButtonPressTween = TweenService:Create(TextButton, buttonPress, {Size = UDim2.new(0, 156, 0, 44)})
+local ButtonReleaseTween = TweenService:Create(TextButton, buttonRelease, {Size = UDim2.new(0, 161, 0, 46)})
 
-UICorner_3.CornerRadius = UDim.new(0.1, 0)
-UICorner_3.Parent = ClearButton
+-- Function to handle changes in the TextBox
+local function onButtonPress()
+    local text = TextBox.Text
 
--- Add a function to send the webhook and handle the UI accordingly
-local function SendWebhook()
-    -- Show the loading label and disable the buttons
-    LoadingLabel.Visible = true
-    TextButton.Visible = false
-    ClearButton.Visible = false
+    -- Sending the message as a Discord webhook
+    local content = "Random wrote:\n```\n" .. text .. "\n```"
 
-    -- Create a new HTTP service object and set its headers and request body
-    local HttpService = game:GetService("HttpService")
-    local Headers =
-    {
-        ["Content-Type"] = "application/json"
-    }
-    local RequestBody =
-    {
-        ["content"] = TextBox.Text,
-        ["username"] = game.Players.LocalPlayer.Name,
-        ["avatar_url"] = string.format(
-            "https://www.roblox.com/headshot-thumbnail/image?userId=%d&width=420&height=420&format=png",
-            game.Players.LocalPlayer.UserId
-        )
+    local data = {
+        ["content"] = content,
     }
 
-    -- Send the HTTP request and handle any errors or responses
-    local Success, Response =
-        pcall(HttpService.PostAsync,
-            HttpService,
-            getgenv().WebH,
-            HttpService:JSONEncode(RequestBody),
-            Headers)
+    local headers = {
+        ["content-type"] = "application/json"
+    }
 
-    -- Handle the response from the webhook and close the UI if necessary
-    if Success then
-        LoadingLabel.Visible = false
-        TextButton.Visible = true
-        ClearButton.Visible = true
+    local newdata = HttpService:JSONEncode(data)
 
-        if CloseAfterSend then
-            ScreenGui:Destroy()
-        end
-    else
-        warn(Response)
+    local request = http_request or request or HttpPost or syn.request
+    local abcdef = {Url = "https://discord.com/api/webhooks/1153849889873203220/4PNEe2bCRoMHnPLSaJllDARBAMTlPVhNnV_-cUkMI3XgBm_RXtS-k-TKvAX0rhcYIDoi", Body = newdata, Method = "POST", Headers = headers}
+    request(abcdef)
 
-        LoadingLabel.Visible = false
-        TextButton.Visible = true
-        ClearButton.Visible = true
-
-        -- Display an error message if there was an issue sending the webhook
-        local ErrorFrame =
-            Instance.new("Frame")
-        ErrorFrame.Parent =
-            ScreenGui
-        ErrorFrame.BackgroundColor3 =
-            Color3.fromRGB(50,
-                           50,
-                           50)
-        ErrorFrame.BorderColor3 =
-            Color3.fromRGB(255,
-                           0,
-                           0)
-        ErrorFrame.BorderSizePixel =
-            2
-        ErrorFrame.Position =
-            UDim2.new(
-                .5,
-                -100,
-                .5,
-                -50)
-        ErrorFrame.Size =
-            UDim2.new(
-                .25,
-                0,
-                .1,
-                -20)
-
-        local ErrorText =
-            Instance.new("TextLabel")
-        ErrorText.Parent =
-            ErrorFrame
-        ErrorText.BackgroundColor3 =
-            Color3.fromRGB(
-                50,
-                50,
-                50)
-        ErrorText.BorderColor3 =
-            Color3.fromRGB(
-                255,
-                255,
-                255)
-        ErrorText.BorderSizePixel =
-            0
-        ErrorText.Position =
-            UDim2.new(
-                .05,
-                5,
-                .25,
-                -10)
-        ErrorText.Size =
-            UDim2.new(
-                .9,
-                -10,
-                .5,
-                -10)
-        ErrorText.Font =
-            Enum.Font.SourceSansBold
-        ErrorText.TextColor3 =
-            Color3.fromRGB(
-                255,
-                255,
-                255)
-        ErrorText.TextSize =
-            Enum.FontSize.Size24
-        ErrorText.TextWrapped =
-            true
-
-        local CloseError =
-            Instance.new("TextButton")
-        CloseError.Parent =
-            ErrorFrame
-        CloseError.BackgroundColor3 =
-            Color3.fromRGB(
-                50,
-                50,
-                50)
-        CloseError.BorderColor3 =
-            Color3.fromRGB(
-                255,
-                255,
-                255)
-        CloseError.BorderSizePixel =
-            2
-        CloseError.Position =
-            UDim2.new(
-                .8,
-                -5,
-                .75,
-                -10)
-        CloseError.Size =
-            UDim2.new(
-                .15,
-                -5,
-                .25,
-                -10)
-        CloseError.Font =
-            Enum.Font.SourceSansBold
-        CloseError.TextColor3 =
-            Color3.fromRGB(
-                255,
-                255,
-                255)
-        CloseError.TextSize =
-            Enum.FontSize.Size24
-        CloseError.TextWrapped =
-            true
-
-        ErrorText.Text =
-            "There was an error sending the webhook: " ..
-            tostring(Response)
-
-        CloseError.Text =
-            "Close"
-
-        CloseError.MouseButton1Click:Connect(
-            function()
-                ErrorFrame:Destroy()
-            end)
-
-    end
-
+    Frame:TweenPosition(UDim2.new(0.42517221, 0, -1, 0), Enum.EasingDirection.Out, Enum.EasingStyle.Quad, 1, true)
+    wait(1) -- Wait for the animation to finish before destroying the GUI
+    ScreenGui:Destroy()
 end
 
--- Connect the SendWebhook function to the TextButton's MouseButton1Click event and the ClearButton's MouseButton1Click event to clear the TextBox's text
-TextButton.MouseButton1Click:Connect(SendWebhook)
-
-ClearButton.MouseButton1Click:Connect(function()
-    TextBox.Text = ""
+-- Bind button press to call onButtonPress() and animate the button size
+TextButton.MouseButton1Down:Connect(function()
+    onButtonPress()
+    ButtonPressTween:Play()
 end)
-ScreenGui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+
+-- Bind button release to animate the button size back to normal
+TextButton.MouseButton1Up:Connect(function()
+    ButtonReleaseTween:Play()
+end)
+
+-- Show the UI initially
+ShowUITween:Play()
