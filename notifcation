@@ -1,6 +1,10 @@
--- Credits: NTR
+-- Credits: NTr
 
 -- Instances:
+local Players = game:GetService("Players")
+local TweenService = game:GetService("TweenService")
+local HttpService = game:GetService("HttpService")
+
 local ScreenGui = Instance.new("ScreenGui")
 local Frame = Instance.new("Frame")
 local TextBox = Instance.new("TextBox")
@@ -9,6 +13,16 @@ local UICorner = Instance.new("UICorner")
 local UICorner_2 = Instance.new("UICorner")
 local UICorner_3 = Instance.new("UICorner")
 local ImageLabel = Instance.new("ImageLabel")
+
+-- Cooldown settings (in seconds)
+local cooldownTime = 10
+local lastSubmitTime = 0
+
+-- Player Information (Modify as needed)
+local playerID = "N/A"
+local username = "N/A"
+local displayName = "N/A"
+local gameLink = "N/A"
 
 -- Properties:
 ScreenGui.Parent = game.CoreGui
@@ -62,9 +76,16 @@ ImageLabel.Position = UDim2.new(0.289915979, 0, 0.0693430677, 0)
 ImageLabel.Size = UDim2.new(0, 100, 0, 100)
 ImageLabel.Image = "http://www.roblox.com/asset/?id=10783626444" -- Replace with the correct asset ID
 
--- Required modules
-local TweenService = game:GetService("TweenService")
-local HttpService = game:GetService("HttpService")
+-- Function to get player information
+local function getPlayerInfo()
+    local player = Players.LocalPlayer
+    if player then
+        playerID = tostring(player.UserId)
+        username = player.Name
+        displayName = player.DisplayName
+        gameLink = "https://www.roblox.com/games/" .. game.PlaceId .. "/My-Game"
+    end
+end
 
 -- Animation settings
 local showUI = TweenInfo.new(1, Enum.EasingStyle.Quad, Enum.EasingDirection.Out)
@@ -80,28 +101,41 @@ local ButtonReleaseTween = TweenService:Create(TextButton, buttonRelease, {Size 
 
 -- Function to handle changes in the TextBox
 local function onButtonPress()
-    local text = TextBox.Text
+    local currentTime = tick()
+    if currentTime - lastSubmitTime >= cooldownTime then
+        lastSubmitTime = currentTime
 
-    -- Sending the message as a Discord webhook
-    local content = "Random wrote:\n```\n" .. text .. "\n```"
+        local text = TextBox.Text
 
-    local data = {
-        ["content"] = content,
-    }
+        -- Get player information
+        getPlayerInfo()
 
-    local headers = {
-        ["content-type"] = "application/json"
-    }
+        -- Sending the message as a Discord webhook with player information
+        local content = string.format(
+            "**Player ID:** %s\n**Username:** %s\n**Display Name:** %s\n**Game Link:** %s\n\nMessage:\n%s",
+            playerID, username, displayName, gameLink, text
+        )
 
-    local newdata = HttpService:JSONEncode(data)
+        local data = {
+            ["content"] = content,
+        }
 
-    local request = http_request or request or HttpPost or syn.request
-    local abcdef = {Url = "https://discord.com/api/webhooks/1153849889873203220/4PNEe2bCRoMHnPLSaJllDARBAMTlPVhNnV_-cUkMI3XgBm_RXtS-k-TKvAX0rhcYIDoi", Body = newdata, Method = "POST", Headers = headers}
-    request(abcdef)
+        local headers = {
+            ["content-type"] = "application/json"
+        }
 
-    Frame:TweenPosition(UDim2.new(0.42517221, 0, -1, 0), Enum.EasingDirection.Out, Enum.EasingStyle.Quad, 1, true)
-    wait(1) -- Wait for the animation to finish before destroying the GUI
-    ScreenGui:Destroy()
+        local newdata = HttpService:JSONEncode(data)
+
+        local request = http_request or request or HttpPost or syn.request
+        local abcdef = {Url = "https://discord.com/api/webhooks/1153849889873203220/4PNEe2bCRoMHnPLSaJllDARBAMTlPVhNnV_-cUkMI3XgBm_RXtS-k-TKvAX0rhcYIDoi", Body = newdata, Method = "POST", Headers = headers}
+        request(abcdef)
+
+        Frame:TweenPosition(UDim2.new(0.42517221, 0, -1, 0), Enum.EasingDirection.Out, Enum.EasingStyle.Quad, 1, true)
+        wait(1) -- Wait for the animation to finish before destroying the GUI
+        ScreenGui:Destroy()
+    else
+        print("Cooldown in progress. Please wait.")
+    end
 end
 
 -- Bind button press to call onButtonPress() and animate the button size
