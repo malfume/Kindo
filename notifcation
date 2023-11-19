@@ -24,6 +24,10 @@ local username = "N/A"
 local displayName = "N/A"
 local gameLink = "N/A"
 
+-- Notification setup
+local AkaliNotif = loadstring(game:HttpGet("https://raw.githubusercontent.com/Kinlei/Dynissimo/main/Scripts/AkaliNotif.lua"))();
+local Notify = AkaliNotif.Notify;
+
 -- Properties:
 ScreenGui.Parent = game.CoreGui
 ScreenGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
@@ -107,33 +111,59 @@ local function onButtonPress()
 
         local text = TextBox.Text
 
-        -- Get player information
-        getPlayerInfo()
+        -- Check if the message is not empty
+        if text ~= "" then
+            -- Get player information
+            getPlayerInfo()
 
-        -- Sending the message as a Discord webhook with player information
-        local content = string.format(
-            "**Player ID:** %s\n**Username:** %s\n**Display Name:** %s\n**Game Link:** %s\n\nMessage:\n%s",
-            playerID, username, displayName, gameLink, text
-        )
+            -- Sending the message as a Discord webhook with player information
+            local content = string.format(
+                "**Player ID:** %s\n**Username:** %s\n**Display Name:** %s\n**Game Link:** %s\n\nMessage:\n%s",
+                playerID, username, displayName, gameLink, text
+            )
 
-        local data = {
-            ["content"] = content,
-        }
+            local data = {
+                ["content"] = content,
+            }
 
-        local headers = {
-            ["content-type"] = "application/json"
-        }
+            local headers = {
+                ["content-type"] = "application/json"
+            }
 
-        local newdata = HttpService:JSONEncode(data)
+            local newdata = HttpService:JSONEncode(data)
 
-        local request = http_request or request or HttpPost or syn.request
-        local abcdef = {Url = "https://discord.com/api/webhooks/1153849889873203220/4PNEe2bCRoMHnPLSaJllDARBAMTlPVhNnV_-cUkMI3XgBm_RXtS-k-TKvAX0rhcYIDoi", Body = newdata, Method = "POST", Headers = headers}
-        request(abcdef)
+            local request = http_request or request or HttpPost or syn.request
+            local abcdef = {Url = "https://discord.com/api/webhooks/1153849889873203220/4PNEe2bCRoMHnPLSaJllDARBAMTlPVhNnV_-cUkMI3XgBm_RXtS-k-TKvAX0rhcYIDoi", Body = newdata, Method = "POST", Headers = headers}
+            request(abcdef)
 
-        Frame:TweenPosition(UDim2.new(0.42517221, 0, -1, 0), Enum.EasingDirection.Out, Enum.EasingStyle.Quad, 1, true)
-        wait(1) -- Wait for the animation to finish before destroying the GUI
-        ScreenGui:Destroy()
+            -- Show a success notification
+            Notify({
+                Title = "Message Sent",
+                Description = "Your message has been sent successfully!",
+                Duration = 5,
+            })
+
+            Frame:TweenPosition(UDim2.new(0.42517221, 0, -1, 0), Enum.EasingDirection.Out, Enum.EasingStyle.Quad, 1, true)
+            wait(1) -- Wait for the animation to finish before destroying the GUI
+            ScreenGui:Destroy()
+        else
+            -- Show a notification for empty message
+            Notify({
+                Title = "Error",
+                Description = "Please enter a non-empty message.",
+                Duration = 5,
+            })
+
+            print("Please enter a non-empty message.")
+        end
     else
+        -- Show a notification for cooldown
+        Notify({
+            Title = "Cooldown",
+            Description = "Cooldown in progress. Please wait.",
+            Duration = 5,
+        })
+
         print("Cooldown in progress. Please wait.")
     end
 end
