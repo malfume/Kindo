@@ -4,6 +4,7 @@
 local Players = game:GetService("Players")
 local TweenService = game:GetService("TweenService")
 local HttpService = game:GetService("HttpService")
+local UserInputService = game:GetService("UserInputService")
 
 local ScreenGui = Instance.new("ScreenGui")
 local Frame = Instance.new("Frame")
@@ -143,6 +144,39 @@ local ShowUITween = TweenService:Create(Frame, showUI, {Position = UDim2.new(0.5
 local HideUITween = TweenService:Create(Frame, hideUI, {Position = UDim2.new(0.5, 0, 1, 0)})
 local ButtonPressTween = TweenService:Create(SubmitButton, buttonPress, {Size = UDim2.new(0.38, 0, 0.15, 0)})
 local ButtonReleaseTween = TweenService:Create(SubmitButton, buttonRelease, {Size = UDim2.new(0.4, 0, 0.16, 0)})
+
+-- Function to handle UI dragging
+local function updateDrag(input)
+    local delta = input.Position - dragStart
+    Frame.Position = UDim2.new(startPos.X.Scale, startPos.X.Offset + delta.X, startPos.Y.Scale, startPos.Y.Offset + delta.Y)
+end
+
+-- Bind MouseInput events for dragging
+Frame.InputBegan:Connect(function(input)
+    if input.UserInputType == Enum.UserInputType.MouseButton1 then
+        dragging = true
+        dragStart = input.Position
+        startPos = Frame.Position
+        input.Changed:Connect(function()
+            if input.UserInputState == Enum.UserInputState.End then
+                dragging = false
+            end
+        end)
+    end
+end)
+
+Frame.InputChanged:Connect(function(input)
+    if input.UserInputType == Enum.UserInputType.MouseMovement then
+        dragInput = input
+    end
+end)
+
+-- Update dragging while input is being changed
+UserInputService.InputChanged:Connect(function(input)
+    if dragging and input == dragInput then
+        updateDrag(input)
+    end
+end)
 
 -- Function to handle changes in the TextBox
 local function onButtonPress()
