@@ -117,9 +117,10 @@ if KeySystemUI.Finished() and not KeySystemUI.Closed then
     game:GetService("RunService").Heartbeat:Connect(checkBallsProximity)
 
     -- UI Keybind Integration
+local autoPerryToggle = false
 MovementGroupBox:AddLabel('Auto Perry'):AddKeyPicker('KeyPicker', {
     Default = autoPerryKeybind.Name,
-    SyncToggleState = false,
+    SyncToggleState = true,
     Mode = 'Toggle',
     Text = 'Auto Perry',
     NoUI = false,
@@ -141,7 +142,6 @@ local function onKeyPress(input, gameProcessed)
 end
 
 game:GetService("UserInputService").InputBegan:Connect(onKeyPress)
-
 
 -- Continue with the rest of your script
 local function applyFullBright()
