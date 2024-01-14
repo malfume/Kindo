@@ -16,8 +16,6 @@ until KeySystemUI.Finished() or KeySystemUI.Closed
 if KeySystemUI.Finished() and not KeySystemUI.Closed then
     print("Key verified, can load script")
 
-    wait(1)
-
     local repo = 'https://raw.githubusercontent.com/malfume/Linoria/main/'
 
     local Library = loadstring(game:HttpGet(repo .. 'Library.lua'))()
@@ -119,30 +117,31 @@ if KeySystemUI.Finished() and not KeySystemUI.Closed then
     game:GetService("RunService").Heartbeat:Connect(checkBallsProximity)
 
     -- UI Keybind Integration
-    MovementGroupBox:AddLabel('Auto Perry'):AddKeyPicker('KeyPicker', {
-        Default = autoPerryKeybind.Name,
-        SyncToggleState = false,
-        Mode = 'Toggle',
-        Text = 'Auto Perry',
-        NoUI = false,
-        Callback = function(Value)
-            autoPerryToggle = not autoPerryToggle
-            print('[cb] Auto Perry toggled:', autoPerryToggle)
-        end,
-        ChangedCallback = function(New)
-            autoPerryKeybind = Enum.KeyCode[New]
-            print('[cb] Auto Perry keybind changed to:', autoPerryKeybind.Name)
-        end
-    })
-
-    local function onKeyPress(input, gameProcessed)
-        if not gameProcessed and input.UserInputType == Enum.UserInputType.Keyboard and input.KeyCode == autoPerryKeybind then
-            autoPerryToggle = not autoPerryToggle
-            print('Auto Perry toggled:', autoPerryToggle)
-        end
+MovementGroupBox:AddLabel('Auto Perry'):AddKeyPicker('KeyPicker', {
+    Default = autoPerryKeybind.Name,
+    SyncToggleState = false,
+    Mode = 'Toggle',
+    Text = 'Auto Perry',
+    NoUI = false,
+    Callback = function(Value)
+        autoPerryToggle = Value
+        print('[cb] Auto Perry toggled:', autoPerryToggle)
+    end,
+    ChangedCallback = function(New)
+        autoPerryKeybind = Enum.KeyCode[New]
+        print('[cb] Auto Perry keybind changed to:', autoPerryKeybind.Name)
     end
+})
 
-    game:GetService("UserInputService").InputBegan:Connect(onKeyPress)
+local function onKeyPress(input, gameProcessed)
+    if not gameProcessed and input.UserInputType == Enum.UserInputType.Keyboard and input.KeyCode == autoPerryKeybind then
+        autoPerryToggle = not autoPerryToggle
+        print('Auto Perry toggled:', autoPerryToggle)
+    end
+end
+
+game:GetService("UserInputService").InputBegan:Connect(onKeyPress)
+
 
 -- Continue with the rest of your script
 local function applyFullBright()
