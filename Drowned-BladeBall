@@ -45,6 +45,8 @@ if KeySystemUI.Finished() and not KeySystemUI.Closed then
     local MovementGroupBox = Tabs.Main:AddLeftGroupbox('Movement')
 
     -- Auto Perry Script Integration
+    wait(2)
+    
 local ballFolder = workspace.Balls
 local indicatorPart = Instance.new("Part")
 indicatorPart.Size = Vector3.new(5, 5, 5)
